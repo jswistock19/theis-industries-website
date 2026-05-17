@@ -215,3 +215,42 @@ function handleSubmit(e){
     }, 200);
   });
 })();
+
+// ============ ADDITIONAL PATENTS / IP — EXTENDED PORTFOLIO ============
+(function(){
+  document.addEventListener('DOMContentLoaded', function(){
+    setTimeout(function(){
+      const sec=document.getElementById('patents');
+      if(!sec) return;
+      const grid=sec.querySelector('.patents-grid');
+      if(!grid) return;
+      if(grid.dataset.extended==='1') return;
+      grid.dataset.extended='1';
+      const extras = [
+        { title:'Spray-Applied Vehicle Armor Coating', tag:'Defense / Vehicle', year:'Patent Pending', desc:'Tekton-based spray-applied armor coating that bonds to legacy vehicle platforms — retrofit ballistic and blast protection without structural modification.' },
+        { title:'Blast-Attenuating Structural Panel System', tag:'Structural Defense', year:'Patent Pending', desc:'Modular structural panels engineered for blast overpressure attenuation in command centers, embassies, fortified buildings, and forward operating bases.' },
+        { title:'Radar-Absorbent Functional Coating', tag:'Stealth / Coatings', year:'Patent Pending', desc:'Specialty coating formulation reducing radar cross-section signatures on aerospace, naval, and ground defense platforms.' },
+        { title:'Anti-Corrosion Pipeline Coating System', tag:'Oil & Gas', year:'Patent Pending', desc:'Long-life protective coating system for oil, gas, and water pipelines — resistant to salt, chemicals, abrasion, and microbial corrosion.' },
+        { title:'Submersible Hull Restoration Polymer', tag:'Marine / Subsea', year:'Patent Pending', desc:'Diver or ROV-applied polymer for in-water hull repair on naval vessels, commercial shipping, and offshore platforms.' },
+        { title:'High-Temperature Aerospace Thermal Barrier', tag:'Aerospace', year:'Patent Pending', desc:'Thermal barrier coating engineered for re-entry, exhaust nozzle, and hypersonic platform surfaces.' },
+        { title:'Cryogenic-Stable Sealant Formulation', tag:'Aerospace / Energy', year:'Patent Pending', desc:'Sealant compound that maintains flexibility and bond strength at cryogenic temperatures — for LNG, hydrogen, and aerospace fuel systems.' },
+        { title:'Biocompatible Surgical Implant Coating', tag:'Medical', year:'Patent Pending', desc:'Coating formulation for medical implants — promoting tissue integration, reducing inflammation, and extending implant service life.' },
+        { title:'Nano-Reinforced Composite Matrix', tag:'Nanoengineering', year:'Patent Pending', desc:'Polymer composite reinforced with engineered nanoparticles to dramatically increase strength, impact resistance, and thermal performance.' },
+        { title:'Rapid-Deployment Field Repair Kit', tag:'Defense / Logistics', year:'Patent Pending', desc:'Compact field repair kit enabling soldiers and operators to perform emergency structural and ballistic repairs in austere environments.' },
+        { title:'Modular Reactive Armor Tile System', tag:'Defense / Vehicle', year:'Patent Pending', desc:'Bolt-on modular armor tiles using Tekton-reinforced composites — field-replaceable, scalable threat protection for tactical vehicles.' },
+        { title:'Electrically Conductive Polymer Coating', tag:'Electronics / EMI', year:'Patent Pending', desc:'Functional coating providing electrical conductivity and EMI shielding while maintaining mechanical protection.' }
+      ];
+      extras.forEach(p=>{
+        const a=document.createElement('a');
+        a.className='patent-card';
+        a.href='contact.html';
+        a.innerHTML='<div class="patent-tag">'+p.tag+'</div><div class="patent-year">'+p.year+'</div><h3>'+p.title+'</h3><p>'+p.desc+'</p><div class="patent-id">INQUIRE FOR DETAILS <span class="patent-arrow">→</span></div>';
+        grid.appendChild(a);
+      });
+      const sub=sec.querySelector('.section-sub');
+      if(sub){
+        sub.innerHTML='Our intellectual property portfolio includes <strong>4 issued U.S. patents</strong>, <strong>1 international filing</strong>, and <strong>17+ pending applications</strong> spanning biometric security, advanced materials (Theis Tekton™), defense ballistics, marine, aerospace, medical, and industrial systems — backed by a network of partners, manufacturers, and research affiliates.';
+      }
+    }, 400);
+  });
+})();
