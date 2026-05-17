@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us — THEIS INDUSTRIES INC.</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">THEIS <span>INDUSTRIES</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#capabilities">Capabilities</a></li>
+        <li><a href="index.html#tekton">Theis Tekton</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+      </ul>
+      <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+    </div>
+  </nav>
+  <section id="contact-hero">
+    <div class="container">
+      <div class="section-label">Get In Touch</div>
+      <h1>Contact Theis Industries</h1>
+      <p class="section-sub">Ready to solve the impossible? We look forward to hearing from you.</p>
+    </div>
+  </section>
+  <section id="contact-form-section">
+    <div class="container contact-grid">
+      <div class="contact-info">
+        <h3>What We Offer</h3>
+        <ul class="contact-offer-list">
+          <li>✅ Technology Sale &amp; Licensing</li>
+          <li>✅ R&amp;D Partnerships</li>
+          <li>✅ Contract Manufacturing</li>
+          <li>✅ Consulting &amp; Expertise</li>
+          <li>✅ Custom Formulation &amp; Development</li>
+        </ul>
+        <p style="margin-top:2rem;color:var(--muted);">We shine best when dreams are big but the mission seems impossible.</p>
+      </div>
+      <div class="contact-form-wrap">
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group"><label for="fname">First Name <span class="req">*</span></label><input type="text" id="fname" required placeholder="John" /></div>
+            <div class="form-group"><label for="lname">Last Name <span class="req">*</span></label><input type="text" id="lname" required placeholder="Smith" /></div>
+          </div>
+          <div class="form-group"><label for="email">Email Address <span class="req">*</span></label><input type="email" id="email" required placeholder="you@company.com" /></div>
+          <div class="form-group"><label for="company">Company / Organization</label><input type="text" id="company" placeholder="Your Organization" /></div>
+          <div class="form-group">
+            <label for="interest">Area of Interest</label>
+            <select id="interest">
+              <option value="">Select a capability...</option>
+              <option>Theis Tekton / Liquid Kevlar</option>
+              <option>Body Armor / Vehicle Armor</option>
+              <option>Structural Armor</option>
+              <option>Chemical Engineering</option>
+              <option>Materials Engineering</option>
+              <option>Defense Technologies</option>
+              <option>Partnership / Licensing</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group"><label for="message">Message <span class="req">*</span></label><textarea id="message" required rows="5" placeholder="Describe your project or challenge..."></textarea></div>
+          <button type="submit" class="btn-primary btn-large" style="width:100%;">Send Message</button>
+        </form>
+        <div id="form-success" style="display:none;" class="form-success"><h3>✅ Message Sent!</h3><p>Thank you for reaching out. We'll be in touch shortly.</p></div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-brand">THEIS INDUSTRIES INC.</div>
+      <p class="footer-tag">Physics. Chemistry. Engineering. — Mastering the Impossible.</p>
+      <nav class="footer-nav"><a href="index.html">Home</a><a href="index.html#capabilities">Capabilities</a><a href="index.html#tekton">Theis Tekton</a><a href="contact.html">Contact</a></nav>
+      <p class="footer-copy">© 2026 Theis Industries Inc. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="main.js"></script>
+</body>
+</html>
