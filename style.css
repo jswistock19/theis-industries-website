@@ -222,3 +222,15 @@ footer { background:var(--bg2); padding:3rem 0; border-top:1px solid var(--borde
 .ind-apps { list-style:none; display:flex; flex-direction:column; gap:.6rem; margin-bottom:1.25rem; }
 .ind-apps li { color:var(--text); font-size:.92rem; padding-left:1rem; position:relative; }
 .ind-apps li::before { content:'—'; color:var(--accent); position:absolute; left:0; }
+
+
+/* ============ IMAGE INTEGRATION ============ */
+.hero { background-image: linear-gradient(rgba(5,10,20,0.78), rgba(5,10,20,0.92)), url('https://images.unsplash.com/photo-1579912437766-7896df6d3cd6?w=1920&q=80&auto=format&fit=crop'); background-size: cover; background-position: center; }
+.tekton-section, #tekton { background-image: linear-gradient(rgba(5,10,20,0.85), rgba(5,10,20,0.92)), url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=1920&q=80&auto=format&fit=crop'); background-size: cover; background-position: center; }
+.industry-card { overflow: hidden; }
+.industry-card img, .ind-card img, .ind-image { width: 100%; height: 180px; object-fit: cover; display: block; border-radius: 6px 6px 0 0; margin-bottom: 1rem; }
+.defense-card img, .blast-card img { width: 100%; height: 220px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem; display:block; }
+.cap-img { width:100%; height:160px; object-fit:cover; border-radius:8px; margin-bottom:1rem; opacity:.9; display:block; }
+.page-hero, .ind-hero, .about-hero, .contact-hero { background-image: linear-gradient(rgba(5,10,20,0.78), rgba(5,10,20,0.92)), url('https://images.unsplash.com/photo-1565043666747-69f6646db940?w=1920&q=80&auto=format&fit=crop'); background-size: cover; background-position: center; }
+.how-we-work, #process { background-image: linear-gradient(rgba(5,10,20,0.92), rgba(5,10,20,0.95)), url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1920&q=80&auto=format&fit=crop'); background-size: cover; background-attachment: fixed; }
+.section-img { width:100%; max-height:420px; object-fit:cover; border-radius:10px; margin:1.5rem 0; display:block; }
