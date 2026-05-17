@@ -138,3 +138,42 @@ function handleSubmit(e){
   }
   document.addEventListener('DOMContentLoaded', buildPatentsSection);
 })();
+
+// ============ EXTENDED PATENTS - PORTFOLIO ============
+(function(){
+  document.addEventListener('DOMContentLoaded', function(){
+    const sec = document.getElementById('patents');
+    if(!sec) return;
+    const grid = sec.querySelector('.patents-grid');
+    if(!grid) return;
+    const more = [
+      { id:'WO2006098986A2', title:'Biometric Vehicle Anti-Theft — International', year:'2006', tag:'Automotive Security', desc:'International (WIPO) filing of biometric fingerprint anti-theft device for motor vehicles — enabling fleet, OEM, and global vehicle security deployments.' },
+      { id:'Pending', title:'Theis Tekton™ Liquid Polymer Armor Composition', year:'Patent Pending', tag:'Materials Science', desc:'Proprietary liquid-applied polymer system (Liquid Kevlar™) that cures on demand into ballistic, blast, and impact-resistant protective layers — deployable on any substrate.' },
+      { id:'Pending', title:'On-Demand Variable-Hardness Polymer System', year:'Patent Pending', tag:'Advanced Polymers', desc:'A reformulated polymer that transitions from flexible (gum-like) to rigid (steel-like) hardness on demand — enabling adaptive armor, vibration damping, and shock isolation.' },
+      { id:'Pending', title:'Self-Healing Protective Coating System', year:'Patent Pending', tag:'Coatings & Repair', desc:'Self-healing chemistry for protective coatings on marine, aerospace, and infrastructure surfaces — automatically restoring barrier integrity after impact or abrasion.' },
+      { id:'Pending', title:'Rapid-Cure Deep-Sea Repair Compound', year:'Patent Pending', tag:'Marine / Subsea', desc:'A submersible-applied repair compound that cures in 3–10 seconds underwater at depth — enabling emergency hull, pipeline, and structural repairs without dry-docking.' },
+      { id:'Pending', title:'Lightweight Multi-Strike Body Armor System', year:'Patent Pending', tag:'Defense / Ballistics', desc:'Tekton-based body armor with multi-strike capability, minimal back-face deformation, and weight savings over current market offerings — engineered for DoD and law enforcement.' }
+    ];
+    more.forEach(p=>{
+      const a=document.createElement('a');
+      a.className='patent-card';
+      const isPending=p.id==='Pending';
+      a.href = isPending ? 'contact.html' : `https://patents.google.com/patent/${p.id}/en`;
+      if(!isPending){ a.target='_blank'; a.rel='noopener'; }
+      a.innerHTML = `
+        <div class="patent-tag">${p.tag}</div>
+        <div class="patent-year">${p.year}</div>
+        <h3>${p.title}</h3>
+        <p>${p.desc}</p>
+        <div class="patent-id">${isPending?'INQUIRE FOR DETAILS':p.id} <span class="patent-arrow">→</span></div>
+      `;
+      grid.appendChild(a);
+    });
+    const foot = sec.querySelector('.patents-foot');
+    if(foot){
+      foot.innerHTML = 'View the full inventor portfolio on <a href="https://patents.google.com/?inventor=Jason+Theis" target="_blank" rel="noopener">Google Patents</a> — or <a href="contact.html">contact us</a> to discuss licensing, IP partnerships, or pending applications.';
+    }
+    const sub = sec.querySelector('.section-sub');
+    if(sub) sub.textContent = 'A portfolio of issued U.S. patents and pending applications spanning biometric security, advanced materials (Theis Tekton™), defense ballistics, and industrial systems — invented by Jason Theis, founder of Theis Industries.';
+  });
+})();
