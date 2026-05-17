@@ -177,3 +177,41 @@ function handleSubmit(e){
     if(sub) sub.textContent = 'A portfolio of issued U.S. patents and pending applications spanning biometric security, advanced materials (Theis Tekton™), defense ballistics, and industrial systems — invented by Jason Theis, founder of Theis Industries.';
   });
 })();
+
+// ============ PATENTS HEADING UPDATE + AFFILIATES ============
+(function(){
+  document.addEventListener('DOMContentLoaded', function(){
+    setTimeout(function(){
+      const sec=document.getElementById('patents');
+      if(!sec) return;
+      const h=sec.querySelector('h2');
+      if(h) h.textContent='Patents & Affiliates';
+      const sub=sec.querySelector('.section-sub');
+      if(sub) sub.textContent='Our intellectual property portfolio spans biometric security, advanced materials (Theis Tekton™), defense ballistics, and industrial systems — backed by issued U.S. patents, pending applications, and a network of partners, manufacturers, and research affiliates.';
+      const navLink=document.querySelector('a[href="#patents"]');
+      if(navLink) navLink.textContent='Patents';
+      // Add Affiliates subsection after the patents grid
+      if(!document.getElementById('affiliates-block')){
+        const grid=sec.querySelector('.patents-grid');
+        if(grid){
+          const aff=document.createElement('div');
+          aff.id='affiliates-block';
+          aff.innerHTML=`
+            <h3 class="affiliates-heading">Affiliates & Partners</h3>
+            <p class="affiliates-sub">Theis Industries collaborates with manufacturers, research institutions, defense contractors, and commercial partners to bring proprietary technologies to market.</p>
+            <div class="affiliates-grid">
+              <div class="affiliate-card"><div class="aff-icon">🏭</div><h4>Manufacturing Partners</h4><p>Contract manufacturing partners producing Tekton-based armor, coatings, and protective systems at scale.</p></div>
+              <div class="affiliate-card"><div class="aff-icon">🛡️</div><h4>Defense Primes & OEMs</h4><p>Working with prime defense contractors and OEMs to integrate Theis technology into vehicle, body, and structural armor platforms.</p></div>
+              <div class="affiliate-card"><div class="aff-icon">🔬</div><h4>Research Institutions</h4><p>Collaborations with universities and national labs on advanced materials, nanoengineering, and quantum applications.</p></div>
+              <div class="affiliate-card"><div class="aff-icon">🌊</div><h4>Marine & Energy Operators</h4><p>Deployments with offshore, subsea, and energy operators using Tekton for hull, pipeline, and structural protection.</p></div>
+              <div class="affiliate-card"><div class="aff-icon">💼</div><h4>Licensing Partners</h4><p>Companies licensing Theis IP for use within their own production operations and end markets.</p></div>
+              <div class="affiliate-card"><div class="aff-icon">🌍</div><h4>International Distribution</h4><p>Global distribution and integration partners deploying Theis technologies across allied nations and commercial markets.</p></div>
+            </div>
+            <p class="affiliates-cta">Interested in partnering with Theis Industries? <a href="contact.html">Start a conversation →</a></p>
+          `;
+          grid.parentNode.insertBefore(aff, grid.nextSibling);
+        }
+      }
+    }, 200);
+  });
+})();
