@@ -234,3 +234,10 @@ footer { background:var(--bg2); padding:3rem 0; border-top:1px solid var(--borde
 .page-hero, .ind-hero, .about-hero, .contact-hero { background-image: linear-gradient(rgba(5,10,20,0.78), rgba(5,10,20,0.92)), url('https://images.unsplash.com/photo-1565043666747-69f6646db940?w=1920&q=80&auto=format&fit=crop'); background-size: cover; background-position: center; }
 .how-we-work, #process { background-image: linear-gradient(rgba(5,10,20,0.92), rgba(5,10,20,0.95)), url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1920&q=80&auto=format&fit=crop'); background-size: cover; background-attachment: fixed; }
 .section-img { width:100%; max-height:420px; object-fit:cover; border-radius:10px; margin:1.5rem 0; display:block; }
+
+/* HERO + TEKTON FIX */
+#hero { background-image: linear-gradient(rgba(5,10,20,0.72), rgba(5,10,20,0.88)), url('https://images.unsplash.com/photo-1579912437766-7896df6d3cd6?w=1920&q=80&auto=format&fit=crop') !important; background-size: cover !important; background-position: center !important; }
+#tekton { background-image: linear-gradient(rgba(5,10,20,0.86), rgba(5,10,20,0.92)), url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=1920&q=80&auto=format&fit=crop') !important; background-size: cover !important; background-position: center !important; }
+#process, #how-we-work { background-image: linear-gradient(rgba(5,10,20,0.9), rgba(5,10,20,0.95)), url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1920&q=80&auto=format&fit=crop') !important; background-size: cover !important; background-attachment: fixed !important; }
+#capabilities { background-image: linear-gradient(rgba(5,10,20,0.92), rgba(5,10,20,0.96)), url('https://images.unsplash.com/photo-1581093588401-fbb62a02f120?w=1920&q=80&auto=format&fit=crop'); background-size: cover; background-attachment: fixed; }
+#blast, #defense { background-image: linear-gradient(rgba(5,10,20,0.9), rgba(5,10,20,0.95)), url('https://images.unsplash.com/photo-1569241055005-13eb0e3e91f6?w=1920&q=80&auto=format&fit=crop'); background-size: cover; }
