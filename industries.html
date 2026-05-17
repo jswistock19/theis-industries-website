@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Industries — THEIS INDUSTRIES INC.</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">THEIS <span>INDUSTRIES</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#capabilities">Capabilities</a></li>
+        <li><a href="industries.html">Industries</a></li>
+        <li><a href="index.html#tekton">Theis Tekton</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+      </ul>
+      <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+    </div>
+  </nav>
+
+  <section id="ind-hero">
+    <div class="container">
+      <div class="section-label">Where We Work</div>
+      <h1>Industries We Serve</h1>
+      <p class="section-sub">Theis Industries technologies and expertise are deployed across the world's most demanding sectors — wherever the environment is extreme and failure is not an option.</p>
+    </div>
+  </section>
+
+  <section id="ind-list">
+    <div class="container">
+
+      <div class="ind-detail" id="defense">
+        <div class="ind-detail-header" onclick="toggleCard(this)">
+          <span class="ind-detail-icon">&#128481;</span>
+          <div><h2>Defense &amp; Military</h2><p class="ind-sub">Protecting lives and assets in the most hostile environments on earth.</p></div>
+          <span class="toggle-icon">+</span>
+        </div>
+        <div class="ind-detail-body">
+          <p>Theis Industries is a leader in advanced defensive technologies. Our solutions are engineered to outperform current market offerings in weight, protection level, durability, and cost-effectiveness. From individual warfighters to armored platforms to hardened facilities, we deliver solutions across the full spectrum of defensive need.</p>
+          <ul class="ind-apps">
+            <li>Personal Body Armor — multi-strike, minimal back face deformation</li>
+            <li>Vehicle Armor — moldable, moisture-impervious, lightweight</li>
+            <li>Structural Blast Protection — command centers, checkpoints, critical infrastructure</li>
+            <li>Specialty Defense Coatings — radar-absorbent, thermal barrier, anti-corrosion</li>
+            <li>Explosive / IED / EFP Blast Mitigation</li>
+            <li>Drone and UAV Protective Systems</li>
+          </ul>
+          <a href="contact.html" class="btn-primary" style="margin-top:1.5rem;display:inline-block;">Discuss Defense Applications</a>
+        </div>
+      </div>
+
+      <div class="ind-detail" id="aerospace">
+        <div class="ind-detail-header" onclick="toggleCard(this)">
+          <span class="ind-detail-icon">&#128640;</span>
+          <div><h2>Aerospace &amp; Space</h2><p class="ind-sub">Performing from stratosphere to orbit — where conventional materials fail.</p></div>
+          <span class="toggle-icon">+</span>
+        </div>
+        <div class="ind-detail-body">
+          <p>Theis Tekton has been proven in outer space applications — one of the most extreme environments imaginable. Our materials engineering capabilities span the full aerospace supply chain, from structural components and thermal systems to optical coatings and propulsion-adjacent engineering.</p>
+          <ul class="ind-apps">
+            <li>Thermal Barrier &amp; Insulation Coatings</li>
+            <li>Structural Adhesives &amp; Sealants</li>
+            <li>Vibration Damping Systems</li>
+            <li>Optical System Engineering</li>
+            <li>Lightweight Composite Structures</li>
+            <li>Space-Grade Material Certification Support</li>
+          </ul>
+          <a href="contact.html" class="btn-primary" style="margin-top:1.5rem;display:inline-block;">Discuss Aerospace Applications</a>
+        </div>
+      </div>
+
+      <div class="ind-detail" id="marine">
+        <div class="ind-detail-header" onclick="toggleCard(this)">
+          <span class="ind-detail-icon">&#9875;</span>
+          <div><h2>Marine &amp; Subsea</h2><p class="ind-sub">Deep-sea proven — from the surface to the ocean floor.</p></div>
+          <span class="toggle-icon">+</span>
+        </div>
+        <div class="ind-detail-body">
+          <p>Theis Tekton was field-proven in deep-sea environments — one of the first real-world validation points for our technology. Salt water, extreme pressure, biofouling, and corrosion are the enemies of marine structures. We engineered materials that defeat all of them.</p>
+          <ul class="ind-apps">
+            <li>Hull Corrosion Protection Coatings</li>
+            <li>Subsea Pipeline &amp; Joint Sealing</li>
+            <li>Marine Structural Repair Materials</li>
+            <li>Shipboard Systems Engineering</li>
+            <li>Underwater Bonding &amp; Sealing Applications</li>
+            <li>Offshore Platform Protection</li>
+          </ul>
+          <a href="contact.html" class="btn-primary" style="margin-top:1.5rem;display:inline-block;">Discuss Marine Applications</a>
+        </div>
+      </div>
+
+      <div class="ind-detail" id="energy">
+        <div class="ind-detail-header" onclick="toggleCard(this)">
+          <span class="ind-detail-icon">&#9889;</span>
+          <div><h2>Energy &amp; Power</h2><p class="ind-sub">Conventional, nuclear, and renewable — we engineer for all of it.</p></div>
+          <span class="toggle-icon">+</span>
+        </div>
+        <div class="ind-detail-body">
+          <p>Energy infrastructure demands materials and engineering that perform under extreme temperatures, pressures, chemical exposure, and continuous mechanical stress. Our nuclear, thermal, materials, and power engineering capabilities serve the full energy sector.</p>
+          <ul class="ind-apps">
+            <li>Power Plant Engineering &amp; Optimization</li>
+            <li>Nuclear Shielding &amp; Materials</li>
+            <li>High-Temperature Coatings &amp; Sealants</li>
+            <li>Corrosion Protection for Energy Infrastructure</li>
+            <li>Renewable Energy Systems Engineering</li>
+            <li>Off-Grid &amp; Remote Power Systems</li>
+          </ul>
+          <a href="contact.html" class="btn-primary" style="margin-top:1.5rem;display:inline-block;">Discuss Energy Applications</a>
+        </div>
+      </div>
+
+      <div class="ind-detail" id="industrial">
+        <div class="ind-detail-header" onclick="toggleCard(this)">
+          <span class="ind-detail-icon">&#127981;</span>
+          <div><h2>Industrial &amp; Manufacturing</h2><p class="ind-sub">Keeping production running in the harshest plant environments.</p></div>
+          <span class="toggle-icon">+</span>
+        </div>
+        <div class="ind-detail-body">
+          <p>Industrial plants operate in chemically aggressive, thermally extreme, and mechanically demanding conditions. Our coatings, polymers, sealants, and engineering services extend equipment life, prevent failure, and optimize production.</p>
+          <ul class="ind-apps">
+            <li>Industrial Plant Engineering &amp; Layout</li>
+            <li>Anti-Corrosion Coatings for Equipment &amp; Structures</li>
+            <li>Chemical-Resistant Lining Systems</li>
+            <li>Manufacturing Process Design &amp; Optimization</li>
+            <li>Equipment Failure Analysis &amp; Repair Materials</li>
+            <li>Safety Systems Engineering</li>
+          </ul>
+          <a href="contact.html" class="btn-primary" style="margin-top:1.5rem;display:inline-block;">Discuss Industrial Applications</a>
+        </div>
+      </div>
+
+      <div class="ind-detail" id="medical">
+        <div class="ind-detail-header" onclick="toggleCard(this)">
+          <span class="ind-detail-icon">&#129685;</span>
+          <div><h2>Medical &amp; Biotech</h2><p class="ind-sub">Biocompatible, precise, and mission-critical materials for life sciences.</p></div>
+          <span class="toggle-icon">+</span>
+        </div>
+        <div class="ind-detail-body">
+          <p>The intersection of materials science and biology demands precision, biocompatibility, and regulatory rigor. Our biomaterials, biochemical engineering, and polymer capabilities serve medical device manufacturers, pharmaceutical developers, and biotech innovators.</p>
+          <ul class="ind-apps">
+            <li>Biocompatible Coatings &amp; Surface Treatments</li>
+            <li>Implant-Grade Material Development</li>
+            <li>Drug Delivery Matrix Engineering</li>
+            <li>Scaffold &amp; Tissue Engineering Materials</li>
+            <li>Biochemical Process Engineering</li>
+            <li>Medical Device Materials Consulting</li>
+          </ul>
+          <a href="contact.html" class="btn-primary" style="margin-top:1.5rem;display:inline-block;">Discuss Medical Applications</a>
+        </div>
+      </div>
+
+      <div class="ind-detail" id="infrastructure">
+        <div class="ind-detail-header" onclick="toggleCard(this)">
+          <span class="ind-detail-icon">&#127959;&#65039;</span>
+          <div><h2>Infrastructure</h2><p class="ind-sub">Building and protecting the structures civilization depends on.</p></div>
+          <span class="toggle-icon">+</span>
+        </div>
+        <div class="ind-detail-body">
+          <p>Infrastructure requires engineering that lasts for decades in variable and often harsh environments. Our structural, geotechnical, utility, water resources, and protective coatings capabilities ensure that critical infrastructure is built and maintained to the highest standards.</p>
+          <ul class="ind-apps">
+            <li>Bridge &amp; Building Structural Engineering</li>
+            <li>Blast-Hardened Facility Design</li>
+            <li>Geotechnical Investigation &amp; Foundation Engineering</li>
+            <li>Water Treatment &amp; Distribution Systems</li>
+            <li>Utility Infrastructure Engineering</li>
+            <li>Protective Concrete Coatings &amp; Linings</li>
+          </ul>
+          <a href="contact.html" class="btn-primary" style="margin-top:1.5rem;display:inline-block;">Discuss Infrastructure Applications</a>
+        </div>
+      </div>
+
+      <div class="ind-detail" id="petroleum">
+        <div class="ind-detail-header" onclick="toggleCard(this)">
+          <span class="ind-detail-icon">&#128674;&#65039;</span>
+          <div><h2>Oil, Gas &amp; Petroleum</h2><p class="ind-sub">Corrosion is the enemy. We've spent 20 years defeating it.</p></div>
+          <span class="toggle-icon">+</span>
+        </div>
+        <div class="ind-detail-body">
+          <p>The petroleum industry loses billions annually to corrosion, equipment failure, and process inefficiency. Our corrosion engineering, coatings, polymer systems, and petroleum engineering capabilities directly address the industry's costliest problems.</p>
+          <ul class="ind-apps">
+            <li>Pipeline Internal &amp; External Corrosion Coatings</li>
+            <li>Tank Lining Systems</li>
+            <li>Downhole Sealing &amp; Repair Materials</li>
+            <li>Refinery Process Engineering Support</li>
+            <li>Wellhead &amp; Valve Protective Coatings</li>
+            <li>Offshore Platform Corrosion Control</li>
+          </ul>
+          <a href="contact.html" class="btn-primary" style="margin-top:1.5rem;display:inline-block;">Discuss Petroleum Applications</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="cta">
+    <div class="container cta-inner">
+      <h2>Don't see your industry? Contact us anyway.</h2>
+      <p>If you have an extreme-environment challenge, a materials problem, or need multi-discipline engineering — we want to hear from you.</p>
+      <a href="contact.html" class="btn-primary btn-large">Start the Conversation</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-brand">THEIS INDUSTRIES INC.</div>
+      <p class="footer-tag">Physics. Chemistry. Engineering. — Mastering the Impossible.</p>
+      <nav class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="index.html#capabilities">Capabilities</a>
+        <a href="industries.html">Industries</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <p class="footer-copy">&copy; 2026 Theis Industries Inc. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="main.js"></script>
+</body>
+</html>

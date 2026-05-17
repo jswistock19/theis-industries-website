@@ -11,6 +11,8 @@ function toggleCard(el){
 }
 function handleSubmit(e){
   e.preventDefault();
-  document.querySelector('.contact-form').style.display='none';
-  document.getElementById('form-success').style.display='block';
+  const form=document.querySelector('.contact-form');
+  const success=document.getElementById('form-success');
+  if(form) form.style.display='none';
+  if(success) success.style.display='block';
 }
