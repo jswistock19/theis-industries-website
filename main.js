@@ -86,3 +86,55 @@ function handleSubmit(e){
     });
   });
 })();
+
+// ============ PATENTS SECTION INJECTION ============
+(function(){
+  const patents = [
+    { id:'US8698594B2', title:'Biometric Authentication & Device Security System', year:'2014', desc:'System, device and method for securing a user device component by authenticating the user of a biometric sensor through replication of a portion of an authentication process performed at a remote computing device.', tag:'Security & Biometrics' },
+    { id:'US20240067518A1', title:'Form-Coded Underground Storage Tank Filling Port', year:'2024', desc:'A form-coded collar assembly that attaches around a filling pipe of an underground fuel storage tank, with a radial lip defining an opening — preventing cross-contamination during fuel delivery.', tag:'Industrial / Energy' },
+    { id:'US20070058843A1', title:'Secure Identification Device for Verifying Operator Identity', year:'2007', desc:'Fingerprint registration and verification device for amusement rides and operator-controlled systems — preventing unauthorized persons from starting or operating equipment.', tag:'Security & Biometrics' },
+    { id:'US20060202797A1', title:'Biometric Fingerprint Theft Deterrent for Motor Vehicles', year:'2006', desc:'Anti-theft device for motor vehicles using biometric fingerprint verification to authorize vehicle operation — preventing unauthorized starts.', tag:'Automotive Security' }
+  ];
+  function buildPatentsSection(){
+    if(document.getElementById('patents')) return;
+    const sec=document.createElement('section');
+    sec.id='patents';
+    sec.innerHTML=`
+      <div class="container">
+        <p class="eyebrow">Intellectual Property</p>
+        <h2>Jason Theis — Issued Patents</h2>
+        <p class="section-sub">A portfolio of issued U.S. patents covering biometric security, industrial materials, and protective systems — invented by Jason Theis, founder of Theis Industries.</p>
+        <div class="patents-grid">
+          ${patents.map(p=>`
+            <a class="patent-card" href="https://patents.google.com/patent/${p.id}/en" target="_blank" rel="noopener">
+              <div class="patent-tag">${p.tag}</div>
+              <div class="patent-year">${p.year}</div>
+              <h3>${p.title}</h3>
+              <p>${p.desc}</p>
+              <div class="patent-id">${p.id} <span class="patent-arrow">→</span></div>
+            </a>
+          `).join('')}
+        </div>
+        <p class="patents-foot">View the full inventor portfolio on <a href="https://patents.google.com/?inventor=Jason+Theis" target="_blank" rel="noopener">Google Patents</a>.</p>
+      </div>
+    `;
+    // Insert before footer / final CTA
+    const footer=document.querySelector('footer');
+    const finalCta=document.querySelector('#cta, .final-cta');
+    const target= finalCta || footer;
+    if(target && target.parentNode){
+      target.parentNode.insertBefore(sec, target);
+    } else {
+      document.body.appendChild(sec);
+    }
+    // Add nav link if missing
+    const navLinks=document.getElementById('navLinks');
+    if(navLinks && !navLinks.querySelector('a[href="#patents"]')){
+      const li=document.createElement('li');
+      li.innerHTML='<a href="#patents">Patents</a>';
+      const contactLi=navLinks.querySelector('.nav-cta')?.closest('li');
+      if(contactLi) navLinks.insertBefore(li, contactLi); else navLinks.appendChild(li);
+    }
+  }
+  document.addEventListener('DOMContentLoaded', buildPatentsSection);
+})();
