@@ -1178,3 +1178,60 @@ footer::before {
   .nav-inner { padding: 0 1.25rem; }
   #cta { padding: 5rem 0; }
 }
+
+/* ==========================================================================
+   Theis Icon System — clean SVG glyphs (monoline, gold)
+   ========================================================================== */
+.theis-icon { display: inline-flex; align-items: center; justify-content: center; line-height: 0; }
+.theis-icon svg { width: 100%; height: 100%; display: block; }
+
+/* Pillar icons (hero disciplines) */
+.pillar-icon { width: 56px; height: 56px; margin: 0 auto 1.1rem; color: var(--accent);
+  background: radial-gradient(circle at 30% 30%, rgba(212,175,55,0.18), rgba(212,175,55,0.04) 70%);
+  border: 1px solid rgba(212,175,55,0.35); border-radius: 14px; padding: 12px;
+  filter: drop-shadow(0 0 14px rgba(212,175,55,0.18)); }
+.pillar-icon svg { stroke-width: 1.3; }
+
+/* Industry tile icons */
+.ind-icon { width: 48px; height: 48px; margin-bottom: 1rem !important; color: var(--accent);
+  padding: 10px; border: 1px solid rgba(212,175,55,0.3); border-radius: 10px;
+  background: rgba(212,175,55,0.05); filter: none !important; }
+
+/* Industries detail page hero icon */
+.ind-detail-icon { width: 64px; height: 64px; color: var(--accent); padding: 14px;
+  border: 1px solid rgba(212,175,55,0.4); border-radius: 16px;
+  background: linear-gradient(135deg, rgba(212,175,55,0.12), rgba(212,175,55,0.02));
+  display: inline-flex; }
+
+/* Defense card icons */
+.defense-card-header > span:first-child { width: 32px; height: 32px; color: var(--accent);
+  padding: 0; background: transparent; border: none; flex-shrink: 0; font-size: 0; }
+.defense-card-header > span:first-child svg { stroke-width: 1.4; }
+
+/* Capability card icons */
+.cap-header > span:first-child { width: 26px; height: 26px; color: var(--accent);
+  padding: 0; background: transparent; border: none; flex-shrink: 0; font-size: 0;
+  margin-right: 0.7rem; }
+.cap-header > span:first-child svg { stroke-width: 1.5; }
+
+/* License/engagement card icons */
+.license-icon { width: 48px; height: 48px; margin: 0 auto 1rem; color: var(--accent);
+  padding: 12px; border: 1px solid rgba(212,175,55,0.35); border-radius: 12px;
+  background: radial-gradient(circle at 30% 30%, rgba(212,175,55,0.15), rgba(212,175,55,0.02) 70%); }
+
+/* Value item icons (about page) */
+.value-icon { width: 22px; height: 22px; color: var(--accent); flex-shrink: 0;
+  display: inline-flex; }
+
+/* Posture strip icons (small ◆) */
+.posture-item .ico { width: 12px; height: 12px; color: var(--accent); display: inline-flex;
+  vertical-align: middle; margin-right: 0.35rem; }
+
+/* Contact direct card icons */
+.contact-direct-item .ico { width: 28px; height: 28px; color: var(--accent); padding: 6px;
+  border: 1px solid rgba(212,175,55,0.35); border-radius: 8px;
+  background: rgba(212,175,55,0.05); display: inline-flex; flex-shrink: 0; }
+
+/* Differentiators (about page) — inline icon next to h4 */
+.diff-card h4 { display: flex; align-items: center; gap: 0.65rem; }
+.diff-ico { width: 22px; height: 22px; color: var(--accent); display: inline-flex; flex-shrink: 0; }

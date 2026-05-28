@@ -124,6 +124,9 @@ function handleSubmit(e) {
       document.body.appendChild(sec);
     }
 
+    // Mount any data-icon SVGs in the freshly injected content
+    if (typeof mountTheisIcons === 'function') { try { mountTheisIcons(); } catch(e){} }
+
     // Add nav link if missing (on home page)
     const navLinks = document.getElementById('navLinks');
     if (navLinks && !navLinks.querySelector('a[href="#patents"]')) {
