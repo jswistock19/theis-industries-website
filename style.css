@@ -3998,3 +3998,117 @@ footer::before {
   position: relative;
   z-index: 1;
 }
+
+/* ═══════════════════════════════════════════════════════
+   MONSTER TRUCK EXPANDED CARD
+═══════════════════════════════════════════════════════ */
+.monster-card { padding: 0; overflow: hidden; }
+.monster-content { padding: 1.5rem 1.75rem 1.75rem; }
+.monster-specs {
+  display: grid; grid-template-columns: repeat(4,1fr); gap: 0.75rem;
+  margin: 1.25rem 0; padding: 1rem; background: rgba(212,175,55,0.06);
+  border: 1px solid rgba(212,175,55,0.18); border-radius: 8px;
+}
+.mspec { text-align: center; }
+.mspec-num { display: block; font-family: 'Cinzel', serif; font-size: 1.6rem; color: #d4af37; font-weight: 700; line-height: 1; }
+.mspec-label { display: block; font-size: 0.68rem; color: #9c8b6d; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 0.3rem; }
+.monster-trucks-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0; }
+.truck-badge { background: rgba(212,175,55,0.12); border: 1px solid rgba(212,175,55,0.3); color: #d4af37; padding: 0.3rem 0.85rem; border-radius: 20px; font-size: 0.82rem; font-family: 'Rajdhani', sans-serif; font-weight: 600; }
+.monster-quote { border-left: 3px solid #d4af37; padding: 0.75rem 1rem; margin: 1rem 0; background: rgba(212,175,55,0.04); border-radius: 0 6px 6px 0; }
+.monster-quote p { font-style: italic; color: #f5ecd6; margin: 0 0 0.4rem; font-size: 0.92rem; line-height: 1.6; }
+.monster-quote cite { font-size: 0.8rem; color: #d4af37; font-style: normal; font-weight: 600; }
+.monster-video-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.25rem; }
+@media (max-width: 600px) {
+  .monster-specs { grid-template-columns: repeat(2,1fr); }
+}
+
+/* ═══════════════════════════════════════════════════════
+   ARMORIS DEFENSE SECTION
+═══════════════════════════════════════════════════════ */
+.armoris-section { background: #0a0806; padding-bottom: 5rem; }
+
+.armoris-hero-strip { position: relative; width: 100%; height: 520px; overflow: hidden; }
+.armoris-hero-img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block; }
+.armoris-hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.82) 40%, rgba(0,0,0,0.3) 100%);
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 0 6rem;
+}
+.armoris-tag { font-family: 'Rajdhani', sans-serif; font-size: 0.8rem; letter-spacing: 0.18em; text-transform: uppercase; color: #d4af37; margin-bottom: 0.75rem; border: 1px solid rgba(212,175,55,0.4); display: inline-block; padding: 0.25rem 0.85rem; border-radius: 3px; }
+.armoris-headline { font-family: 'Cinzel', serif; font-size: clamp(2.8rem,6vw,5rem); color: #fffaec; margin: 0 0 0.5rem; line-height: 1; }
+.armoris-sub { font-family: 'Rajdhani', sans-serif; font-size: 1.3rem; color: #9c8b6d; letter-spacing: 0.08em; margin-bottom: 2rem; }
+.armoris-cta-btn { display: inline-block; background: #d4af37; color: #0a0806; font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 0.95rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.75rem 2rem; border-radius: 4px; text-decoration: none; transition: background 0.2s; }
+.armoris-cta-btn:hover { background: #f4d27a; }
+
+.armoris-intro { padding: 3.5rem 0 2rem; }
+
+.armoris-specs-bar {
+  display: flex; flex-wrap: wrap; gap: 0;
+  border: 1px solid rgba(212,175,55,0.2); border-radius: 8px; overflow: hidden;
+  margin: 2rem 0 3rem;
+}
+.aspec { flex: 1; min-width: 150px; padding: 1.25rem 1rem; text-align: center; border-right: 1px solid rgba(212,175,55,0.15); background: rgba(212,175,55,0.04); }
+.aspec:last-child { border-right: none; }
+.aspec-num { display: block; font-family: 'Cinzel', serif; font-size: 1.9rem; color: #d4af37; font-weight: 700; line-height: 1; }
+.aspec-num small { font-size: 1rem; }
+.aspec-label { display: block; font-size: 0.72rem; color: #9c8b6d; text-transform: uppercase; letter-spacing: 0.07em; margin-top: 0.4rem; }
+
+.armoris-vehicles-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-bottom: 3rem; }
+.armoris-vehicle-card { background: #110d08; border: 1px solid rgba(212,175,55,0.15); border-radius: 10px; overflow: hidden; transition: border-color 0.3s, transform 0.3s; }
+.armoris-vehicle-card:hover { border-color: rgba(212,175,55,0.45); transform: translateY(-4px); }
+.av-img-wrap { overflow: hidden; }
+.av-img-wrap img { transition: transform 0.5s; }
+.armoris-vehicle-card:hover .av-img-wrap img { transform: scale(1.04); }
+.av-info { padding: 1.25rem 1.4rem 1.5rem; }
+.av-tag { font-family: 'Rajdhani', sans-serif; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em; color: #d4af37; background: rgba(212,175,55,0.1); border: 1px solid rgba(212,175,55,0.25); display: inline-block; padding: 0.2rem 0.65rem; border-radius: 3px; margin-bottom: 0.65rem; }
+.av-info h3 { font-family: 'Cinzel', serif; font-size: 1.15rem; color: #f5ecd6; margin: 0 0 0.25rem; }
+.av-year { font-family: 'Rajdhani', sans-serif; font-size: 0.85rem; color: #9c8b6d; margin: 0 0 0.5rem; }
+.av-price { font-family: 'Cinzel', serif; font-size: 1.4rem; color: #d4af37; font-weight: 700; margin: 0 0 0.6rem; }
+.av-desc { font-size: 0.88rem; color: #9c8b6d; line-height: 1.65; margin: 0; }
+
+.armoris-protection { margin-bottom: 3rem; }
+.aprot-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; }
+.aprot-card { background: #110d08; border: 1px solid rgba(212,175,55,0.15); border-radius: 8px; padding: 1.5rem; }
+.aprot-card.aprot-featured { border-color: rgba(212,175,55,0.5); background: rgba(212,175,55,0.06); }
+.aprot-level { font-family: 'Cinzel', serif; font-size: 1.3rem; color: #d4af37; font-weight: 700; margin-bottom: 0.3rem; }
+.aprot-desc { font-family: 'Rajdhani', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: #9c8b6d; margin-bottom: 1rem; }
+.aprot-card ul { margin: 0; padding: 0 0 0 1rem; }
+.aprot-card li { font-size: 0.88rem; color: #9c8b6d; margin-bottom: 0.35rem; line-height: 1.5; }
+
+.armoris-atelier { margin-bottom: 2rem; }
+.atelier-inner { background: linear-gradient(135deg, #110d08, #1a130b); border: 1px solid rgba(212,175,55,0.2); border-radius: 12px; padding: 2.5rem 3rem; display: flex; gap: 3rem; align-items: center; flex-wrap: wrap; }
+.atelier-text { flex: 1; min-width: 280px; }
+.atelier-brands { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.25rem; }
+.atelier-brands span { font-family: 'Rajdhani', sans-serif; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.07em; color: #9c8b6d; background: rgba(212,175,55,0.08); border: 1px solid rgba(212,175,55,0.18); padding: 0.25rem 0.7rem; border-radius: 3px; }
+.atelier-cta { text-align: center; flex-shrink: 0; }
+
+@media (max-width: 900px) {
+  .armoris-vehicles-grid, .aprot-grid { grid-template-columns: 1fr; }
+  .armoris-hero-overlay { padding: 0 2rem; }
+  .armoris-hero-strip { height: 380px; }
+  .atelier-inner { padding: 1.75rem; }
+}
+
+/* Armoris footer link */
+.armoris-footer-link {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: rgba(212,175,55,0.1); border: 1px solid rgba(212,175,55,0.3);
+  color: #d4af37; font-family: 'Rajdhani', sans-serif; font-weight: 700;
+  font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.5rem 1.25rem; border-radius: 4px; text-decoration: none;
+  transition: background 0.2s;
+}
+.armoris-footer-link:hover { background: rgba(212,175,55,0.2); }
+
+/* ═══════════════════════════════════════════════════════
+   DEFENSE PAGE — DRONE / ROBOT / FACV PHOTO SECTIONS
+═══════════════════════════════════════════════════════ */
+.defense-photo-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.25rem; margin: 2rem 0; }
+.defense-photo-card { border-radius: 10px; overflow: hidden; border: 1px solid rgba(212,175,55,0.15); position: relative; }
+.defense-photo-card img { width: 100%; height: 280px; object-fit: cover; display: block; transition: transform 0.5s; }
+.defense-photo-card:hover img { transform: scale(1.04); }
+.defense-photo-label { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%); padding: 1.25rem 1rem 0.85rem; }
+.defense-photo-label h4 { font-family: 'Rajdhani', sans-serif; font-size: 1rem; color: #d4af37; margin: 0 0 0.2rem; text-transform: uppercase; letter-spacing: 0.08em; }
+.defense-photo-label p { font-size: 0.8rem; color: #9c8b6d; margin: 0; }
+@media (max-width: 700px) { .defense-photo-grid { grid-template-columns: 1fr; } }
