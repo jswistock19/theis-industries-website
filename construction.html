@@ -11,6 +11,303 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <script src="icons.js" defer></script>
   <script src="main.js" defer></script>
+  <style>
+    /* ── Page-local enrichment styles ── */
+    .enrich-section {
+      padding: 5rem 0;
+    }
+    .enrich-section:nth-child(odd) {
+      background: #110d08;
+    }
+    .enrich-section:nth-child(even) {
+      background: #0a0806;
+    }
+
+    /* Waterproofing problem/solution split */
+    .problem-solution-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+    .ps-card {
+      background: #1a130b;
+      border: 1px solid rgba(212,175,55,0.15);
+      border-radius: 4px;
+      padding: 2rem;
+      position: relative;
+    }
+    .ps-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #a8861f, #d4af37);
+    }
+    .ps-card.solution::before {
+      background: linear-gradient(90deg, #d4af37, #f4d27a);
+    }
+    .ps-label {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #9c8b6d;
+      margin-bottom: 0.75rem;
+    }
+    .ps-card h3 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #f5ecd6;
+      margin-bottom: 1rem;
+    }
+    .ps-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .ps-card ul li {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: #9c8b6d;
+      line-height: 1.7;
+      padding: 0.3rem 0 0.3rem 1.2rem;
+      position: relative;
+    }
+    .ps-card ul li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: #d4af37;
+    }
+    .ps-card.solution ul li { color: #f5ecd6; }
+
+    /* Key stats bar */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      background: #1a130b;
+      border: 1px solid rgba(212,175,55,0.2);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 3rem;
+    }
+    .stat-cell {
+      padding: 2rem 1.5rem;
+      text-align: center;
+      border-right: 1px solid rgba(212,175,55,0.1);
+    }
+    .stat-cell:last-child { border-right: none; }
+    .stat-cell-val {
+      font-family: 'Cinzel', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #d4af37;
+      display: block;
+      line-height: 1.1;
+      margin-bottom: 0.4rem;
+    }
+    .stat-cell-label {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #9c8b6d;
+    }
+
+    /* Comparison table */
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2.5rem;
+      font-family: 'Inter', sans-serif;
+    }
+    .comparison-table thead th {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #9c8b6d;
+      padding: 0.75rem 1.25rem;
+      background: #0a0806;
+      border-bottom: 1px solid rgba(212,175,55,0.2);
+      text-align: left;
+    }
+    .comparison-table thead th.winner {
+      color: #d4af37;
+      background: #1a130b;
+    }
+    .comparison-table tbody tr {
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .comparison-table tbody tr:hover {
+      background: rgba(212,175,55,0.04);
+    }
+    .comparison-table tbody td {
+      padding: 0.85rem 1.25rem;
+      font-size: 0.88rem;
+      color: #9c8b6d;
+    }
+    .comparison-table tbody td:first-child {
+      color: #f5ecd6;
+      font-weight: 500;
+    }
+    .comparison-table tbody td.winner-cell {
+      color: #f5ecd6;
+      background: rgba(212,175,55,0.06);
+    }
+    .check { color: #d4af37; }
+    .cross { color: #6b5a45; }
+
+    /* Case study */
+    .case-study-block {
+      background: #1a130b;
+      border: 1px solid rgba(212,175,55,0.18);
+      border-radius: 4px;
+      padding: 3rem;
+      margin-top: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .case-study-block::after {
+      content: 'CASE STUDY';
+      position: absolute;
+      top: 1.5rem; right: 1.5rem;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: rgba(212,175,55,0.35);
+    }
+    .case-study-block h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #f5ecd6;
+      margin-bottom: 1.25rem;
+    }
+    .case-study-block p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.92rem;
+      color: #9c8b6d;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    .case-study-block p:last-child { margin-bottom: 0; }
+
+    /* Before/After visual bar */
+    .before-after-bar {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(212,175,55,0.2);
+      border-radius: 4px;
+      overflow: hidden;
+      margin: 2rem 0;
+    }
+    .ba-side {
+      background: #110d08;
+      padding: 2rem;
+      text-align: center;
+    }
+    .ba-side.after-side {
+      background: #1a130b;
+    }
+    .ba-label {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #9c8b6d;
+      margin-bottom: 0.5rem;
+    }
+    .ba-label.gold { color: #d4af37; }
+    .ba-visual {
+      width: 100%;
+      height: 120px;
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #9c8b6d;
+    }
+    .ba-visual.before-vis {
+      background: repeating-linear-gradient(
+        45deg,
+        #1a130b,
+        #1a130b 8px,
+        #110d08 8px,
+        #110d08 16px
+      );
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .ba-visual.after-vis {
+      background: linear-gradient(135deg, #221810 0%, #1a130b 100%);
+      border: 1px solid rgba(212,175,55,0.25);
+      color: #d4af37;
+    }
+
+    /* Markets tag cloud */
+    .market-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1.5rem;
+    }
+    .market-tag {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #d4af37;
+      border: 1px solid rgba(212,175,55,0.3);
+      border-radius: 2px;
+      padding: 0.35rem 0.85rem;
+      background: rgba(212,175,55,0.05);
+    }
+
+    /* Feature list */
+    .feature-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem 2rem;
+      margin-top: 1.5rem;
+    }
+    .feature-item {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      color: #f5ecd6;
+      padding: 0.5rem 0 0.5rem 1.4rem;
+      position: relative;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .feature-item::before {
+      content: '◆';
+      position: absolute;
+      left: 0;
+      color: #d4af37;
+      font-size: 0.55rem;
+      top: 0.7rem;
+    }
+
+    @media (max-width: 768px) {
+      .problem-solution-grid,
+      .feature-list,
+      .before-after-bar { grid-template-columns: 1fr; }
+      .stats-bar { grid-template-columns: 1fr 1fr; }
+      .stat-cell:nth-child(2) { border-right: none; }
+    }
+  </style>
 </head>
 <body>
   <div id="page-overlay"></div>
@@ -121,6 +418,208 @@
     </div>
   </section>
 
+  <!-- ═══════════════════════════════════════════════════════
+       INDUSTRIAL COATINGS — WATERPROOFING
+  ═══════════════════════════════════════════════════════ -->
+  <section class="enrich-section" id="waterproofing">
+    <div class="container">
+      <div class="section-label reveal">Industrial Coatings</div>
+      <h2 class="reveal">Waterproofing — The Problem With Every Other Solution</h2>
+      <p class="reveal" style="max-width:720px; color:#9c8b6d; font-family:'Inter',sans-serif; line-height:1.8; margin-bottom:0;">Concrete is porous. Contaminants leach through — straight into the surrounding soil and groundwater. Competitive coatings degrade shortly after application, fail to stop cracking, and are not truly waterproof. Theis Tekton changes the equation entirely.</p>
+
+      <div class="problem-solution-grid">
+        <div class="ps-card reveal">
+          <div class="ps-label">The Problem</div>
+          <h3>Why Conventional Coatings Fail</h3>
+          <ul>
+            <li>Concrete is inherently porous — contaminants leach through</li>
+            <li>Competitive coatings are not truly waterproof</li>
+            <li>Degrade shortly after application</li>
+            <li>Do not protect from cracking or further degradation</li>
+            <li>Pollute surrounding soil and groundwater</li>
+          </ul>
+        </div>
+        <div class="ps-card solution reveal">
+          <div class="ps-label">The Theis Solution</div>
+          <h3>Truly Waterproof. Truly Durable.</h3>
+          <ul>
+            <li>Holds up to acids, solvents, hydrocarbons, heavy metals, and other contaminants</li>
+            <li>Return to service within hours of completion</li>
+            <li>Easy to clean and maintain</li>
+            <li>Can be rolled or sprayed — flexible application</li>
+            <li>Cost: ~$12/sq ft | Revenue potential: $25+/sq ft</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Key stats bar -->
+      <div class="stats-bar reveal">
+        <div class="stat-cell">
+          <span class="stat-cell-val">$12</span>
+          <span class="stat-cell-label">Cost per sq ft</span>
+        </div>
+        <div class="stat-cell">
+          <span class="stat-cell-val">$25+</span>
+          <span class="stat-cell-label">Revenue per sq ft</span>
+        </div>
+        <div class="stat-cell">
+          <span class="stat-cell-val">Hours</span>
+          <span class="stat-cell-label">Return to Service</span>
+        </div>
+        <div class="stat-cell">
+          <span class="stat-cell-val">50%+</span>
+          <span class="stat-cell-label">Profit Margins</span>
+        </div>
+      </div>
+
+      <!-- Markets -->
+      <div class="reveal" style="margin-top:2.5rem;">
+        <div class="section-label" style="margin-bottom:0.75rem;">Target Markets</div>
+        <div class="market-tags">
+          <span class="market-tag">Rail</span>
+          <span class="market-tag">Municipalities</span>
+          <span class="market-tag">Manufacturing</span>
+          <span class="market-tag">Oil &amp; Gas</span>
+          <span class="market-tag">Parking Garages</span>
+          <span class="market-tag">Hotels</span>
+          <span class="market-tag">Restaurants</span>
+        </div>
+      </div>
+
+      <!-- Comparison table -->
+      <div class="reveal" style="margin-top:3rem;">
+        <div class="section-label" style="margin-bottom:0.75rem;">How We Compare</div>
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Criterion</th>
+              <th class="winner">Theis Tekton™</th>
+              <th>Concrete Replacement</th>
+              <th>Epoxy Coating</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Cost per sq ft</td>
+              <td class="winner-cell">~$12 (sells $25+)</td>
+              <td>Very high — $70+</td>
+              <td>Far more costly</td>
+            </tr>
+            <tr>
+              <td>Truly waterproof</td>
+              <td class="winner-cell"><span class="check">✔</span> Yes</td>
+              <td><span class="cross">✖</span> No — porous</td>
+              <td><span class="cross">✖</span> No</td>
+            </tr>
+            <tr>
+              <td>Return to service</td>
+              <td class="winner-cell">Hours</td>
+              <td>Days to weeks</td>
+              <td>Extended — days</td>
+            </tr>
+            <tr>
+              <td>Works on contaminated concrete</td>
+              <td class="winner-cell"><span class="check">✔</span> Yes</td>
+              <td>N/A — replacement</td>
+              <td><span class="cross">✖</span> No</td>
+            </tr>
+            <tr>
+              <td>Cracks over time</td>
+              <td class="winner-cell"><span class="check">✔</span> Resists cracking</td>
+              <td><span class="cross">✖</span> Cracks, degrades</td>
+              <td><span class="cross">✖</span> Brittle, chips</td>
+            </tr>
+            <tr>
+              <td>Mobile application</td>
+              <td class="winner-cell"><span class="check">✔</span> Roll or spray</td>
+              <td><span class="cross">✖</span> Not mobile</td>
+              <td>Complicated setup</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDY — MAINTENANCE PIT -->
+  <section class="enrich-section" id="case-study-pit">
+    <div class="container">
+      <div class="section-label reveal">Case Study</div>
+      <h2 class="reveal">Maintenance Pit — Waterproofing Transformation</h2>
+
+      <div class="case-study-block reveal">
+        <h3>Maintenance Pit Before &amp; After</h3>
+        <div class="before-after-bar">
+          <div class="ba-side">
+            <div class="ba-label">Before</div>
+            <div class="ba-visual before-vis">Porous concrete — contaminated, degrading</div>
+          </div>
+          <div class="ba-side after-side">
+            <div class="ba-label gold">After — Theis Tekton™ Applied</div>
+            <div class="ba-visual after-vis">Fully sealed — acid, solvent &amp; hydrocarbon proof</div>
+          </div>
+        </div>
+        <p>A maintenance pit exposed to years of hydrocarbon saturation, solvents, and corrosive runoff — a contamination risk for surrounding soil and groundwater — was coated with the Theis Tekton waterproofing system. The result: a beautiful, durable, fully sealed surface returned to service within hours of application. Clean. Professional. Compliant.</p>
+        <p>The transformation speaks for itself: no demolition, no replacement, no extended downtime. Just the Tekton system — rolled on and ready.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- POWDER COATING REPLACEMENT -->
+  <section class="enrich-section" id="powder-coating">
+    <div class="container">
+      <div class="section-label reveal">Innovation</div>
+      <h2 class="reveal">Powder Coating Replacement</h2>
+      <p class="reveal" style="max-width:700px; color:#9c8b6d; font-family:'Inter',sans-serif; line-height:1.8; margin-bottom:2rem;">Traditional powder coating requires massive, expensive equipment, high temperatures, and produces VOC emissions. Theis Tekton eliminates all of that.</p>
+
+      <div class="problem-solution-grid">
+        <div class="ps-card reveal">
+          <div class="ps-label">Traditional Powder Coating</div>
+          <h3>Limitations</h3>
+          <ul>
+            <li>Requires massive, costly equipment</li>
+            <li>High-temperature application process</li>
+            <li>Significant VOC emissions</li>
+            <li>Limited to specific substrates</li>
+            <li>Color matching constraints</li>
+          </ul>
+        </div>
+        <div class="ps-card solution reveal">
+          <div class="ps-label">Theis Tekton™ Alternative</div>
+          <h3>Superior in Every Way</h3>
+          <ul>
+            <li>Applied at room temperature — no oven needed</li>
+            <li>Zero VOC emissions</li>
+            <li>Unlimited color matching capability</li>
+            <li>Works on any substrate: metal, wood, plastic, concrete</li>
+            <li>No facility infrastructure required</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FIRE RESISTANT MATERIALS -->
+  <section class="enrich-section" id="fire-resistant">
+    <div class="container">
+      <div class="section-label reveal">Specialty Application</div>
+      <h2 class="reveal">Fire Resistant Building Materials</h2>
+
+      <div class="case-study-block reveal">
+        <h3>Theis Tekton™ — Fire-Resistant Structural Coating</h3>
+        <p>Theis Tekton is a fire-resistant coating system suited for structural applications where fire safety is paramount. Proven in real-world deployments — including a Bikram Yoga facility featuring an engineered gas system and airflow system where fire resistance was a critical safety requirement.</p>
+        <div class="feature-list" style="margin-top:1.5rem;">
+          <div class="feature-item">Fire-resistant formulation</div>
+          <div class="feature-item">Structural application ready</div>
+          <div class="feature-item">Engineered gas system compatible</div>
+          <div class="feature-item">Works with airflow/ventilation systems</div>
+          <div class="feature-item">Applicable to wood, steel, concrete</div>
+          <div class="feature-item">Room-temperature application</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- TEKTON ADVANTAGE -->
   <section class="spoke-tekton">
     <div class="container spoke-tekton-inner">
@@ -161,22 +660,22 @@
         <div class="spoke-market-item reveal">
           <span class="spoke-market-icon">◆</span>
           <div>
-            <h4>Critical Infrastructure Owners</h4>
-            <p>Power generation, water treatment, communications, and transportation infrastructure owners requiring hardened construction that resists natural hazards, sabotage, and long-term environmental degradation.</p>
+            <h4>Rail &amp; Transportation</h4>
+            <p>Rail operators, transit agencies, and transportation infrastructure owners requiring waterproofed maintenance pits, spill containment, and corrosion-protected civil structures at ~$12/sq ft — with 50%+ profit potential.</p>
           </div>
         </div>
         <div class="spoke-market-item reveal">
           <span class="spoke-market-icon">◆</span>
           <div>
-            <h4>Commercial Real Estate (Security-Grade)</h4>
-            <p>Private sector developers and owner-operators building or upgrading facilities requiring enhanced physical security, blast protection, and ballistic resistance for high-value or high-risk environments.</p>
+            <h4>Oil &amp; Gas Industrial</h4>
+            <p>Chemical plants, refineries, and industrial manufacturers requiring blast-rated structures, waterproof corrosion-resistant construction, and hardened control rooms for hazardous process environments.</p>
           </div>
         </div>
         <div class="spoke-market-item reveal">
           <span class="spoke-market-icon">◆</span>
           <div>
-            <h4>Industrial Facility Operators</h4>
-            <p>Chemical plants, refineries, and industrial manufacturers requiring blast-rated structures, corrosion-resistant construction, and hardened control rooms for hazardous process environments.</p>
+            <h4>Municipalities &amp; Parking Structures</h4>
+            <p>Municipal governments, parking operators, and hotel/restaurant owners requiring waterproof, easy-to-clean coatings for concrete surfaces subject to spills, chemicals, and heavy traffic.</p>
           </div>
         </div>
         <div class="spoke-market-item reveal">
@@ -190,41 +689,41 @@
     </div>
   </section>
 
-<section class="media-section">
-  <div class="container">
-    <div class="section-label">In Action</div>
-    <h2>See It For Yourself</h2>
-    <div class="media-grid">
-      <div class="media-item">
-        <div class="media-embed-wrapper">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/BxGYQHPeVGM"
-            title="Powder Coating Replacement" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen loading="lazy"></iframe>
+  <section class="media-section">
+    <div class="container">
+      <div class="section-label">In Action</div>
+      <h2>See It For Yourself</h2>
+      <div class="media-grid">
+        <div class="media-item">
+          <div class="media-embed-wrapper">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/BxGYQHPeVGM"
+              title="Powder Coating Replacement" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen loading="lazy"></iframe>
+          </div>
+          <p class="media-caption">Powder Coating Replacement</p>
         </div>
-        <p class="media-caption">Powder Coating Replacement</p>
-      </div>
-      <div class="media-item">
-        <div class="media-embed-wrapper">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/FyZbl0I2XBw"
-            title="Powder Coating Shorts" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen loading="lazy"></iframe>
+        <div class="media-item">
+          <div class="media-embed-wrapper">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/FyZbl0I2XBw"
+              title="Powder Coating Shorts" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen loading="lazy"></iframe>
+          </div>
+          <p class="media-caption">Powder Coating Shorts</p>
         </div>
-        <p class="media-caption">Powder Coating Shorts</p>
-      </div>
-      <div class="media-item">
-        <div class="media-embed-wrapper">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/1xqTnmDrCoM"
-            title="Fire Resistant Building Materials" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen loading="lazy"></iframe>
+        <div class="media-item">
+          <div class="media-embed-wrapper">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/1xqTnmDrCoM"
+              title="Fire Resistant Building Materials" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen loading="lazy"></iframe>
+          </div>
+          <p class="media-caption">Fire Resistant Building Materials</p>
         </div>
-        <p class="media-caption">Fire Resistant Building Materials</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
   <!-- CTA -->
   <section id="cta">
@@ -233,7 +732,7 @@
       <p class="reveal">Contact Theis Industries to discuss products, pricing, licensing, or partnership for the Theis Construction division.</p>
       <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
         <a href="contact.html" class="btn-primary btn-large">Start the Conversation</a>
-        <a href="index.html#divisions" class="btn-secondary btn-large">View All Divisions</a>
+        <a href="tel:7142968369" class="btn-secondary btn-large">(714) 296-8369</a>
       </div>
     </div>
   </section>

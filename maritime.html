@@ -11,6 +11,210 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <script src="icons.js" defer></script>
   <script src="main.js" defer></script>
+  <style>
+    /* ── Maritime enrichment styles ── */
+    .enrich-section {
+      padding: 5rem 0;
+    }
+    .enrich-section:nth-child(odd) {
+      background: #110d08;
+    }
+    .enrich-section:nth-child(even) {
+      background: #0a0806;
+    }
+
+    /* Section intro */
+    .enrich-intro {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      line-height: 1.85;
+      color: #9c8b6d;
+      max-width: 740px;
+      margin-bottom: 2.5rem;
+    }
+
+    /* Case study block */
+    .case-study-block {
+      background: #1a130b;
+      border: 1px solid rgba(212,175,55,0.18);
+      border-radius: 4px;
+      padding: 3rem;
+      margin-top: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .case-study-block::after {
+      content: 'CASE STUDY';
+      position: absolute;
+      top: 1.5rem; right: 1.5rem;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: rgba(212,175,55,0.35);
+    }
+    .case-study-block h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #f5ecd6;
+      margin-bottom: 0.5rem;
+    }
+    .case-study-block .cs-subtitle {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #d4af37;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+    .case-study-block p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.92rem;
+      color: #9c8b6d;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    .case-study-block p:last-child { margin-bottom: 0; }
+
+    /* Result callout */
+    .result-callout {
+      background: rgba(212,175,55,0.07);
+      border-left: 3px solid #d4af37;
+      padding: 1.25rem 1.5rem;
+      margin-top: 1.5rem;
+      border-radius: 0 4px 4px 0;
+    }
+    .result-callout .rc-label {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #d4af37;
+      margin-bottom: 0.5rem;
+    }
+    .result-callout p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.92rem;
+      color: #f5ecd6;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* Feature grid */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .feature-card {
+      background: #110d08;
+      border: 1px solid rgba(212,175,55,0.12);
+      border-radius: 4px;
+      padding: 1.25rem;
+      position: relative;
+    }
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #a8861f, #d4af37);
+    }
+    .feature-card p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      color: #f5ecd6;
+      line-height: 1.6;
+      margin: 0;
+    }
+    .feature-card p::before {
+      content: '◆ ';
+      color: #d4af37;
+      font-size: 0.6rem;
+    }
+
+    /* Stats bar */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      background: #1a130b;
+      border: 1px solid rgba(212,175,55,0.2);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 3rem;
+    }
+    .stat-cell {
+      padding: 2rem 1.25rem;
+      text-align: center;
+      border-right: 1px solid rgba(212,175,55,0.1);
+    }
+    .stat-cell:last-child { border-right: none; }
+    .stat-cell-val {
+      font-family: 'Cinzel', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #d4af37;
+      display: block;
+      line-height: 1.2;
+      margin-bottom: 0.4rem;
+    }
+    .stat-cell-label {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #9c8b6d;
+      line-height: 1.4;
+    }
+
+    /* Port case study layout */
+    .port-cs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .port-cs-side {
+      background: #1a130b;
+      border: 1px solid rgba(212,175,55,0.12);
+      border-radius: 4px;
+      padding: 2rem;
+    }
+    .port-cs-side h4 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #d4af37;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .port-cs-side p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      color: #9c8b6d;
+      line-height: 1.75;
+      margin-bottom: 0.75rem;
+    }
+    .port-cs-side p:last-child { margin-bottom: 0; }
+
+    @media (max-width: 768px) {
+      .feature-grid { grid-template-columns: 1fr 1fr; }
+      .stats-bar { grid-template-columns: 1fr 1fr; }
+      .stat-cell:nth-child(2) { border-right: none; }
+      .port-cs-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .feature-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
   <div id="page-overlay"></div>
@@ -121,6 +325,125 @@
     </div>
   </section>
 
+  <!-- ═══════════════════════════════════════════════════════
+       CASE STUDY: THEIS TEKTON SERVES MARITIME NEEDS
+  ═══════════════════════════════════════════════════════ -->
+  <section class="enrich-section" id="maritime-needs">
+    <div class="container">
+      <div class="section-label reveal">Case Study</div>
+      <h2 class="reveal">Theis Tekton Serves Maritime Needs in Practical and Efficient Ways</h2>
+      <p class="enrich-intro reveal">Rust, corrosion, electrolysis, and ionization silently destroy vessels. Algae and marine fouling transferred between vessels contaminates foreign waters. Repainting is costly, time-consuming, and requires pulling the vessel onto land. Theis Tekton eliminates all of it — applied while the vessel is still in the water.</p>
+
+      <div class="case-study-block reveal">
+        <h3>Complete Maritime Protection Profile</h3>
+        <span class="cs-subtitle">Applied Without Dry-Dock — Vessel Remains Operational</span>
+
+        <div class="feature-grid">
+          <div class="feature-card"><p>Repels barnacles and marine growth</p></div>
+          <div class="feature-card"><p>Chip resistant to industry testing standards</p></div>
+          <div class="feature-card"><p>Skid/slip-resistant fillers on walkways</p></div>
+          <div class="feature-card"><p>Reinforces structural strength and integrity</p></div>
+          <div class="feature-card"><p>Color stable — will not chalk</p></div>
+          <div class="feature-card"><p>Fully waterproof coating system</p></div>
+          <div class="feature-card"><p>Chemical, scratch, and abrasion resistant</p></div>
+          <div class="feature-card"><p>Prevents rust, corrosion, electrolysis &amp; ionization</p></div>
+          <div class="feature-card"><p>All rust/electrolysis/corrosion areas fully encapsulated</p></div>
+          <div class="feature-card"><p>No degradation with oil, fuels, or contaminants</p></div>
+          <div class="feature-card"><p>Anti-fouling incorporated — no zincs required</p></div>
+          <div class="feature-card"><p>Roof becomes functional storage/work space</p></div>
+          <div class="feature-card"><p>Reinforcement fiber provides ballistic barrier</p></div>
+          <div class="feature-card"><p>USA Manufactured</p></div>
+          <div class="feature-card"><p>300 Green — cradle to grave sustainable</p></div>
+        </div>
+
+        <div class="result-callout" style="margin-top:2rem;">
+          <div class="rc-label">Compliance</div>
+          <p>Odorless. Complies with CA EPA and ASMD standards. Applied without spray booth — while the vessel remains in the water. Zero VOC emissions throughout the application process.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       CASE STUDY: SEAL HEALING — FUEL TANKS
+  ═══════════════════════════════════════════════════════ -->
+  <section class="enrich-section" id="seal-healing">
+    <div class="container">
+      <div class="section-label reveal">Case Study</div>
+      <h2 class="reveal">Seal Healing — Theis Tekton Used to Coat Fuel Tanks</h2>
+      <p class="enrich-intro reveal">Maritime vessels operating in hostile environments faced a critical vulnerability: ammunition breaching fuel tanks, rendering vessels unable to operate, communicate, or reach their destination. Theis Tekton was deployed to solve an unsolvable problem.</p>
+
+      <div class="case-study-block reveal">
+        <h3>Self-Sealing Fuel Tank Coating</h3>
+        <span class="cs-subtitle">From Vulnerability to Invulnerability</span>
+
+        <p><strong style="color:#f5ecd6;">The Challenge:</strong> Maritime vessels under attack — ammunition would breach fuel tanks, causing catastrophic fuel loss. Without fuel, the vessel couldn't operate, communicate, or arrive at its destination.</p>
+
+        <p><strong style="color:#f5ecd6;">The Solution:</strong> Theis Tekton was applied to coat the fuel tanks. The system performed so successfully that fuel tanks were regularly incorporated into the maintenance process as a standard protective measure.</p>
+
+        <p><strong style="color:#f5ecd6;">The Result:</strong> During subsequent operations, ammunition breached the coated tanks — but the tanks immediately self-healed. Fuel was contained. The system remained fully operational. Communication continued. The vessel reached its destination.</p>
+
+        <div class="result-callout">
+          <div class="rc-label">Outcome</div>
+          <p>Tanks breached — and immediately healed. Fuel contained and available for use. Communication continued. Vessel operational. No mission compromise. A coating system that delivered when it mattered most.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       CASE STUDY: PORT OF LOS ANGELES
+  ═══════════════════════════════════════════════════════ -->
+  <section class="enrich-section" id="port-of-la">
+    <div class="container">
+      <div class="section-label reveal">Case Study</div>
+      <h2 class="reveal">Port of Los Angeles — Spill Containment &amp; Rail Integration</h2>
+      <p class="enrich-intro reveal">One of America's busiest ports faced a compounding problem: contaminated containment infrastructure, failing adhesion to drainage systems, and no commercially available solution. Theis Industries stepped in and solved it.</p>
+
+      <div class="port-cs-grid">
+        <div class="port-cs-side reveal">
+          <h4>The Problem</h4>
+          <p>Rail lines at the Port of Long Beach use oil spill pans to protect soil and water tables from petroleum contamination. Relatively new fiberglass pans became so saturated with petroleum they could no longer function as effective containment.</p>
+          <p>When new drain installations went in, contractors discovered they couldn't secure the pan to the drainage system — standard adhesives and sealants refused to bond to the oil-saturated fiberglass surface.</p>
+          <p>The contamination problem was compounding — pans failing, seals failing, no available solution on the market.</p>
+        </div>
+        <div class="port-cs-side reveal">
+          <h4>The Theis Solution</h4>
+          <p>Theis Industries developed a specialized formulation to patch damaged pans and secure pipe to pan — ensuring proper adhesion despite complete oil saturation of the substrate.</p>
+          <p>No other product on the market could achieve this. The Tekton-based formulation bonded effectively to the contaminated fiberglass surface, restoring the spill containment functionality of the pans and providing a leak-free seal at pipe connections.</p>
+          <div class="result-callout" style="margin-top:1rem;">
+            <div class="rc-label">Result</div>
+            <p>Port of LA / Long Beach now uses Theis Industries for many projects across the port complex. A trusted, proven relationship built on solving what others couldn't.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <section style="background:#0a0806; padding:0 0 5rem;">
+    <div class="container">
+      <div class="stats-bar reveal">
+        <div class="stat-cell">
+          <span class="stat-cell-val">Zero VOC</span>
+          <span class="stat-cell-label">Complies with CA EPA &amp; ASMD</span>
+        </div>
+        <div class="stat-cell">
+          <span class="stat-cell-val">In-Water</span>
+          <span class="stat-cell-label">No dry-dock required</span>
+        </div>
+        <div class="stat-cell">
+          <span class="stat-cell-val">Self-Seal</span>
+          <span class="stat-cell-label">Fuel tank coating technology</span>
+        </div>
+        <div class="stat-cell">
+          <span class="stat-cell-val">100%</span>
+          <span class="stat-cell-label">Encapsulates rust &amp; electrolysis</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- TEKTON ADVANTAGE -->
   <section class="spoke-tekton">
     <div class="container spoke-tekton-inner">
@@ -197,7 +520,7 @@
       <p class="reveal">Contact Theis Industries to discuss products, pricing, licensing, or partnership for the Theis Maritime division.</p>
       <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
         <a href="contact.html" class="btn-primary btn-large">Start the Conversation</a>
-        <a href="index.html#divisions" class="btn-secondary btn-large">View All Divisions</a>
+        <a href="tel:7142968369" class="btn-secondary btn-large">(714) 296-8369</a>
       </div>
     </div>
   </section>

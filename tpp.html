@@ -11,6 +11,240 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <script src="icons.js" defer></script>
   <script src="main.js" defer></script>
+  <style>
+    /* ── TPP enrichment styles ── */
+    .enrich-section {
+      padding: 5rem 0;
+    }
+    .enrich-section:nth-child(odd) {
+      background: #110d08;
+    }
+    .enrich-section:nth-child(even) {
+      background: #0a0806;
+    }
+
+    .enrich-intro {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      line-height: 1.85;
+      color: #9c8b6d;
+      max-width: 740px;
+      margin-bottom: 2.5rem;
+    }
+
+    /* Railroad opportunities 4-column grid */
+    .rail-opp-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(212,175,55,0.15);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 2.5rem;
+    }
+    .rail-opp-card {
+      background: #1a130b;
+      padding: 2rem 1.5rem;
+      position: relative;
+    }
+    .rail-opp-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #a8861f, #d4af37);
+    }
+    .rail-opp-num {
+      font-family: 'Cinzel', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: rgba(212,175,55,0.2);
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+    .rail-opp-card h3 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #d4af37;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .rail-opp-card p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      color: #9c8b6d;
+      line-height: 1.7;
+      margin-bottom: 0.75rem;
+    }
+    .rail-opp-card p:last-child { margin-bottom: 0; }
+    .rail-opp-highlight {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #f5ecd6;
+      background: rgba(212,175,55,0.08);
+      border: 1px solid rgba(212,175,55,0.2);
+      border-radius: 3px;
+      padding: 0.4rem 0.7rem;
+      display: inline-block;
+      margin-top: 0.5rem;
+    }
+
+    /* Comparison table */
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+      font-family: 'Inter', sans-serif;
+    }
+    .comparison-table thead th {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #9c8b6d;
+      padding: 0.75rem 1.25rem;
+      background: #0a0806;
+      border-bottom: 1px solid rgba(212,175,55,0.2);
+      text-align: left;
+    }
+    .comparison-table thead th.winner {
+      color: #d4af37;
+      background: #1a130b;
+    }
+    .comparison-table tbody tr {
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .comparison-table tbody tr:hover {
+      background: rgba(212,175,55,0.04);
+    }
+    .comparison-table tbody td {
+      padding: 0.85rem 1.25rem;
+      font-size: 0.88rem;
+      color: #9c8b6d;
+    }
+    .comparison-table tbody td:first-child {
+      color: #f5ecd6;
+      font-weight: 500;
+    }
+    .comparison-table tbody td.winner-cell {
+      color: #f5ecd6;
+      background: rgba(212,175,55,0.06);
+    }
+    .check { color: #d4af37; }
+    .cross { color: #6b5a45; }
+
+    /* Case study block */
+    .case-study-block {
+      background: #1a130b;
+      border: 1px solid rgba(212,175,55,0.18);
+      border-radius: 4px;
+      padding: 3rem;
+      margin-top: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .case-study-block::after {
+      content: 'CASE STUDY';
+      position: absolute;
+      top: 1.5rem; right: 1.5rem;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: rgba(212,175,55,0.35);
+    }
+    .case-study-block h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #f5ecd6;
+      margin-bottom: 0.5rem;
+    }
+    .case-study-block .cs-subtitle {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #d4af37;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+    .case-study-block p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.92rem;
+      color: #9c8b6d;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    .case-study-block p:last-child { margin-bottom: 0; }
+
+    /* Result callout */
+    .result-callout {
+      background: rgba(212,175,55,0.07);
+      border-left: 3px solid #d4af37;
+      padding: 1.25rem 1.5rem;
+      margin-top: 1.5rem;
+      border-radius: 0 4px 4px 0;
+    }
+    .result-callout .rc-label {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #d4af37;
+      margin-bottom: 0.5rem;
+    }
+    .result-callout p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.92rem;
+      color: #f5ecd6;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* Quote block */
+    .quote-block {
+      border-left: 3px solid #d4af37;
+      padding: 1.25rem 1.75rem;
+      margin: 1.5rem 0;
+      background: rgba(212,175,55,0.04);
+    }
+    .quote-block p {
+      font-family: 'Inter', sans-serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: #f5ecd6;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* Video note */
+    .video-note {
+      background: #110d08;
+      border: 1px solid rgba(212,175,55,0.12);
+      border-radius: 4px;
+      padding: 1.25rem 1.5rem;
+      margin-top: 1.5rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      color: #9c8b6d;
+      line-height: 1.6;
+    }
+    .video-note strong { color: #d4af37; }
+
+    @media (max-width: 900px) {
+      .rail-opp-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .rail-opp-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
   <div id="page-overlay"></div>
@@ -121,6 +355,146 @@
     </div>
   </section>
 
+  <!-- ═══════════════════════════════════════════════════════
+       RAILROAD OPPORTUNITIES
+  ═══════════════════════════════════════════════════════ -->
+  <section class="enrich-section" id="railroad">
+    <div class="container">
+      <div class="section-label reveal">Railroad Opportunities</div>
+      <h2 class="reveal">Four High-Value Areas in the Rail Sector</h2>
+      <p class="enrich-intro reveal">The railroad industry presents significant, underserved opportunities for Theis Industries across four distinct categories. Each represents a clear competitive advantage — backed by Tekton chemistry — in a market where incumbent solutions are expensive, inadequate, or both.</p>
+
+      <div class="rail-opp-grid">
+        <!-- 1: Fastener Restoration -->
+        <div class="rail-opp-card reveal">
+          <div class="rail-opp-num">01</div>
+          <h3>Fastener Restoration</h3>
+          <p>SpikeFast — the incumbent fastener restoration product — sells for approximately $120/gallon. Its patent has expired.</p>
+          <p>Theis can manufacture the equivalent product for $60/gallon and bring it to market under a new brand at a significant discount — while maintaining strong margin.</p>
+          <span class="rail-opp-highlight">$60/gal cost vs. $120/gal incumbent</span>
+        </div>
+
+        <!-- 2: Spill Containment -->
+        <div class="rail-opp-card reveal">
+          <div class="rail-opp-num">02</div>
+          <h3>Spill Containment</h3>
+          <p>Railroads use hydrocarbons, solvents, caustics, acids, and heavy metals — all of which degrade costly spill containment systems and leach through into the ground.</p>
+          <p>Competitor PolyStar allows hydrocarbons to leach through fiberglass. Can't be repaired. Requires full replacement.</p>
+          <p>Theis Tekton system: $12/sq ft applied cost, sells for $25+/sq ft. Fully waterproof, return to service in hours.</p>
+          <span class="rail-opp-highlight">$12 cost vs. $45 PolyStar vs. $70 Concrete</span>
+        </div>
+
+        <!-- 3: Industrial Coatings -->
+        <div class="rail-opp-card reveal">
+          <div class="rail-opp-num">03</div>
+          <h3>Industrial Coatings</h3>
+          <p>The same waterproofing system proven in construction delivers 50%+ profit margins in rail yards. Applied cost ~$12/sq ft — saleable at $25+/sq ft.</p>
+          <p>Markets: Rail, municipalities, oil &amp; gas, manufacturing, and industrial facilities along rail corridors.</p>
+          <span class="rail-opp-highlight">50%+ profit margins</span>
+        </div>
+
+        <!-- 4: Water Filtration -->
+        <div class="rail-opp-card reveal">
+          <div class="rail-opp-num">04</div>
+          <h3>Water Filtration</h3>
+          <p>Heavy metals, hydrocarbons, and other contaminants are endemic in rail yards. Regulatory compliance requires removing the most difficult contaminants from water discharge.</p>
+          <p>Theis supplies complete water filtration systems engineered to remove these contaminants — a natural extension of the spill containment solution.</p>
+          <span class="rail-opp-highlight">Regulatory compliance systems</span>
+        </div>
+      </div>
+
+      <!-- Spill containment comparison table -->
+      <div class="reveal" style="margin-top:3rem;">
+        <div class="section-label" style="margin-bottom:0.75rem;">Spill Containment — Cost Comparison</div>
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Criterion</th>
+              <th class="winner">Theis Tekton™</th>
+              <th>PolyStar (Fiberglass)</th>
+              <th>Concrete Replacement</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Cost per sq ft</td>
+              <td class="winner-cell">~$12 (sells $25+)</td>
+              <td>~$45/sq ft</td>
+              <td>~$70/sq ft</td>
+            </tr>
+            <tr>
+              <td>Truly waterproof</td>
+              <td class="winner-cell"><span class="check">✔</span> Yes</td>
+              <td><span class="cross">✖</span> Hydrocarbons leach through</td>
+              <td><span class="cross">✖</span> Porous — degrades</td>
+            </tr>
+            <tr>
+              <td>Repairable</td>
+              <td class="winner-cell"><span class="check">✔</span> Yes</td>
+              <td><span class="cross">✖</span> Cannot be repaired</td>
+              <td><span class="cross">✖</span> Costly replacement</td>
+            </tr>
+            <tr>
+              <td>Return to service</td>
+              <td class="winner-cell">Hours</td>
+              <td>Extended downtime</td>
+              <td>Days to weeks</td>
+            </tr>
+            <tr>
+              <td>Works on contaminated substrate</td>
+              <td class="winner-cell"><span class="check">✔</span> Yes</td>
+              <td><span class="cross">✖</span> No</td>
+              <td>N/A — full replacement</td>
+            </tr>
+            <tr>
+              <td>Profit margin</td>
+              <td class="winner-cell">50%+</td>
+              <td>Lower — high material cost</td>
+              <td>Lower — labor intensive</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="video-note reveal">
+        <strong>Field Evidence:</strong> Video documentation shows Jason kneeling on an upside-down PolyStar Spill Containment Pan. Oil saturation is visible on both adjacent pans and the underside of the pan itself. The contamination is not only leaching through — contaminated material is blowing past pipe connections directly into the ground. Theis Tekton eliminates this failure mode entirely.
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       CASE STUDY: THE $20 LOCOMOTIVE
+  ═══════════════════════════════════════════════════════ -->
+  <section class="enrich-section" id="locomotive">
+    <div class="container">
+      <div class="section-label reveal">Case Study</div>
+      <h2 class="reveal">The #20 Locomotive</h2>
+      <p class="enrich-intro reveal">A real-world stress test no lab could replicate — and a result no conventional coating could survive.</p>
+
+      <div class="case-study-block reveal">
+        <h3>The $20 Locomotive</h3>
+        <span class="cs-subtitle">Proven Under Extreme Real-World Conditions</span>
+
+        <p>A rail line engaged Theis Industries for multiple projects. During one engagement, the #20 Locomotive was coated with Theis Tekton on the front cow catcher and front nose of the locomotive — primarily to maintain a clean, professional appearance for longer than standard paint or coatings could deliver.</p>
+
+        <p>What happened next was unplanned, unscripted, and unambiguous.</p>
+
+        <p>The #20 Locomotive was hijacked. Driven off the tracks. Sent through concrete barriers and steel fencing. When the chaos settled and the dust cleared, the investigating team realized — the locomotive involved was the one previously coated with Theis Tekton for testing.</p>
+
+        <p>Upon inspection of the coated surfaces: absolutely no signs of damage. After being dusted off, the coating looked as good as the day it was applied.</p>
+
+        <div class="quote-block">
+          <p>"No Damage. Looked as good as new. Experienced way more damaging activity than usual and came out clean."</p>
+        </div>
+
+        <div class="result-callout">
+          <div class="rc-label">Result</div>
+          <p>Driven off rails. Through concrete barriers. Through steel fencing. Zero coating damage. The Theis Tekton system performed beyond any reasonable test parameter — and proved its value in the most definitive way possible.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- TEKTON ADVANTAGE -->
   <section class="spoke-tekton">
     <div class="container spoke-tekton-inner">
@@ -147,6 +521,13 @@
         <div class="spoke-market-item reveal">
           <span class="spoke-market-icon">◆</span>
           <div>
+            <h4>Railroad &amp; Rail Infrastructure</h4>
+            <p>Class I railroads and short-line operators requiring fastener restoration, spill containment, industrial coatings, and water filtration systems — with Tekton delivering 50%+ margin at $12/sq ft applied cost vs. $45–70/sq ft for alternatives.</p>
+          </div>
+        </div>
+        <div class="spoke-market-item reveal">
+          <span class="spoke-market-icon">◆</span>
+          <div>
             <h4>Electric Utilities</h4>
             <p>Investor-owned utilities, rural electric cooperatives, and municipal power providers requiring transmission and distribution poles with dramatically extended service life and reduced maintenance cost.</p>
           </div>
@@ -163,13 +544,6 @@
           <div>
             <h4>Municipalities &amp; Water Districts</h4>
             <p>City and county governments, water authorities, and public works departments procuring Tekton-enhanced pipes and poles for water, sewer, and civil infrastructure capital programs.</p>
-          </div>
-        </div>
-        <div class="spoke-market-item reveal">
-          <span class="spoke-market-icon">◆</span>
-          <div>
-            <h4>Coastal &amp; Marine Infrastructure</h4>
-            <p>Port authorities, marina operators, coastal highway agencies, and offshore platform operators requiring poles, piles, and pipe systems that survive salt, tidal, and marine biological attack.</p>
           </div>
         </div>
         <div class="spoke-market-item reveal">
@@ -197,7 +571,7 @@
       <p class="reveal">Contact Theis Industries to discuss products, pricing, licensing, or partnership for the Tekton Pole &amp; Pipe division.</p>
       <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
         <a href="contact.html" class="btn-primary btn-large">Start the Conversation</a>
-        <a href="index.html#divisions" class="btn-secondary btn-large">View All Divisions</a>
+        <a href="tel:7142968369" class="btn-secondary btn-large">(714) 296-8369</a>
       </div>
     </div>
   </section>

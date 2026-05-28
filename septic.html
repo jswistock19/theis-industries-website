@@ -11,6 +11,327 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <script src="icons.js" defer></script>
   <script src="main.js" defer></script>
+  <style>
+    /* ── Septic enrichment styles ── */
+    .enrich-section {
+      padding: 5rem 0;
+    }
+    .enrich-section:nth-child(odd) {
+      background: #110d08;
+    }
+    .enrich-section:nth-child(even) {
+      background: #0a0806;
+    }
+
+    .enrich-intro {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      line-height: 1.85;
+      color: #9c8b6d;
+      max-width: 740px;
+      margin-bottom: 2.5rem;
+    }
+
+    /* Parresia hero callout */
+    .parresia-hero {
+      background: linear-gradient(135deg, #1a130b 0%, #110d08 100%);
+      border: 1px solid rgba(212,175,55,0.25);
+      border-radius: 4px;
+      padding: 3rem;
+      margin-bottom: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .parresia-hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #a8861f, #d4af37, #f4d27a);
+    }
+    .parresia-eyebrow {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #d4af37;
+      margin-bottom: 0.5rem;
+    }
+    .parresia-hero h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #f5ecd6;
+      margin-bottom: 0.4rem;
+      line-height: 1.2;
+    }
+    .parresia-hero .tagline {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #d4af37;
+      letter-spacing: 0.06em;
+      margin-bottom: 1.5rem;
+    }
+    .parresia-hero p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.92rem;
+      color: #9c8b6d;
+      line-height: 1.8;
+      max-width: 700px;
+    }
+
+    /* Unimog spec grid */
+    .unimog-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+    .unimog-specs {
+      background: #1a130b;
+      border: 1px solid rgba(212,175,55,0.15);
+      border-radius: 4px;
+      padding: 2rem;
+    }
+    .unimog-specs h4 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #d4af37;
+      margin-bottom: 1.25rem;
+    }
+    .spec-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      gap: 1rem;
+    }
+    .spec-row:last-child { border-bottom: none; }
+    .spec-label {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #9c8b6d;
+      flex-shrink: 0;
+    }
+    .spec-value {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      color: #f5ecd6;
+      text-align: right;
+    }
+    .unimog-applications {
+      background: #110d08;
+      border: 1px solid rgba(212,175,55,0.1);
+      border-radius: 4px;
+      padding: 2rem;
+    }
+    .unimog-applications h4 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #d4af37;
+      margin-bottom: 1.25rem;
+    }
+    .app-tag {
+      display: inline-block;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #d4af37;
+      border: 1px solid rgba(212,175,55,0.3);
+      border-radius: 2px;
+      padding: 0.3rem 0.7rem;
+      margin: 0.25rem 0.25rem 0.25rem 0;
+      background: rgba(212,175,55,0.05);
+    }
+    .unimog-applications p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      color: #9c8b6d;
+      line-height: 1.7;
+      margin-top: 1.25rem;
+    }
+
+    /* System components */
+    .system-components {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .component-card {
+      background: #1a130b;
+      border: 1px solid rgba(212,175,55,0.12);
+      border-radius: 4px;
+      padding: 1.5rem;
+      text-align: center;
+      position: relative;
+    }
+    .component-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #a8861f, #d4af37);
+    }
+    .component-icon {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: #d4af37;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .component-card p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      color: #f5ecd6;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* Investment block */
+    .investment-block {
+      background: rgba(212,175,55,0.06);
+      border: 1px solid rgba(212,175,55,0.25);
+      border-radius: 4px;
+      padding: 2rem;
+      margin-top: 2rem;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    .invest-amount {
+      text-align: center;
+    }
+    .invest-val {
+      font-family: 'Cinzel', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #d4af37;
+      display: block;
+      line-height: 1;
+    }
+    .invest-label {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #9c8b6d;
+      margin-top: 0.4rem;
+    }
+    .invest-desc {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: #9c8b6d;
+      line-height: 1.75;
+    }
+    .invest-desc strong { color: #f5ecd6; }
+
+    /* Survivor steps */
+    .survivor-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(212,175,55,0.15);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 2rem;
+    }
+    .survivor-step {
+      background: #1a130b;
+      padding: 2rem;
+      position: relative;
+    }
+    .step-num {
+      font-family: 'Cinzel', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: rgba(212,175,55,0.2);
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+    .step-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #d4af37;
+      margin-bottom: 0.75rem;
+    }
+    .survivor-step p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      color: #9c8b6d;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* Survivor hero callout */
+    .survivor-hero {
+      background: linear-gradient(135deg, #221810 0%, #1a130b 100%);
+      border: 1px solid rgba(212,175,55,0.2);
+      border-radius: 4px;
+      padding: 3rem;
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+    .survivor-hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #d4af37, #f4d27a, #d4af37);
+    }
+    .survivor-hero h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #f5ecd6;
+      margin-bottom: 0.4rem;
+    }
+    .survivor-hero .survivor-tagline {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #d4af37;
+      margin-bottom: 1.5rem;
+    }
+    .survivor-hero p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.92rem;
+      color: #9c8b6d;
+      line-height: 1.8;
+      max-width: 680px;
+    }
+
+    @media (max-width: 768px) {
+      .unimog-grid,
+      .investment-block { grid-template-columns: 1fr; }
+      .system-components,
+      .survivor-steps { grid-template-columns: 1fr; }
+      .invest-amount { text-align: left; }
+    }
+  </style>
 </head>
 <body>
   <div id="page-overlay"></div>
@@ -121,6 +442,150 @@
     </div>
   </section>
 
+  <!-- ═══════════════════════════════════════════════════════
+       PARRESIA CORPORATION — CLEAN WATER SYSTEMS
+  ═══════════════════════════════════════════════════════ -->
+  <section class="enrich-section" id="parresia">
+    <div class="container">
+      <div class="section-label reveal">Partner Technology</div>
+      <h2 class="reveal">Parresia Corporation Clean Water Systems</h2>
+
+      <div class="parresia-hero reveal">
+        <div class="parresia-eyebrow">Parresia Corporation — In Partnership with Theis Industries</div>
+        <h3>REAL. CLEAN. TECHNOLOGY.</h3>
+        <div class="tagline">Transforming the world's most contaminated water into potable drinking water</div>
+        <p>Water is the world's most precious commodity. In disaster relief areas and refugee war zones, transforming dirty and contaminated water into safe, potable drinking water is not optional — it is a matter of survival. The Parresia Clean Water System was built for exactly this.</p>
+      </div>
+
+      <div class="unimog-grid">
+        <div class="unimog-specs reveal">
+          <h4>System Specifications — Mercedes Unimog U4000</h4>
+          <div class="spec-row">
+            <span class="spec-label">Output Capacity</span>
+            <span class="spec-value">Up to 500 gallons/day potable water</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">Vehicle Platform</span>
+            <span class="spec-value">Mercedes Unimog U4000</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">Tank Capacity</span>
+            <span class="spec-value">500-gallon receiving tank</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">Treatment Stages</span>
+            <span class="spec-value">Single-stage multi-technology</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">Portability</span>
+            <span class="spec-value">Can be palletized for rapid transfer</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">Ballistic/Blast Option</span>
+            <span class="spec-value">+$750k protection package</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">Operational Prototype</span>
+            <span class="spec-value">$1.25M USD</span>
+          </div>
+        </div>
+
+        <div class="unimog-applications reveal">
+          <h4>Applications — Can Be Deployed Anywhere</h4>
+          <div>
+            <span class="app-tag">Disaster Relief</span>
+            <span class="app-tag">Military</span>
+            <span class="app-tag">Emergency Response</span>
+            <span class="app-tag">Remote Areas</span>
+            <span class="app-tag">War Zones</span>
+            <span class="app-tag">Third World</span>
+            <span class="app-tag">Drought Relief</span>
+            <span class="app-tag">Refugee Camps</span>
+            <span class="app-tag">Humanitarian Aid</span>
+          </div>
+          <p>Systems can be customized to address the risk profile of any known hazards in the target area — without limitations. Including all forms of chemical and biological warfare agents. The vehicle can be driven directly into a body of water for intake — no infrastructure required.</p>
+        </div>
+      </div>
+
+      <!-- Single-stage treatment system -->
+      <div class="reveal" style="margin-top:3rem;">
+        <div class="section-label" style="margin-bottom:1rem;">Single-Stage Treatment System — Integrated Components</div>
+        <div class="system-components">
+          <div class="component-card">
+            <div class="component-icon">Component 01</div>
+            <p>Ultraviolet Lights — pathogen elimination</p>
+          </div>
+          <div class="component-card">
+            <div class="component-icon">Component 02</div>
+            <p>Ozone, Oxygen &amp; Nitrogen Generators</p>
+          </div>
+          <div class="component-card">
+            <div class="component-icon">Component 03</div>
+            <p>Organic Filters — refillable with local natural habitat materials</p>
+          </div>
+          <div class="component-card">
+            <div class="component-icon">Component 04</div>
+            <p>Independent State of the Art Power Source</p>
+          </div>
+          <div class="component-card">
+            <div class="component-icon">Component 05</div>
+            <p>On Board Testing Lab — real-time water quality verification</p>
+          </div>
+          <div class="component-card">
+            <div class="component-icon">Component 06</div>
+            <p>Ballistic/Blast Protection Package — optional for volatile environments</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       SURVIVOR'S FLAME
+  ═══════════════════════════════════════════════════════ -->
+  <section class="enrich-section" id="survivors-flame">
+    <div class="container">
+      <div class="section-label reveal">Partner Technology</div>
+      <h2 class="reveal">Survivor's Flame</h2>
+
+      <div class="survivor-hero reveal">
+        <h3>Survivor's Flame</h3>
+        <div class="survivor-tagline">Presented by Parresia Corporation — REAL. CLEAN. TECHNOLOGY.</div>
+        <p>Revolutionary survival technology delivering cooking, warmth, clean water, and first aid capability — while remaining discreet, lightweight, and functional in the most extreme circumstances imaginable. Tested. Proven. Ready for the world.</p>
+      </div>
+
+      <p class="enrich-intro reveal">The material has been discovered, tested, and proven in real-world conditions. The path to market is clearly defined — three steps stand between the current proven prototype and full commercial production.</p>
+
+      <div class="survivor-steps reveal">
+        <div class="survivor-step">
+          <div class="step-num">01</div>
+          <div class="step-title">Finalize Production Package</div>
+          <p>Material discovered, tested, and proven in real world conditions. Final formulation requires documentation and systematization for consistent, repeatable manufacturing at commercial scale.</p>
+        </div>
+        <div class="survivor-step">
+          <div class="step-num">02</div>
+          <div class="step-title">Third-Party Testing — Product</div>
+          <p>Independent third-party testing to validate all internal testing results. Provides credibility, regulatory pathway, and commercial confidence to buyers and distributors.</p>
+        </div>
+        <div class="survivor-step">
+          <div class="step-num">03</div>
+          <div class="step-title">Third-Party Testing — Packaging</div>
+          <p>Validate packaging for safe transport under all conditions — ensuring the product reaches end users intact regardless of shipping, storage, or environmental exposure during transit.</p>
+        </div>
+      </div>
+
+      <div class="investment-block reveal">
+        <div class="invest-amount">
+          <span class="invest-val">$250k</span>
+          <div class="invest-label">Investment</div>
+        </div>
+        <div class="invest-desc">
+          <strong>Total investment required to reach commercial production: $250,000.</strong> This covers finalization of the production package, third-party product validation testing, and third-party packaging validation. The material is already proven — this investment completes the commercialization pathway. Contact Theis Industries to discuss partnership and licensing opportunities for this technology.
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- TEKTON ADVANTAGE -->
   <section class="spoke-tekton">
     <div class="container spoke-tekton-inner">
@@ -175,8 +640,8 @@
         <div class="spoke-market-item reveal">
           <span class="spoke-market-icon">◆</span>
           <div>
-            <h4>Construction &amp; Development Projects</h4>
-            <p>Residential and commercial developers, general contractors, and land developers specifying septic systems for new construction where long-term performance is a differentiating selling point and warranty liability consideration.</p>
+            <h4>Disaster Relief &amp; Emergency Deployment</h4>
+            <p>Government agencies, NGOs, and relief organizations requiring mobile clean water and sanitation systems deployable in disaster zones, refugee camps, and remote areas — served by the Parresia Corporation Clean Water System.</p>
           </div>
         </div>
         <div class="spoke-market-item reveal">
@@ -194,10 +659,10 @@
   <section id="cta">
     <div class="container cta-inner">
       <h2 class="reveal">Ready to Explore Theis Septic?</h2>
-      <p class="reveal">Contact Theis Industries to discuss products, pricing, licensing, or partnership for the Theis Septic division.</p>
+      <p class="reveal">Contact Theis Industries to discuss products, pricing, licensing, or partnership for the Theis Septic division — including Parresia Corporation clean water technology.</p>
       <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
         <a href="contact.html" class="btn-primary btn-large">Start the Conversation</a>
-        <a href="index.html#divisions" class="btn-secondary btn-large">View All Divisions</a>
+        <a href="tel:7142968369" class="btn-secondary btn-large">(714) 296-8369</a>
       </div>
     </div>
   </section>
