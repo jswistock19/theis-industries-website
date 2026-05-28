@@ -3,152 +3,210 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Us — THEIS INDUSTRIES INC.</title>
+  <title>Contact Us — Theis Industries Inc.</title>
+  <meta name="description" content="Contact Theis Industries Inc. — inquire about Theis Tekton™, licensing, partnerships, contract manufacturing, DoD engagements, and custom engineering programs." />
   <link rel="stylesheet" href="style.css" />
-  <meta name="description" content="Contact Theis Industries Inc. — inquire about Theis Tekton™, licensing, partnerships, contract manufacturing, DoD engagements, and custom engineering programs.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="icons.js" defer></script>
+  <script src="main.js" defer></script>
 </head>
 <body>
-  <nav id="navbar">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo">THEIS <span>INDUSTRIES</span></a>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="index.html#capabilities">Capabilities</a></li>
-        <li><a href="industries.html">Industries</a></li>
-        <li><a href="index.html#tekton">Theis Tekton</a></li>
-        <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
-      </ul>
-      <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
-    </div>
-  </nav>
-  <section id="contact-hero">
-    <div class="container">
-      <div class="section-label">Get In Touch</div>
-      <h1>Contact Theis Industries</h1>
-      <p class="section-sub">Ready to solve the impossible? Tell us your challenge and we'll tell you how we can help.</p>
-    </div>
-  </section>
-  <section id="contact-form-section">
-    <div class="container contact-grid">
-      <div class="contact-info">
-        <h3>What We Offer</h3>
-        <ul class="contact-offer-list">
-          <li>Technology Sale &amp; Licensing</li>
-          <li>R&amp;D Partnerships</li>
-          <li>Contract Manufacturing</li>
-          <li>Consulting &amp; Expert Engineering</li>
-          <li>Custom Formulation &amp; Development</li>
-          <li>Government &amp; DoD Engagements</li>
-        </ul>
-        <div class="contact-promise">
-          <p>"We shine best when dreams are big but the mission seems impossible."</p>
-        </div>
 
-        <div class="contact-direct">
-          <h4>Direct Contact</h4>
-          <div class="contact-direct-item">
-            <span class="ico">✉</span>
-            <span class="text"><a href="mailto:contact@theis.solutions">contact@theis.solutions</a></span>
+<div id="page-overlay"></div>
+<div id="cursor-dot"></div>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">THEIS <span>INDUSTRIES</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="index.html#capabilities" class="same-page-cap">Capabilities</a></li>
+      <li class="nav-dropdown">
+        <a href="#" class="nav-dropdown-trigger">Divisions <span class="dropdown-arrow">▾</span></a>
+        <ul class="dropdown-menu">
+          <li><a href="tpp.html">Tekton Pole &amp; Pipe (TPP)</a></li>
+          <li><a href="xtt.html">Xtreme Transport (XTT)</a></li>
+          <li><a href="construction.html">Theis Construction</a></li>
+          <li><a href="defense.html">Theis Defense (Alviz)</a></li>
+          <li><a href="energy.html">Theis Energy</a></li>
+          <li><a href="maritime.html">Theis Maritime</a></li>
+          <li><a href="septic.html">Theis Septic</a></li>
+          <li><a href="molding.html">Theis Molding</a></li>
+          <li><a href="auto.html">Theis Auto</a></li>
+        </ul>
+      </li>
+      <li><a href="industries.html">Industries</a></li>
+      <li><a href="about.html#patents">Patents</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+  </div>
+</nav>
+
+<!-- CONTACT HERO -->
+<section id="contact-hero">
+  <div class="container">
+    <div class="section-label reveal">Get In Touch</div>
+    <h1 class="reveal">Start the Conversation</h1>
+    <p class="section-sub reveal">Whether you have a defined problem, a rough concept, or just know something isn't working — we want to hear from you. Theis Industries handles projects of all scales, from initial inquiry to full production contracts.</p>
+  </div>
+</section>
+
+<!-- CONTACT BODY -->
+<section id="contact-body">
+  <div class="container contact-grid">
+
+    <!-- FORM COLUMN -->
+    <div class="contact-form-col">
+      <h2 class="reveal">Send an Inquiry</h2>
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-field reveal">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" name="name" required placeholder="Your full name">
           </div>
-          <div class="contact-direct-item">
-            <span class="ico" data-icon="diamond"></span>
-            <span class="text">DoD &amp; Prime Contractor inquiries welcome — NDA available on request.</span>
-          </div>
-          <div class="contact-direct-item">
-            <span class="ico" data-icon="diamond"></span>
-            <span class="text">Headquartered in the United States. International partners worldwide.</span>
-          </div>
-          <div class="contact-direct-item">
-            <span class="ico" data-icon="diamond"></span>
-            <span class="text">Typical response: 1–2 business days for verified inquiries.</span>
+          <div class="form-field reveal">
+            <label for="org">Organization</label>
+            <input type="text" id="org" name="org" placeholder="Company or agency">
           </div>
         </div>
+        <div class="form-row">
+          <div class="form-field reveal">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required placeholder="you@organization.com">
+          </div>
+          <div class="form-field reveal">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="+1 (000) 000-0000">
+          </div>
+        </div>
+        <div class="form-field reveal">
+          <label for="interest">Area of Interest *</label>
+          <select id="interest" name="interest" required>
+            <option value="">Select an area...</option>
+            <option>Theis Tekton™ / Liquid Kevlar™</option>
+            <option>Defense &amp; Ballistics</option>
+            <option>Body Armor</option>
+            <option>Vehicle Armor</option>
+            <option>Marine &amp; Subsea</option>
+            <option>Aerospace</option>
+            <option>Energy &amp; Pipeline</option>
+            <option>Industrial Coatings</option>
+            <option>IP Licensing</option>
+            <option>Partnership / Joint Venture</option>
+            <option>Contract Manufacturing</option>
+            <option>R&amp;D Consulting</option>
+            <option>Government / DoD Contract</option>
+            <option>Investor Relations</option>
+            <option>Division Inquiry (TPP, XTT, etc.)</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-field reveal">
+          <label for="message">Message *</label>
+          <textarea id="message" name="message" required rows="6" placeholder="Describe your challenge, project, or inquiry. The more detail you share, the better we can respond."></textarea>
+        </div>
+        <div class="form-field form-field-check reveal">
+          <label class="check-label">
+            <input type="checkbox" name="nda"> I'm interested in executing an NDA prior to detailed discussions
+          </label>
+        </div>
+        <button type="submit" class="btn-primary btn-large btn-submit reveal">Send Inquiry →</button>
+      </form>
+      <div id="form-success" style="display:none;" class="form-success">
+        <div class="success-icon">✓</div>
+        <h3>Message Received</h3>
+        <p>Thank you for reaching out to Theis Industries. Our team will review your inquiry and respond within 1–2 business days. For urgent matters, call <a href="tel:7142968369">(714) 296-8369</a>.</p>
       </div>
-      <div class="contact-form-wrap">
-        <form class="contact-form" onsubmit="handleSubmit(event)">
-          <div class="form-row">
-            <div class="form-group"><label>First Name <span class="req">*</span></label><input type="text" required placeholder="John" /></div>
-            <div class="form-group"><label>Last Name <span class="req">*</span></label><input type="text" required placeholder="Smith" /></div>
-          </div>
-          <div class="form-group"><label>Email Address <span class="req">*</span></label><input type="email" required placeholder="you@company.com" /></div>
-          <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="+1 (555) 000-0000" /></div>
-          <div class="form-group"><label>Company / Organization</label><input type="text" placeholder="Your Organization" /></div>
-          <div class="form-group">
-            <label>Area of Interest</label>
-            <select>
-              <option value="">Select a capability or industry...</option>
-              <optgroup label="Theis Tekton">
-                <option>Theis Tekton / Liquid Kevlar — General Inquiry</option>
-                <option>Theis Tekton — License / Partnership</option>
-              </optgroup>
-              <optgroup label="Defense">
-                <option>Body Armor</option>
-                <option>Vehicle Armor</option>
-                <option>Structural Blast Protection</option>
-                <option>Defense Coatings</option>
-              </optgroup>
-              <optgroup label="Industries">
-                <option>Aerospace &amp; Space</option>
-                <option>Marine &amp; Subsea</option>
-                <option>Energy &amp; Power</option>
-                <option>Oil, Gas &amp; Petroleum</option>
-                <option>Medical &amp; Biotech</option>
-                <option>Industrial &amp; Manufacturing</option>
-                <option>Infrastructure</option>
-              </optgroup>
-              <optgroup label="Business">
-                <option>Technology Purchase</option>
-                <option>Licensing Inquiry</option>
-                <option>Contract Manufacturing</option>
-                <option>R&amp;D Consulting</option>
-                <option>Strategic Partnership</option>
-              </optgroup>
-              <option>Other</option>
-            </select>
-          </div>
-          <div class="form-group"><label>Message <span class="req">*</span></label><textarea required rows="5" placeholder="Describe your project, challenge, or what you're looking to solve..."></textarea></div>
-          <button type="submit" class="btn-primary btn-large" style="width:100%;">Send Message</button>
-        </form>
-        <div id="form-success" style="display:none;" class="form-success">
-          <h3>Message Sent</h3>
-          <p>Thank you for reaching out to Theis Industries. We review every inquiry personally and will be in touch shortly.</p>
+    </div>
+
+    <!-- INFO COLUMN -->
+    <div class="contact-info-col reveal">
+      <div class="contact-info-card">
+        <h3>Direct Contact</h3>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Email</span>
+          <a href="mailto:contact@theis.solutions">contact@theis.solutions</a>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Phone</span>
+          <a href="tel:7142968369">(714) 296-8369</a>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Primary Contact</span>
+          <span>JTheis@theisindustries.com</span>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Headquarters</span>
+          <span>United States of America</span>
+        </div>
+      </div>
+
+      <div class="contact-info-card">
+        <h3>Engagement Options</h3>
+        <ul class="engagement-list">
+          <li><span class="engage-icon">◆</span> Outright Technology Sale</li>
+          <li><span class="engage-icon">◆</span> IP Licensing</li>
+          <li><span class="engage-icon">◆</span> Strategic Partnership</li>
+          <li><span class="engage-icon">◆</span> Contract Manufacturing</li>
+          <li><span class="engage-icon">◆</span> R&amp;D Consulting</li>
+          <li><span class="engage-icon">◆</span> Lease / Pilot Program</li>
+          <li><span class="engage-icon">◆</span> Government / DoD Contract</li>
+        </ul>
+      </div>
+
+      <div class="contact-info-card">
+        <h3>NDA Policy</h3>
+        <p>Theis Industries welcomes confidential discussions. Non-disclosure agreements are available upon request prior to any detailed technical or commercial conversations.</p>
+      </div>
+
+      <div class="contact-info-card contact-posture-card">
+        <div class="posture-badges">
+          <span class="badge">ITAR Aware</span>
+          <span class="badge">DoD Ready</span>
+          <span class="badge">SAM.gov Eligible</span>
+          <span class="badge">U.S. Manufactured</span>
         </div>
       </div>
     </div>
-  </section>
-  <footer>
-    <div class="container footer-inner">
-      <div class="footer-brand">THEIS INDUSTRIES INC.</div>
-      <p class="footer-tag">Physics. Chemistry. Engineering. — Mastering the Impossible.</p>
-      <nav class="footer-nav">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="index.html#capabilities">Capabilities</a>
-        <a href="industries.html">Industries</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-      <div class="footer-contact">
-        <div>
-          <span class="label">Inquiries</span>
-          <span class="value"><a href="mailto:contact@theis.solutions">contact@theis.solutions</a></span>
-        </div>
-        <div>
-          <span class="label">Headquarters</span>
-          <span class="value">United States of America</span>
-        </div>
-        <div>
-          <span class="label">Engagement</span>
-          <span class="value">Sale · License · Partnership · Contract Manufacturing</span>
-        </div>
-      </div>
-      <p class="footer-copy">&copy; 2026 Theis Industries Inc. All rights reserved. &nbsp;|&nbsp; Theis Tekton™ and Liquid Kevlar™ are trademarks of Theis Industries Inc.</p>
+
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-brand">THEIS INDUSTRIES INC.</div>
+    <p class="footer-tag">Physics. Chemistry. Engineering. — Mastering the Impossible.</p>
+    <nav class="footer-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="industries.html">Industries</a>
+      <a href="about.html#patents">Patents</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="footer-divisions">
+      <span class="footer-div-label">Divisions:</span>
+      <a href="tpp.html">TPP</a>
+      <a href="xtt.html">XTT</a>
+      <a href="construction.html">Construction</a>
+      <a href="defense.html">Defense</a>
+      <a href="energy.html">Energy</a>
+      <a href="maritime.html">Maritime</a>
+      <a href="septic.html">Septic</a>
+      <a href="molding.html">Molding</a>
+      <a href="auto.html">Auto</a>
     </div>
-  </footer>
-  <script src="icons.js"></script>
-  <script src="main.js"></script>
+    <div class="footer-contact">
+      <div><span class="label">Inquiries</span><span class="value"><a href="mailto:contact@theis.solutions">contact@theis.solutions</a></span></div>
+      <div><span class="label">Phone</span><span class="value"><a href="tel:7142968369">(714) 296-8369</a></span></div>
+      <div><span class="label">Headquarters</span><span class="value">United States of America</span></div>
+    </div>
+    <p class="footer-copy">&copy; 2026 Theis Industries Inc. All rights reserved. | Theis Tekton™ and Liquid Kevlar™ are trademarks of Theis Industries Inc.</p>
+  </div>
+</footer>
+
 </body>
 </html>

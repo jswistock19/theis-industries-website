@@ -3,440 +3,614 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>THEIS INDUSTRIES INC. — Mastering the Impossible</title>
-  <meta name="description" content="Theis Industries Inc. delivers proprietary defense and materials technologies including Theis Tekton (Liquid Kevlar), blast and ballistics solutions, and 38+ engineering disciplines." />
+  <title>Home — Theis Industries Inc.</title>
+  <meta name="description" content="Theis Industries Inc. delivers proprietary defense and materials technologies including Theis Tekton™ (Liquid Kevlar™), blast and ballistics solutions, and 38+ engineering disciplines." />
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="icons.js" defer></script>
+  <script src="main.js" defer></script>
 </head>
 <body>
 
-  <nav id="navbar">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo">THEIS <span>INDUSTRIES</span></a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="#capabilities">Capabilities</a></li>
-        <li><a href="industries.html">Industries</a></li>
-        <li><a href="#tekton">Theis Tekton</a></li>
-        <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
-      </ul>
-      <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
-    </div>
-  </nav>
+<div id="page-overlay"></div>
+<div id="cursor-dot"></div>
 
-  <!-- HERO -->
-  <section id="hero">
-    <div class="hero-content">
-      <p class="hero-sub">Physics &nbsp;·&nbsp; Chemistry &nbsp;·&nbsp; Engineering</p>
-      <h1>Mastering the <span>Impossible.</span></h1>
-      <p class="hero-desc">Theis Industries Inc. delivers proprietary defense and materials technologies — including <strong style="color:var(--accent-light)">Theis Tekton™ (Liquid Kevlar™)</strong>, advanced blast and ballistics systems, and 38+ engineering disciplines under one roof. Available for sale, license, partnership, and ongoing production.</p>
-      <div class="hero-btns">
-        <a href="#tekton" class="btn-primary">Discover Theis Tekton</a>
-        <a href="contact.html" class="btn-secondary">Work With Us</a>
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">THEIS <span>INDUSTRIES</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="#capabilities" class="same-page-cap">Capabilities</a></li>
+      <li class="nav-dropdown">
+        <a href="#" class="nav-dropdown-trigger">Divisions <span class="dropdown-arrow">▾</span></a>
+        <ul class="dropdown-menu">
+          <li><a href="tpp.html">Tekton Pole &amp; Pipe (TPP)</a></li>
+          <li><a href="xtt.html">Xtreme Transport (XTT)</a></li>
+          <li><a href="construction.html">Theis Construction</a></li>
+          <li><a href="defense.html">Theis Defense (Alviz)</a></li>
+          <li><a href="energy.html">Theis Energy</a></li>
+          <li><a href="maritime.html">Theis Maritime</a></li>
+          <li><a href="septic.html">Theis Septic</a></li>
+          <li><a href="molding.html">Theis Molding</a></li>
+          <li><a href="auto.html">Theis Auto</a></li>
+        </ul>
+      </li>
+      <li><a href="industries.html">Industries</a></li>
+      <li><a href="about.html#patents">Patents</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-content reveal">
+    <p class="hero-sub">Physics &nbsp;·&nbsp; Chemistry &nbsp;·&nbsp; Engineering</p>
+    <h1>Mastering the <span>Impossible.</span></h1>
+    <p class="hero-desc">Theis Industries Inc. delivers proprietary defense and materials technologies — including <strong>Theis Tekton™ (Liquid Kevlar™)</strong>, advanced blast and ballistics systems, and 38+ engineering disciplines under one roof.</p>
+    <div class="hero-btns">
+      <a href="#tekton" class="btn-primary">Discover Theis Tekton</a>
+      <a href="contact.html" class="btn-secondary">Work With Us</a>
+    </div>
+  </div>
+  <div class="scroll-indicator"><span>SCROLL</span><div class="scroll-line"></div></div>
+</section>
+
+<!-- STATS BAR -->
+<section id="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat reveal"><span class="stat-num" data-target="20">0</span><span class="stat-suffix">+</span><span class="stat-label">Years Proven</span></div>
+      <div class="stat reveal"><span class="stat-num" data-target="38">0</span><span class="stat-suffix">+</span><span class="stat-label">Engineering Disciplines</span></div>
+      <div class="stat reveal"><span class="stat-num" data-target="17">0</span><span class="stat-suffix">+</span><span class="stat-label">Pending Patents</span></div>
+      <div class="stat reveal"><span class="stat-num" data-target="100">0</span><span class="stat-suffix">%</span><span class="stat-label">U.S. Based</span></div>
+      <div class="stat reveal"><span class="stat-num" data-target="9">0</span><span class="stat-suffix"></span><span class="stat-label">Industry Divisions</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- POSTURE / TRUST MARQUEE -->
+<section id="posture">
+  <div class="marquee-track">
+    <div class="marquee-content">
+      <span class="posture-item"><span class="ico" data-icon="diamond"></span> <strong>ITAR</strong> Aware</span>
+      <span class="posture-item"><span class="ico" data-icon="diamond"></span> <strong>DoD</strong> Ready</span>
+      <span class="posture-item"><span class="ico" data-icon="diamond"></span> <strong>SAM.gov</strong> Eligible</span>
+      <span class="posture-item"><span class="ico" data-icon="diamond"></span> <strong>NDA</strong> Available</span>
+      <span class="posture-item"><span class="ico" data-icon="diamond"></span> <strong>OEM</strong> &amp; Prime Friendly</span>
+      <span class="posture-item"><span class="ico" data-icon="diamond"></span> <strong>U.S.</strong> Manufactured</span>
+      <span class="posture-item"><span class="ico" data-icon="diamond"></span> <strong>ITAR</strong> Aware</span>
+      <span class="posture-item"><span class="ico" data-icon="diamond"></span> <strong>DoD</strong> Ready</span>
+      <span class="posture-item"><span class="ico" data-icon="diamond"></span> <strong>SAM.gov</strong> Eligible</span>
+      <span class="posture-item"><span class="ico" data-icon="diamond"></span> <strong>NDA</strong> Available</span>
+      <span class="posture-item"><span class="ico" data-icon="diamond"></span> <strong>OEM</strong> &amp; Prime Friendly</span>
+      <span class="posture-item"><span class="ico" data-icon="diamond"></span> <strong>U.S.</strong> Manufactured</span>
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section id="pillars">
+  <div class="container">
+    <div class="pillar-cards">
+      <div class="pillar reveal">
+        <div class="pillar-icon" data-icon="chemistry"></div>
+        <h3>Chemistry</h3>
+        <p>Advanced chemical formulation, polymers, coatings, resins, and biomolecular engineering.</p>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-icon" data-icon="physics"></div>
+        <h3>Physics</h3>
+        <p>From quantum to nuclear — harnessing the forces that shape matter and energy.</p>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-icon" data-icon="engineering"></div>
+        <h3>Engineering</h3>
+        <p>38+ engineering disciplines spanning structures, defense, energy, and beyond.</p>
       </div>
     </div>
-    <div class="hero-grid-bg"></div>
-  </section>
+  </div>
+</section>
 
-  <!-- STATS BAR -->
-  <section id="stats">
-    <div class="container">
-      <div class="stats-grid">
-        <div class="stat"><span class="stat-num">20+</span><span class="stat-label">Years Proven in Field</span></div>
-        <div class="stat"><span class="stat-num">38+</span><span class="stat-label">Engineering Disciplines</span></div>
-        <div class="stat"><span class="stat-num">Deep Sea</span><span class="stat-label">to Outer Space</span></div>
-        <div class="stat"><span class="stat-num">100%</span><span class="stat-label">U.S. Based</span></div>
-        <div class="stat"><span class="stat-num">Multi</span><span class="stat-label">Sector Deployable</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- POSTURE / TRUST STRIP -->
-  <section id="posture">
-    <div class="container">
-      <div class="posture-row">
-        <div class="posture-item"><span class="ico" data-icon="diamond"></span> <strong>ITAR</strong>&nbsp;Aware</div>
-        <div class="posture-item"><span class="ico" data-icon="diamond"></span> <strong>DoD</strong>&nbsp;Ready</div>
-        <div class="posture-item"><span class="ico" data-icon="diamond"></span> <strong>SAM.gov</strong>&nbsp;Eligible</div>
-        <div class="posture-item"><span class="ico" data-icon="diamond"></span> <strong>NDA</strong>&nbsp;Available</div>
-        <div class="posture-item"><span class="ico" data-icon="diamond"></span> <strong>OEM</strong>&nbsp;&amp; Prime Friendly</div>
-        <div class="posture-item"><span class="ico" data-icon="diamond"></span> <strong>U.S.</strong>&nbsp;Manufactured</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PILLARS -->
-  <section id="pillars">
-    <div class="container">
-      <div class="pillar-cards">
-        <div class="pillar"><div class="pillar-icon" data-icon="chemistry"></div><h3>Chemistry</h3><p>Advanced chemical formulation, polymers, coatings, resins, and biomolecular engineering.</p></div>
-        <div class="pillar"><div class="pillar-icon" data-icon="physics"></div><h3>Physics</h3><p>From quantum to nuclear — harnessing the forces that shape matter and energy.</p></div>
-        <div class="pillar"><div class="pillar-icon" data-icon="engineering"></div><h3>Engineering</h3><p>38+ engineering disciplines spanning structures, defense, energy, and beyond.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- THEIS TEKTON -->
-  <section id="tekton">
-    <div class="container">
-      <div class="section-label">Flagship Technology</div>
-      <h2>THEIS TEKTON&#8482;</h2>
-      <p class="section-sub">Also known as <strong>Liquid Kevlar&#8482;</strong> — a proprietary materials system proven for over 20 years in the world's most extreme environments.</p>
-      <div class="tekton-grid">
-        <div class="tekton-text">
-          <p>Where previously there were no solutions, Theis Tekton delivers. From the crushing pressure of the deep sea floor to the vacuum of outer space, our technology has performed where nothing else could.</p>
-          <ul class="tekton-features">
-            <li>Flexible as chewing gum <em>or</em> firm as steel — on demand</li>
-            <li>Self-healing formulations available</li>
-            <li>Cures in 3–10 seconds</li>
-            <li>Impervious to moisture, salt water, and extreme temperature</li>
-            <li>Deployable in virtually any industry</li>
-            <li>Available for sale, license, partnership, or contract production</li>
-          </ul>
-          <div class="tekton-btns">
-            <a href="contact.html" class="btn-primary" style="margin-top:2rem;display:inline-block;">Inquire About Tekton</a>
-            <a href="about.html" class="btn-secondary" style="margin-top:2rem;display:inline-block;">Our Story</a>
-          </div>
-        </div>
-        <div class="tekton-visual">
-          <div class="tekton-badge">
-            <span>LIQUID</span>
-            <span class="big">KEVLAR&#8482;</span>
-            <span>BY THEIS INDUSTRIES</span>
-            <div class="tekton-divider"></div>
-            <span class="tekton-sub-stat">20+ YEARS FIELD PROVEN</span>
-            <span class="tekton-sub-stat">DEEP SEA &#8594; OUTER SPACE</span>
-          </div>
+<!-- THEIS TEKTON -->
+<section id="tekton">
+  <div class="container">
+    <div class="section-label reveal">Flagship Technology</div>
+    <h2 class="reveal">THEIS TEKTON&#8482;</h2>
+    <p class="section-sub reveal">Also known as <strong>Liquid Kevlar&#8482;</strong> — a proprietary materials system proven for over 20 years in the world's most extreme environments.</p>
+    <div class="tekton-grid">
+      <div class="tekton-text reveal">
+        <p>Where previously there were no solutions, Theis Tekton delivers. From the crushing pressure of the deep sea floor to the vacuum of outer space, our technology has performed where nothing else could.</p>
+        <ul class="tekton-features">
+          <li>Flexible as chewing gum <em>or</em> firm as steel — on demand</li>
+          <li>Self-healing formulations available</li>
+          <li>Cures in 3–10 seconds</li>
+          <li>Impervious to moisture, salt water, and extreme temperature</li>
+          <li>Deployable in virtually any industry</li>
+          <li>Available for sale, license, partnership, or contract production</li>
+        </ul>
+        <div class="tekton-btns">
+          <a href="contact.html" class="btn-primary" style="margin-top:2rem;display:inline-block;">Inquire About Tekton</a>
+          <a href="about.html" class="btn-secondary" style="margin-top:2rem;display:inline-block;">Our Story</a>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- INDUSTRIES SERVED -->
-  <section id="industries-home">
-    <div class="container">
-      <div class="section-label">Where We Operate</div>
-      <h2>Industries Served</h2>
-      <p class="section-sub">Our technologies and expertise are deployed across the most demanding sectors on earth.</p>
-      <div class="industry-grid">
-        <a href="industries.html#defense" class="industry-card">
-          <div class="ind-icon" data-icon="defense"></div>
-          <h4>Defense &amp; Military</h4>
-          <p>Body armor, vehicle armor, structural ballistics, blast protection</p>
-        </a>
-        <a href="industries.html#aerospace" class="industry-card">
-          <div class="ind-icon" data-icon="aerospace"></div>
-          <h4>Aerospace &amp; Space</h4>
-          <p>Extreme environment materials, thermal systems, structural coatings</p>
-        </a>
-        <a href="industries.html#marine" class="industry-card">
-          <div class="ind-icon" data-icon="marine"></div>
-          <h4>Marine &amp; Subsea</h4>
-          <p>Corrosion-resistant coatings, hull protection, deep-sea-proven materials</p>
-        </a>
-        <a href="industries.html#energy" class="industry-card">
-          <div class="ind-icon" data-icon="energy"></div>
-          <h4>Energy &amp; Power</h4>
-          <p>Renewable and conventional systems, power plant engineering, nuclear</p>
-        </a>
-        <a href="industries.html#industrial" class="industry-card">
-          <div class="ind-icon" data-icon="industrial"></div>
-          <h4>Industrial &amp; Manufacturing</h4>
-          <p>Plant engineering, process design, coatings, quality systems</p>
-        </a>
-        <a href="industries.html#medical" class="industry-card">
-          <div class="ind-icon" data-icon="medical"></div>
-          <h4>Medical &amp; Biotech</h4>
-          <p>Biomaterials, biocompatible coatings, biomolecular engineering</p>
-        </a>
-        <a href="industries.html#infrastructure" class="industry-card">
-          <div class="ind-icon" data-icon="construction"></div>
-          <h4>Infrastructure</h4>
-          <p>Structural engineering, geotechnical, utility, water resources</p>
-        </a>
-        <a href="industries.html#petroleum" class="industry-card">
-          <div class="ind-icon" data-icon="oilgas"></div>
-          <h4>Oil, Gas &amp; Petroleum</h4>
-          <p>Pipeline coatings, corrosion, drilling, refining process engineering</p>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- BALLISTICS / DEFENSE -->
-  <section id="ballistics">
-    <div class="container">
-      <div class="section-label">Defense Applications</div>
-      <h2>Blast &amp; Ballistics</h2>
-      <p class="section-sub">We excel in all areas of advanced defensive technologies — lightweight, cost-effective, and battle-proven. Our solutions outperform current market standards.</p>
-      <div class="defense-cards">
-        <div class="defense-card" onclick="toggleCard(this)">
-          <div class="defense-card-header"><span data-icon="bodyarmor"></span><h4>Body Armor</h4><span class="toggle-icon">+</span></div>
-          <div class="defense-card-body"><p>Lightweight personal protection systems with multi-strike capability, little to no back face deformation, and superior ballistic defense over current market offerings. Incorporates Theis Tekton for unmatched flexibility and field durability.</p></div>
-        </div>
-        <div class="defense-card" onclick="toggleCard(this)">
-          <div class="defense-card-header"><span data-icon="vehiclearmor"></span><h4>Vehicle Armor</h4><span class="toggle-icon">+</span></div>
-          <div class="defense-card-body"><p>Moldable vehicle armor solutions that are impervious to moisture and salt water, offering significant weight savings without sacrificing protection levels. Compatible with legacy and next-gen platforms.</p></div>
-        </div>
-        <div class="defense-card" onclick="toggleCard(this)">
-          <div class="defense-card-header"><span data-icon="structural"></span><h4>Structural Armor</h4><span class="toggle-icon">+</span></div>
-          <div class="defense-card-body"><p>Protect critical infrastructure, buildings, command centers, and facilities with structural armor systems designed for blast resistance and multi-hit ballistic threat mitigation.</p></div>
-        </div>
-        <div class="defense-card" onclick="toggleCard(this)">
-          <div class="defense-card-header"><span data-icon="blast"></span><h4>Blast Protection</h4><span class="toggle-icon">+</span></div>
-          <div class="defense-card-body"><p>Overpressure mitigation and blast attenuation systems for personnel, vehicles, and structures — engineered for IED, EFP, and conventional explosive threats.</p></div>
-        </div>
-        <div class="defense-card" onclick="toggleCard(this)">
-          <div class="defense-card-header"><span data-icon="stealth"></span><h4>Specialty Coatings &amp; Stealth</h4><span class="toggle-icon">+</span></div>
-          <div class="defense-card-body"><p>Advanced protective and functional coatings for defense platforms — including radar-absorbent, thermal-barrier, anti-corrosion, and camouflage-compatible systems.</p></div>
+      <div class="tekton-visual reveal">
+        <div class="tekton-badge tekton-badge-shimmer">
+          <span>LIQUID</span>
+          <span class="big">KEVLAR&#8482;</span>
+          <span>BY THEIS INDUSTRIES</span>
+          <div class="tekton-divider"></div>
+          <span class="tekton-sub-stat">20+ YEARS FIELD PROVEN</span>
+          <span class="tekton-sub-stat">DEEP SEA &#8594; OUTER SPACE</span>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- HOW WE WORK -->
-  <section id="howwework">
-    <div class="container">
-      <div class="section-label">Our Process</div>
-      <h2>How We Work</h2>
-      <p class="section-sub">We meet clients where they are — whether you have a defined problem, a rough concept, or just know something isn't working. We figure it out.</p>
-      <div class="process-steps">
-        <div class="process-step">
-          <div class="step-num">01</div>
-          <h4>Discovery</h4>
-          <p>We listen first. Deep-dive into your problem, environment, constraints, and goals to understand what no one else has been able to solve.</p>
+
+<!-- TEKTON IN ACTION MEDIA -->
+<section class="media-section">
+  <div class="container">
+    <div class="section-label">Theis Tekton In Action</div>
+    <h2>See It For Yourself</h2>
+    <div class="media-grid">
+      <div class="media-item">
+        <div class="media-embed-wrapper">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/EE-gManMPJ4"
+            title="Theis Tekton Overview" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen loading="lazy"></iframe>
         </div>
-        <div class="process-arrow">&#8594;</div>
-        <div class="process-step">
-          <div class="step-num">02</div>
-          <h4>Engineering</h4>
-          <p>Our multi-discipline team designs a solution — often drawing on proprietary Theis Tekton chemistry combined with the right engineering discipline.</p>
+        <p class="media-caption">Theis Tekton Overview</p>
+      </div>
+      <div class="media-item">
+        <div class="media-embed-wrapper">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/6ye56FjXkqU"
+            title="Theis Tekton Mining Solutions" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen loading="lazy"></iframe>
         </div>
-        <div class="process-arrow">&#8594;</div>
-        <div class="process-step">
-          <div class="step-num">03</div>
-          <h4>Prototype &amp; Test</h4>
-          <p>We build, test, and validate under real-world conditions — not just in a lab. We don't stop until it performs.</p>
+        <p class="media-caption">Theis Tekton Mining Solutions</p>
+      </div>
+      <div class="media-item">
+        <div class="media-embed-wrapper">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/snC4HEr0QIc"
+            title="Parts Being Made of Theis Tekton" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen loading="lazy"></iframe>
         </div>
-        <div class="process-arrow">&#8594;</div>
-        <div class="process-step">
-          <div class="step-num">04</div>
-          <h4>Deploy &amp; Scale</h4>
-          <p>From first unit to full production — we support sale, license, ongoing manufacturing, or partnership depending on your business model.</p>
+        <p class="media-caption">Parts Being Made of Theis Tekton</p>
+      </div>
+      <div class="media-item">
+        <div class="media-embed-wrapper">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/WgAfKaILC0A"
+            title="Magnetic Carbon Fiber" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="media-caption">Magnetic Carbon Fiber</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIVISIONS GRID -->
+<section id="divisions">
+  <div class="container">
+    <div class="section-label reveal">The Theis Portfolio</div>
+    <h2 class="reveal">Our Divisions</h2>
+    <p class="section-sub reveal">Nine specialized divisions — each a vertical spoke from the Theis Industries parent. Click any division to explore.</p>
+    <div class="divisions-grid">
+      <a href="tpp.html" class="division-card reveal">
+        <div class="division-accent"></div>
+        <div class="division-num">01</div>
+        <h3>Tekton Pole &amp; Pipe</h3>
+        <p>Tekton-coated utility poles and pipe systems engineered for extreme environments and longevity.</p>
+        <span class="division-arrow">→</span>
+      </a>
+      <a href="xtt.html" class="division-card reveal">
+        <div class="division-accent"></div>
+        <div class="division-num">02</div>
+        <h3>Xtreme Transport</h3>
+        <p>Heavy transport, logistics, and specialized carrier solutions for defense and industrial clients.</p>
+        <span class="division-arrow">→</span>
+      </a>
+      <a href="construction.html" class="division-card reveal">
+        <div class="division-accent"></div>
+        <div class="division-num">03</div>
+        <h3>Theis Construction</h3>
+        <p>Specialty construction and infrastructure hardening using Tekton-enhanced systems.</p>
+        <span class="division-arrow">→</span>
+      </a>
+      <a href="defense.html" class="division-card reveal">
+        <div class="division-accent"></div>
+        <div class="division-num">04</div>
+        <h3>Theis Defense (Alviz)</h3>
+        <p>Body armor, vehicle armor, blast protection, and specialty defense coatings for DoD and allies.</p>
+        <span class="division-arrow">→</span>
+      </a>
+      <a href="energy.html" class="division-card reveal">
+        <div class="division-accent"></div>
+        <div class="division-num">05</div>
+        <h3>Theis Energy</h3>
+        <p>Oil, gas, and power infrastructure protection using Tekton pipeline and coating systems.</p>
+        <span class="division-arrow">→</span>
+      </a>
+      <a href="maritime.html" class="division-card reveal">
+        <div class="division-accent"></div>
+        <div class="division-num">06</div>
+        <h3>Theis Maritime</h3>
+        <p>Hull protection, subsea repair, corrosion coatings, and deep-sea-proven materials for naval and commercial fleets.</p>
+        <span class="division-arrow">→</span>
+      </a>
+      <a href="septic.html" class="division-card reveal">
+        <div class="division-accent"></div>
+        <div class="division-num">07</div>
+        <h3>Theis Septic</h3>
+        <p>Tekton-lined septic and wastewater systems delivering unmatched corrosion resistance and longevity.</p>
+        <span class="division-arrow">→</span>
+      </a>
+      <a href="molding.html" class="division-card reveal">
+        <div class="division-accent"></div>
+        <div class="division-num">08</div>
+        <h3>Theis Molding</h3>
+        <p>Custom polymer molding and composite forming using Tekton-enhanced compound matrices.</p>
+        <span class="division-arrow">→</span>
+      </a>
+      <a href="auto.html" class="division-card reveal">
+        <div class="division-accent"></div>
+        <div class="division-num">09</div>
+        <h3>Theis Auto</h3>
+        <p>Automotive protective coatings, mud flaps, and Tekton-based vehicle protection products.</p>
+        <span class="division-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES SERVED -->
+<section id="industries-home">
+  <div class="container">
+    <div class="section-label reveal">Where We Operate</div>
+    <h2 class="reveal">Industries Served</h2>
+    <p class="section-sub reveal">Our technologies and expertise are deployed across the most demanding sectors on earth.</p>
+    <div class="industry-grid">
+      <a href="industries.html#defense" class="industry-card reveal">
+        <div class="ind-icon" data-icon="defense"></div>
+        <h4>Defense &amp; Military</h4>
+        <p>Body armor, vehicle armor, structural ballistics, blast protection</p>
+      </a>
+      <a href="industries.html#aerospace" class="industry-card reveal">
+        <div class="ind-icon" data-icon="aerospace"></div>
+        <h4>Aerospace &amp; Space</h4>
+        <p>Extreme environment materials, thermal systems, structural coatings</p>
+      </a>
+      <a href="industries.html#marine" class="industry-card reveal">
+        <div class="ind-icon" data-icon="marine"></div>
+        <h4>Marine &amp; Subsea</h4>
+        <p>Corrosion-resistant coatings, hull protection, deep-sea-proven materials</p>
+      </a>
+      <a href="industries.html#energy" class="industry-card reveal">
+        <div class="ind-icon" data-icon="energy"></div>
+        <h4>Energy &amp; Power</h4>
+        <p>Renewable and conventional systems, power plant engineering, nuclear</p>
+      </a>
+      <a href="industries.html#industrial" class="industry-card reveal">
+        <div class="ind-icon" data-icon="industrial"></div>
+        <h4>Industrial &amp; Manufacturing</h4>
+        <p>Plant engineering, process design, coatings, quality systems</p>
+      </a>
+      <a href="industries.html#medical" class="industry-card reveal">
+        <div class="ind-icon" data-icon="medical"></div>
+        <h4>Medical &amp; Biotech</h4>
+        <p>Biomaterials, biocompatible coatings, biomolecular engineering</p>
+      </a>
+      <a href="industries.html#infrastructure" class="industry-card reveal">
+        <div class="ind-icon" data-icon="construction"></div>
+        <h4>Infrastructure</h4>
+        <p>Structural engineering, geotechnical, utility, water resources</p>
+      </a>
+      <a href="industries.html#petroleum" class="industry-card reveal">
+        <div class="ind-icon" data-icon="oilgas"></div>
+        <h4>Oil, Gas &amp; Petroleum</h4>
+        <p>Pipeline coatings, corrosion, drilling, refining process engineering</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- BALLISTICS / DEFENSE -->
+<section id="ballistics">
+  <div class="container">
+    <div class="section-label reveal">Defense Applications</div>
+    <h2 class="reveal">Blast &amp; Ballistics</h2>
+    <p class="section-sub reveal">We excel in all areas of advanced defensive technologies — lightweight, cost-effective, and battle-proven. Our solutions outperform current market standards.</p>
+    <div class="defense-cards reveal">
+      <div class="defense-card" onclick="toggleCard(this)">
+        <div class="defense-card-header"><span data-icon="bodyarmor"></span><h4>Body Armor</h4><span class="toggle-icon">+</span></div>
+        <div class="defense-card-body"><p>Lightweight personal protection systems with multi-strike capability, little to no back face deformation, and superior ballistic defense over current market offerings. Incorporates Theis Tekton for unmatched flexibility and field durability.</p></div>
+      </div>
+      <div class="defense-card" onclick="toggleCard(this)">
+        <div class="defense-card-header"><span data-icon="vehiclearmor"></span><h4>Vehicle Armor</h4><span class="toggle-icon">+</span></div>
+        <div class="defense-card-body"><p>Moldable vehicle armor solutions that are impervious to moisture and salt water, offering significant weight savings without sacrificing protection levels. Compatible with legacy and next-gen platforms.</p></div>
+      </div>
+      <div class="defense-card" onclick="toggleCard(this)">
+        <div class="defense-card-header"><span data-icon="structural"></span><h4>Structural Armor</h4><span class="toggle-icon">+</span></div>
+        <div class="defense-card-body"><p>Protect critical infrastructure, buildings, command centers, and facilities with structural armor systems designed for blast resistance and multi-hit ballistic threat mitigation.</p></div>
+      </div>
+      <div class="defense-card" onclick="toggleCard(this)">
+        <div class="defense-card-header"><span data-icon="blast"></span><h4>Blast Protection</h4><span class="toggle-icon">+</span></div>
+        <div class="defense-card-body"><p>Overpressure mitigation and blast attenuation systems for personnel, vehicles, and structures — engineered for IED, EFP, and conventional explosive threats.</p></div>
+      </div>
+      <div class="defense-card" onclick="toggleCard(this)">
+        <div class="defense-card-header"><span data-icon="stealth"></span><h4>Specialty Coatings &amp; Stealth</h4><span class="toggle-icon">+</span></div>
+        <div class="defense-card-body"><p>Advanced protective and functional coatings for defense platforms — including radar-absorbent, thermal-barrier, anti-corrosion, and camouflage-compatible systems.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE WORK -->
+<section id="howwework">
+  <div class="container">
+    <div class="section-label reveal">Our Process</div>
+    <h2 class="reveal">How We Work</h2>
+    <p class="section-sub reveal">We meet clients where they are — whether you have a defined problem, a rough concept, or just know something isn't working. We figure it out.</p>
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="step-num">01</div>
+        <h4>Discovery</h4>
+        <p>We listen first. Deep-dive into your problem, environment, constraints, and goals to understand what no one else has been able to solve.</p>
+      </div>
+      <div class="process-arrow reveal">&#8594;</div>
+      <div class="process-step reveal">
+        <div class="step-num">02</div>
+        <h4>Engineering</h4>
+        <p>Our multi-discipline team designs a solution — often drawing on proprietary Theis Tekton chemistry combined with the right engineering discipline.</p>
+      </div>
+      <div class="process-arrow reveal">&#8594;</div>
+      <div class="process-step reveal">
+        <div class="step-num">03</div>
+        <h4>Prototype &amp; Test</h4>
+        <p>We build, test, and validate under real-world conditions — not just in a lab. We don't stop until it performs.</p>
+      </div>
+      <div class="process-arrow reveal">&#8594;</div>
+      <div class="process-step reveal">
+        <div class="step-num">04</div>
+        <h4>Deploy &amp; Scale</h4>
+        <p>From first unit to full production — we support sale, license, ongoing manufacturing, or partnership depending on your business model.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAPABILITIES -->
+<section id="capabilities">
+  <div class="container">
+    <div class="section-label reveal">Full Scope</div>
+    <h2 class="reveal">Core Capabilities</h2>
+    <p class="section-sub reveal">Click any discipline to explore how Theis Industries applies deep expertise to your challenge.</p>
+
+    <div class="cap-group reveal">
+      <h3 class="cap-group-title">Materials &amp; Chemistry</h3>
+      <div class="cap-grid">
+        <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="chem_eng"></span> Chemical Engineering <span class="toggle-icon">+</span></div><div class="cap-body">End-to-end chemical process design, reaction engineering, scale-up, and formulation support across industrial and consumer applications.</div></div>
+        <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="coatings"></span> Paint / Epoxy / Resins / Polyureas <span class="toggle-icon">+</span></div><div class="cap-body">Custom coatings, protective finishes, and resin systems engineered for adhesion, durability, chemical resistance, and aesthetics.</div></div>
+        <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="textile"></span> Textile Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Advanced fiber and fabric engineering for defense, industrial, and consumer applications — including ballistic-rated textiles and smart materials.</div></div>
+        <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="household"></span> Household Chemicals <span class="toggle-icon">+</span></div><div class="cap-body">Formulation and development of safe, effective household chemical products including cleaners, disinfectants, and surface treatments.</div></div>
+        <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="biomolecular"></span> Biomolecular / Biochemical <span class="toggle-icon">+</span></div><div class="cap-body">Molecular-level engineering of biological and chemical systems for medical, pharmaceutical, and materials applications.</div></div>
+        <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="metallurgical"></span> Metallurgical <span class="toggle-icon">+</span></div><div class="cap-body">Metal selection, alloy development, heat treatment, failure analysis, and corrosion prevention for demanding structural and industrial uses.</div></div>
+        <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="ceramics"></span> Ceramics <span class="toggle-icon">+</span></div><div class="cap-body">High-performance ceramic materials for armor, aerospace, electronics, and industrial applications requiring extreme hardness or thermal resistance.</div></div>
+        <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="polymers"></span> Polymers <span class="toggle-icon">+</span></div><div class="cap-body">Polymer synthesis, compounding, and processing for flexible, rigid, or hybrid material systems with tailored mechanical and chemical properties.</div></div>
+        <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="crystals"></span> Crystals <span class="toggle-icon">+</span></div><div class="cap-body">Crystal growth and engineering for optics, semiconductors, sensors, and specialty applications requiring precise lattice structures.</div></div>
+        <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="biomaterials"></span> Biomaterials <span class="toggle-icon">+</span></div><div class="cap-body">Design and development of materials that interface with biological systems — implants, scaffolds, drug delivery matrices, and biocompatible coatings.</div></div>
+        <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="corrosion"></span> Corrosion Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Assessment, prevention, and mitigation of corrosion in metals, structures, pipelines, and marine environments using advanced coatings and techniques.</div></div>
+        <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="materials"></span> Materials Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Holistic materials selection and design integrating mechanical, thermal, chemical, and manufacturing considerations for optimal performance.</div></div>
+      </div>
+    </div>
+
+    <div class="cap-group reveal">
+      <h3 class="cap-group-title">Advanced Engineering</h3>
+      <div class="cap-grid">
+        <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="manufacturing"></span> Manufacturing Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Process design, tooling, quality systems, and production optimization for high-mix or high-volume manufacturing environments.</div></div>
+        <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="molecular"></span> Molecular Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Engineering at the molecular scale to design new compounds, catalysts, and functional materials with precise properties.</div></div>
+        <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="mechanical"></span> Mechanical Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Full-scope mechanical design, simulation, prototyping, and testing for complex systems across defense, energy, and industrial markets.</div></div>
+        <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="interdisciplinary"></span> Interdisciplinary Engineering <span class="toggle-icon">+</span></div><div class="cap-body">When a problem doesn't fit a single discipline, our team integrates across fields to engineer solutions that others can't.</div></div>
+        <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="environmental"></span> Environmental Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Environmental compliance, remediation, waste treatment, and sustainable process design for industrial operations.</div></div>
+        <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="geotechnical"></span> Geotechnical Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Soil and rock mechanics for foundations, tunnels, slopes, and infrastructure projects in challenging geological conditions.</div></div>
+        <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="structural_eng"></span> Structural Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Load-bearing design and analysis for buildings, bridges, and specialty structures — including blast and ballistic-hardened facilities.</div></div>
+        <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="transport"></span> Transport Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Infrastructure and vehicle systems engineering for ground, air, sea, and subsurface transportation applications.</div></div>
+        <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="utility"></span> Utility Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Power, water, gas, and telecom utility systems design and optimization for municipal, industrial, and defense applications.</div></div>
+        <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="water"></span> Water Resources Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Hydrological modeling, water treatment, irrigation, stormwater, and flood management engineering.</div></div>
+      </div>
+    </div>
+
+    <div class="cap-group reveal">
+      <h3 class="cap-group-title">Electronics, Energy &amp; Emerging Tech</h3>
+      <div class="cap-grid">
+        <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="electronic"></span> Electronic Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Circuit design, PCB development, embedded systems, and electronic subsystem integration for defense and industrial products.</div></div>
+        <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="power"></span> Power Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Electrical power generation, transmission, distribution, and storage system design including high-voltage and off-grid applications.</div></div>
+        <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="optical"></span> Optical Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Lens, laser, sensor, and imaging system design for defense, medical, scientific, and consumer optics applications.</div></div>
+        <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="acoustical"></span> Acoustical Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Sound design, noise control, vibration isolation, and acoustic materials engineering for complex environments.</div></div>
+        <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="optomechanical"></span> Optomechanical Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Precision integration of optical and mechanical systems for targeting, sensing, and scientific instrumentation.</div></div>
+        <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="thermal"></span> Thermal Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Heat transfer, thermal management, and temperature control solutions for electronics, defense, energy, and industrial systems.</div></div>
+        <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="vehicle"></span> Vehicle Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Ground and airborne vehicle systems engineering — including armoring, powertrains, structures, and advanced mobility platforms.</div></div>
+        <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="powerplant"></span> Power Plant Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Design, optimization, and maintenance support for conventional, nuclear, and alternative energy power generation facilities.</div></div>
+        <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="industrial_plant"></span> Industrial Plant Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Full industrial facility design from process flow to layout, safety systems, and commissioning support.</div></div>
+        <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="energy_eng"></span> Energy Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Renewable and conventional energy systems design, efficiency optimization, and storage integration across sectors.</div></div>
+        <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="agricultural"></span> Agricultural Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Precision agriculture systems, irrigation technology, soil chemistry, and farm infrastructure engineering.</div></div>
+        <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="nano"></span> Nanoengineering <span class="toggle-icon">+</span></div><div class="cap-body">Nanotechnology research and development for advanced materials, coatings, drug delivery, and electronics at atomic scale.</div></div>
+        <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="quantum"></span> Quantum Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Applied quantum mechanics for computing, sensing, communications, and materials characterization at the frontier of physics.</div></div>
+        <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="nuclear"></span> Nuclear Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Nuclear materials, radiation shielding, reactor systems, and nuclear safety engineering for defense and energy applications.</div></div>
+        <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="petroleum"></span> Petroleum Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Exploration, drilling, production, and refining process engineering supported by our proprietary corrosion and materials expertise.</div></div>
+        <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="marine"></span> Marine Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Marine systems engineering, hull protection, subsea materials, and shipboard systems — enhanced by Theis Tekton's deep sea-proven performance.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LICENSING MODELS -->
+<section id="licensing">
+  <div class="container">
+    <div class="section-label reveal">Business Models</div>
+    <h2 class="reveal">How to Access Our Technology</h2>
+    <p class="section-sub reveal">We offer flexible paths to partner with and deploy Theis Industries technology — from outright purchase to ongoing production contracts.</p>
+    <div class="license-grid">
+      <div class="license-card reveal">
+        <div class="license-icon" data-icon="licensing"></div>
+        <h4>Outright Sale</h4>
+        <p>Purchase full rights to a specific technology, formulation, or solution for your application or market.</p>
+      </div>
+      <div class="license-card reveal">
+        <div class="license-icon" data-icon="document"></div>
+        <h4>License</h4>
+        <p>License our proprietary IP and manufacturing methods for use in your own production operations.</p>
+      </div>
+      <div class="license-card reveal">
+        <div class="license-icon" data-icon="partnership"></div>
+        <h4>Strategic Partnership</h4>
+        <p>Co-develop new applications together — we bring the science and engineering, you bring the market access.</p>
+      </div>
+      <div class="license-card reveal">
+        <div class="license-icon" data-icon="production"></div>
+        <h4>Contract Manufacturing</h4>
+        <p>We produce your product or material to spec, at scale — ongoing production with full quality control.</p>
+      </div>
+      <div class="license-card reveal">
+        <div class="license-icon" data-icon="rd"></div>
+        <h4>R&amp;D Consulting</h4>
+        <p>Engage our engineers and scientists to solve your toughest material or design challenge on a project basis.</p>
+      </div>
+      <div class="license-card reveal">
+        <div class="license-icon" data-icon="document"></div>
+        <h4>Lease</h4>
+        <p>Temporary access to technology or production capacity with defined terms — ideal for pilot programs and trials.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-label reveal">Questions</div>
+    <h2 class="reveal">Frequently Asked</h2>
+    <div class="faq-list reveal">
+      <div class="faq-item" onclick="toggleCard(this)">
+        <div class="faq-q">What is Theis Tekton / Liquid Kevlar? <span class="toggle-icon">+</span></div>
+        <div class="faq-a">Theis Tekton is our proprietary materials system — a revolutionary compound that can be engineered to be as flexible as chewing gum or as rigid as steel, on demand. It self-heals, cures in seconds, and has been deployed in deep-sea, aerospace, defense, and industrial applications for over 20 years. It is sometimes referred to as Liquid Kevlar due to its extraordinary strength-to-weight and protective characteristics.</div>
+      </div>
+      <div class="faq-item" onclick="toggleCard(this)">
+        <div class="faq-q">What industries do you serve? <span class="toggle-icon">+</span></div>
+        <div class="faq-a">We serve defense, aerospace, marine, energy, industrial manufacturing, medical, infrastructure, oil &amp; gas, and more. If extreme environments, advanced materials, or impossible engineering problems are involved — we're the right call.</div>
+      </div>
+      <div class="faq-item" onclick="toggleCard(this)">
+        <div class="faq-q">How do we engage with Theis Industries? <span class="toggle-icon">+</span></div>
+        <div class="faq-a">Start by contacting us with your challenge or interest. We offer technology sale, licensing, partnerships, contract manufacturing, R&amp;D consulting, and lease arrangements. We tailor the engagement model to what makes sense for your program or business.</div>
+      </div>
+      <div class="faq-item" onclick="toggleCard(this)">
+        <div class="faq-q">Are your technologies available for government and DoD contracts? <span class="toggle-icon">+</span></div>
+        <div class="faq-a">Yes. Our defense technologies — including body armor, vehicle armor, structural blast protection, and specialty coatings — are engineered to meet the demands of government and Department of Defense programs. We welcome inquiries from prime contractors, OEMs, and government acquisition offices.</div>
+      </div>
+      <div class="faq-item" onclick="toggleCard(this)">
+        <div class="faq-q">Can you develop a custom solution for a problem we haven't solved yet? <span class="toggle-icon">+</span></div>
+        <div class="faq-a">That's exactly what we do best. We shine when the mission seems impossible. Our interdisciplinary team of engineers and scientists thrives on novel, complex, and high-stakes problems that others have walked away from.</div>
+      </div>
+      <div class="faq-item" onclick="toggleCard(this)">
+        <div class="faq-q">Where are you based and do you work internationally? <span class="toggle-icon">+</span></div>
+        <div class="faq-a">Theis Industries is U.S.-based. Our technologies have been deployed globally — from deep-sea installations to space programs — and we work with international partners, governments, and corporations.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section id="founder">
+  <div class="container">
+    <div class="founder-grid">
+      <div class="founder-portrait" aria-label="Jason Theis — Founder & Inventor"></div>
+      <div class="founder-text reveal">
+        <p class="eyebrow">Founder &amp; Inventor</p>
+        <h2>Jason Theis</h2>
+        <p class="role">Chief Scientist · Inventor of Theis Tekton™</p>
+        <p>Jason Theis is the founder, lead inventor, and chief scientist behind Theis Industries Inc. Over two decades he has developed and field-proven a portfolio of proprietary materials, biometric security systems, and protective technologies now deployed across defense, marine, aerospace, and industrial markets.</p>
+        <p>His issued U.S. patents and pending applications form the IP backbone of the company — and his hands-on engineering approach is the reason Theis Industries delivers where others stop at "impossible."</p>
+        <div class="founder-creds">
+          <span class="cred-item">Issued U.S. Patents</span>
+          <span class="cred-item">17+ Pending Applications</span>
+          <span class="cred-item">International Filing (WIPO)</span>
+          <span class="cred-item">20+ Years Field Work</span>
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- CAPABILITIES -->
-  <section id="capabilities">
-    <div class="container">
-      <div class="section-label">Full Scope</div>
-      <h2>Core Capabilities</h2>
-      <p class="section-sub">Click any discipline to explore how Theis Industries applies deep expertise to your challenge.</p>
-
-      <div class="cap-group">
-        <h3 class="cap-group-title">Materials &amp; Chemistry</h3>
-        <div class="cap-grid">
-          <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="chem_eng"></span> Chemical Engineering <span class="toggle-icon">+</span></div><div class="cap-body">End-to-end chemical process design, reaction engineering, scale-up, and formulation support across industrial and consumer applications.</div></div>
-          <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="coatings"></span> Paint / Epoxy / Resins / Polyureas <span class="toggle-icon">+</span></div><div class="cap-body">Custom coatings, protective finishes, and resin systems engineered for adhesion, durability, chemical resistance, and aesthetics.</div></div>
-          <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="textile"></span> Textile Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Advanced fiber and fabric engineering for defense, industrial, and consumer applications — including ballistic-rated textiles and smart materials.</div></div>
-          <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="household"></span> Household Chemicals <span class="toggle-icon">+</span></div><div class="cap-body">Formulation and development of safe, effective household chemical products including cleaners, disinfectants, and surface treatments.</div></div>
-          <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="biomolecular"></span> Biomolecular / Biochemical <span class="toggle-icon">+</span></div><div class="cap-body">Molecular-level engineering of biological and chemical systems for medical, pharmaceutical, and materials applications.</div></div>
-          <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="metallurgical"></span> Metallurgical <span class="toggle-icon">+</span></div><div class="cap-body">Metal selection, alloy development, heat treatment, failure analysis, and corrosion prevention for demanding structural and industrial uses.</div></div>
-          <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="ceramics"></span> Ceramics <span class="toggle-icon">+</span></div><div class="cap-body">High-performance ceramic materials for armor, aerospace, electronics, and industrial applications requiring extreme hardness or thermal resistance.</div></div>
-          <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="polymers"></span> Polymers <span class="toggle-icon">+</span></div><div class="cap-body">Polymer synthesis, compounding, and processing for flexible, rigid, or hybrid material systems with tailored mechanical and chemical properties.</div></div>
-          <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="crystals"></span> Crystals <span class="toggle-icon">+</span></div><div class="cap-body">Crystal growth and engineering for optics, semiconductors, sensors, and specialty applications requiring precise lattice structures.</div></div>
-          <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="biomaterials"></span> Biomaterials <span class="toggle-icon">+</span></div><div class="cap-body">Design and development of materials that interface with biological systems — implants, scaffolds, drug delivery matrices, and biocompatible coatings.</div></div>
-          <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="corrosion"></span> Corrosion Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Assessment, prevention, and mitigation of corrosion in metals, structures, pipelines, and marine environments using advanced coatings and techniques.</div></div>
-          <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="materials"></span> Materials Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Holistic materials selection and design integrating mechanical, thermal, chemical, and manufacturing considerations for optimal performance.</div></div>
-        </div>
-      </div>
-
-      <div class="cap-group">
-        <h3 class="cap-group-title">Advanced Engineering</h3>
-        <div class="cap-grid">
-          <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="manufacturing"></span> Manufacturing Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Process design, tooling, quality systems, and production optimization for high-mix or high-volume manufacturing environments.</div></div>
-          <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="molecular"></span> Molecular Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Engineering at the molecular scale to design new compounds, catalysts, and functional materials with precise properties.</div></div>
-          <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="mechanical"></span> Mechanical Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Full-scope mechanical design, simulation, prototyping, and testing for complex systems across defense, energy, and industrial markets.</div></div>
-          <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="interdisciplinary"></span> Interdisciplinary Engineering <span class="toggle-icon">+</span></div><div class="cap-body">When a problem doesn't fit a single discipline, our team integrates across fields to engineer solutions that others can't.</div></div>
-          <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="environmental"></span> Environmental Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Environmental compliance, remediation, waste treatment, and sustainable process design for industrial operations.</div></div>
-          <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="geotechnical"></span> Geotechnical Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Soil and rock mechanics for foundations, tunnels, slopes, and infrastructure projects in challenging geological conditions.</div></div>
-          <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="structural_eng"></span> Structural Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Load-bearing design and analysis for buildings, bridges, and specialty structures — including blast and ballistic-hardened facilities.</div></div>
-          <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="transport"></span> Transport Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Infrastructure and vehicle systems engineering for ground, air, sea, and subsurface transportation applications.</div></div>
-          <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="utility"></span> Utility Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Power, water, gas, and telecom utility systems design and optimization for municipal, industrial, and defense applications.</div></div>
-          <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="water"></span> Water Resources Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Hydrological modeling, water treatment, irrigation, stormwater, and flood management engineering.</div></div>
-        </div>
-      </div>
-
-      <div class="cap-group">
-        <h3 class="cap-group-title">Electronics, Energy &amp; Emerging Tech</h3>
-        <div class="cap-grid">
-          <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="electronic"></span> Electronic Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Circuit design, PCB development, embedded systems, and electronic subsystem integration for defense and industrial products.</div></div>
-          <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="power"></span> Power Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Electrical power generation, transmission, distribution, and storage system design including high-voltage and off-grid applications.</div></div>
-          <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="optical"></span> Optical Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Lens, laser, sensor, and imaging system design for defense, medical, scientific, and consumer optics applications.</div></div>
-          <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="acoustical"></span> Acoustical Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Sound design, noise control, vibration isolation, and acoustic materials engineering for complex environments.</div></div>
-          <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="optomechanical"></span> Optomechanical Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Precision integration of optical and mechanical systems for targeting, sensing, and scientific instrumentation.</div></div>
-          <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="thermal"></span> Thermal Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Heat transfer, thermal management, and temperature control solutions for electronics, defense, energy, and industrial systems.</div></div>
-          <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="vehicle"></span> Vehicle Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Ground and airborne vehicle systems engineering — including armoring, powertrains, structures, and advanced mobility platforms.</div></div>
-          <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="powerplant"></span> Power Plant Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Design, optimization, and maintenance support for conventional, nuclear, and alternative energy power generation facilities.</div></div>
-          <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="industrial_plant"></span> Industrial Plant Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Full industrial facility design from process flow to layout, safety systems, and commissioning support.</div></div>
-          <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="energy_eng"></span> Energy Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Renewable and conventional energy systems design, efficiency optimization, and storage integration across sectors.</div></div>
-          <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="agricultural"></span> Agricultural Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Precision agriculture systems, irrigation technology, soil chemistry, and farm infrastructure engineering.</div></div>
-          <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="nano"></span> Nanoengineering <span class="toggle-icon">+</span></div><div class="cap-body">Nanotechnology research and development for advanced materials, coatings, drug delivery, and electronics at atomic scale.</div></div>
-          <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="quantum"></span> Quantum Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Applied quantum mechanics for computing, sensing, communications, and materials characterization at the frontier of physics.</div></div>
-          <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="nuclear"></span> Nuclear Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Nuclear materials, radiation shielding, reactor systems, and nuclear safety engineering for defense and energy applications.</div></div>
-          <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="petroleum"></span> Petroleum Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Exploration, drilling, production, and refining process engineering supported by our proprietary corrosion and materials expertise.</div></div>
-          <div class="cap-card" onclick="toggleCard(this)"><div class="cap-header"><span data-icon="marine"></span> Marine Engineering <span class="toggle-icon">+</span></div><div class="cap-body">Marine systems engineering, hull protection, subsea materials, and shipboard systems — enhanced by Theis Tekton's deep sea-proven performance.</div></div>
+    <div class="founder-grid founder-grid-reverse" style="margin-top:4rem;">
+      <div class="founder-portrait founder-portrait-jessica" aria-label="Jessica Theis — CEO"></div>
+      <div class="founder-text reveal">
+        <p class="eyebrow">Chief Executive Officer</p>
+        <h2>Jessica Theis</h2>
+        <p class="role">CEO · Deal Architect · Commercial Lead</p>
+        <p>Jessica Theis drives the commercial, legal, and strategic operations of Theis Industries. She architects deals, manages investor and government relations, and translates Jason's breakthrough technologies into executable business structures across defense, energy, manufacturing, and global markets.</p>
+        <p>Her expertise spans contract law, financial structuring, regulatory compliance, and executive communication — ensuring Theis Industries is positioned to scale from American invention to global deployment.</p>
+        <div class="founder-creds">
+          <span class="cred-item">Deal Architecture</span>
+          <span class="cred-item">Contract Law</span>
+          <span class="cred-item">Government Relations</span>
+          <span class="cred-item">Global Market Access</span>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- LICENSING MODELS -->
-  <section id="licensing">
-    <div class="container">
-      <div class="section-label">Business Models</div>
-      <h2>How to Access Our Technology</h2>
-      <p class="section-sub">We offer flexible paths to partner with and deploy Theis Industries technology — from outright purchase to ongoing production contracts.</p>
-      <div class="license-grid">
-        <div class="license-card">
-          <div class="license-icon" data-icon="licensing"></div>
-          <h4>Outright Sale</h4>
-          <p>Purchase full rights to a specific technology, formulation, or solution for your application or market.</p>
-        </div>
-        <div class="license-card">
-          <div class="license-icon" data-icon="document"></div>
-          <h4>License</h4>
-          <p>License our proprietary IP and manufacturing methods for use in your own production operations.</p>
-        </div>
-        <div class="license-card">
-          <div class="license-icon" data-icon="partnership"></div>
-          <h4>Strategic Partnership</h4>
-          <p>Co-develop new applications together — we bring the science and engineering, you bring the market access.</p>
-        </div>
-        <div class="license-card">
-          <div class="license-icon" data-icon="production"></div>
-          <h4>Contract Manufacturing</h4>
-          <p>We produce your product or material to spec, at scale — ongoing production with full quality control.</p>
-        </div>
-        <div class="license-card">
-          <div class="license-icon" data-icon="rd"></div>
-          <h4>R&amp;D Consulting</h4>
-          <p>Engage our engineers and scientists to solve your toughest material or design challenge on a project basis.</p>
-        </div>
-        <div class="license-card">
-          <div class="license-icon" data-icon="document"></div>
-          <h4>Lease</h4>
-          <p>Temporary access to technology or production capacity with defined terms — ideal for pilot programs and trials.</p>
-        </div>
-      </div>
+<!-- CTA -->
+<section id="cta">
+  <div class="container cta-inner">
+    <h2>We shine best when the mission seems <em>impossible</em>.</h2>
+    <p>Our technologies are available for sale, license, lease, partnership, and ongoing manufacturing. Let's solve your hardest problem.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      <a href="contact.html" class="btn-primary btn-large">Start the Conversation</a>
+      <a href="about.html" class="btn-secondary btn-large">About Theis Industries</a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FAQ -->
-  <section id="faq">
-    <div class="container">
-      <div class="section-label">Questions</div>
-      <h2>Frequently Asked</h2>
-      <div class="faq-list">
-        <div class="faq-item" onclick="toggleCard(this)">
-          <div class="faq-q">What is Theis Tekton / Liquid Kevlar? <span class="toggle-icon">+</span></div>
-          <div class="faq-a">Theis Tekton is our proprietary materials system — a revolutionary compound that can be engineered to be as flexible as chewing gum or as rigid as steel, on demand. It self-heals, cures in seconds, and has been deployed in deep-sea, aerospace, defense, and industrial applications for over 20 years. It is sometimes referred to as Liquid Kevlar due to its extraordinary strength-to-weight and protective characteristics.</div>
-        </div>
-        <div class="faq-item" onclick="toggleCard(this)">
-          <div class="faq-q">What industries do you serve? <span class="toggle-icon">+</span></div>
-          <div class="faq-a">We serve defense, aerospace, marine, energy, industrial manufacturing, medical, infrastructure, oil &amp; gas, and more. If extreme environments, advanced materials, or impossible engineering problems are involved — we're the right call.</div>
-        </div>
-        <div class="faq-item" onclick="toggleCard(this)">
-          <div class="faq-q">How do we engage with Theis Industries? <span class="toggle-icon">+</span></div>
-          <div class="faq-a">Start by contacting us with your challenge or interest. We offer technology sale, licensing, partnerships, contract manufacturing, R&amp;D consulting, and lease arrangements. We tailor the engagement model to what makes sense for your program or business.</div>
-        </div>
-        <div class="faq-item" onclick="toggleCard(this)">
-          <div class="faq-q">Are your technologies available for government and DoD contracts? <span class="toggle-icon">+</span></div>
-          <div class="faq-a">Yes. Our defense technologies — including body armor, vehicle armor, structural blast protection, and specialty coatings — are engineered to meet the demands of government and Department of Defense programs. We welcome inquiries from prime contractors, OEMs, and government acquisition offices.</div>
-        </div>
-        <div class="faq-item" onclick="toggleCard(this)">
-          <div class="faq-q">Can you develop a custom solution for a problem we haven't solved yet? <span class="toggle-icon">+</span></div>
-          <div class="faq-a">That's exactly what we do best. We shine when the mission seems impossible. Our interdisciplinary team of engineers and scientists thrives on novel, complex, and high-stakes problems that others have walked away from.</div>
-        </div>
-        <div class="faq-item" onclick="toggleCard(this)">
-          <div class="faq-q">Where are you based and do you work internationally? <span class="toggle-icon">+</span></div>
-          <div class="faq-a">Theis Industries is U.S.-based. Our technologies have been deployed globally — from deep-sea installations to space programs — and we work with international partners, governments, and corporations.</div>
-        </div>
-      </div>
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-brand">THEIS INDUSTRIES INC.</div>
+    <p class="footer-tag">Physics. Chemistry. Engineering. — Mastering the Impossible.</p>
+    <nav class="footer-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="industries.html">Industries</a>
+      <a href="about.html#patents">Patents</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="footer-divisions">
+      <span class="footer-div-label">Divisions:</span>
+      <a href="tpp.html">TPP</a>
+      <a href="xtt.html">XTT</a>
+      <a href="construction.html">Construction</a>
+      <a href="defense.html">Defense</a>
+      <a href="energy.html">Energy</a>
+      <a href="maritime.html">Maritime</a>
+      <a href="septic.html">Septic</a>
+      <a href="molding.html">Molding</a>
+      <a href="auto.html">Auto</a>
     </div>
-  </section>
-
-  <!-- FOUNDER -->
-  <section id="founder">
-    <div class="container">
-      <div class="founder-grid">
-        <div class="founder-portrait" aria-label="Jason Theis — Founder & Inventor"></div>
-        <div class="founder-text">
-          <p class="eyebrow">Founder &amp; Inventor</p>
-          <h2>Jason Theis</h2>
-          <p class="role">Chief Scientist · Inventor of Theis Tekton™</p>
-          <p>Jason Theis is the founder, lead inventor, and chief scientist behind Theis Industries Inc. Over two decades he has developed and field-proven a portfolio of proprietary materials, biometric security systems, and protective technologies now deployed across defense, marine, aerospace, and industrial markets.</p>
-          <p>His issued U.S. patents and pending applications form the IP backbone of the company — and his hands-on engineering approach is the reason Theis Industries delivers where others stop at "impossible."</p>
-          <div class="founder-creds">
-            <span class="cred-item">Issued U.S. Patents</span>
-            <span class="cred-item">17+ Pending Applications</span>
-            <span class="cred-item">International Filing (WIPO)</span>
-            <span class="cred-item">20+ Years Field Work</span>
-          </div>
-        </div>
-      </div>
+    <div class="footer-contact">
+      <div><span class="label">Inquiries</span><span class="value"><a href="mailto:contact@theis.solutions">contact@theis.solutions</a></span></div>
+      <div><span class="label">Phone</span><span class="value"><a href="tel:7142968369">(714) 296-8369</a></span></div>
+      <div><span class="label">Headquarters</span><span class="value">United States of America</span></div>
     </div>
-  </section>
+    <p class="footer-copy">&copy; 2026 Theis Industries Inc. All rights reserved. | Theis Tekton™ and Liquid Kevlar™ are trademarks of Theis Industries Inc.</p>
+  </div>
+</footer>
 
-  <!-- CTA -->
-  <section id="cta">
-    <div class="container cta-inner">
-      <h2>We shine best when the mission seems <em>impossible</em>.</h2>
-      <p>Our technologies are available for sale, license, lease, partnership, and ongoing manufacturing. Let's solve your hardest problem.</p>
-      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-        <a href="contact.html" class="btn-primary btn-large">Start the Conversation</a>
-        <a href="about.html" class="btn-secondary btn-large">About Theis Industries</a>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container footer-inner">
-      <div class="footer-brand">THEIS INDUSTRIES INC.</div>
-      <p class="footer-tag">Physics. Chemistry. Engineering. — Mastering the Impossible.</p>
-      <nav class="footer-nav">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="#capabilities">Capabilities</a>
-        <a href="industries.html">Industries</a>
-        <a href="#tekton">Theis Tekton</a>
-        <a href="#patents">Patents</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-      <div class="footer-contact">
-        <div>
-          <span class="label">Inquiries</span>
-          <span class="value"><a href="mailto:contact@theis.solutions">contact@theis.solutions</a></span>
-        </div>
-        <div>
-          <span class="label">Headquarters</span>
-          <span class="value">United States of America</span>
-        </div>
-        <div>
-          <span class="label">Engagement</span>
-          <span class="value">Sale · License · Partnership · Contract Manufacturing</span>
-        </div>
-      </div>
-      <p class="footer-copy">&copy; 2026 Theis Industries Inc. All rights reserved. &nbsp;|&nbsp; U.S.-Based Technology &amp; Engineering &nbsp;|&nbsp; Theis Tekton™ and Liquid Kevlar™ are trademarks of Theis Industries Inc.</p>
-    </div>
-  </footer>
-
-  <script src="icons.js"></script>
-  <script src="main.js"></script>
 </body>
 </html>
