@@ -48,8 +48,9 @@
 
 <!-- HERO -->
 <section id="hero">
-  <canvas id="hero-canvas"></canvas>
-  <div class="hero-content reveal">
+  <img src="images/home-hero-bg.png" alt="Theis Industries epic industrial manufacturing" style="position:absolute;width:100%;height:100%;object-fit:cover;top:0;left:0;z-index:0;">
+  <div style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:1;background:rgba(10,8,6,0.65);"></div>
+  <div class="hero-content reveal" style="position:relative;z-index:2;">
     <p class="hero-sub">Physics &nbsp;·&nbsp; Chemistry &nbsp;·&nbsp; Engineering</p>
     <h1>Mastering the <span>Impossible.</span></h1>
     <p class="hero-desc">Theis Industries Inc. delivers proprietary defense and materials technologies — including <strong>Theis Tekton™ (Liquid Kevlar™)</strong>, advanced blast and ballistics systems, and 38+ engineering disciplines under one roof.</p>
@@ -140,6 +141,7 @@
         </div>
       </div>
       <div class="tekton-visual reveal">
+        <img src="images/tekton-material-hero.png" alt="Theis Tekton carbon fiber and gold molecular material" style="width:100%;max-width:100%;border-radius:8px;display:block;margin-bottom:1.5rem;">
         <div class="tekton-badge tekton-badge-shimmer">
           <span>LIQUID</span>
           <span class="big">KEVLAR&#8482;</span>
@@ -206,6 +208,9 @@
     <div class="section-label reveal">The Theis Portfolio</div>
     <h2 class="reveal">Our Divisions</h2>
     <p class="section-sub reveal">Nine specialized divisions — each a vertical spoke from the Theis Industries parent. Click any division to explore.</p>
+    <div class="section-hero-img" style="margin:2rem 0 2.5rem;border-radius:12px;overflow:hidden;">
+      <img src="images/divisions-showcase.png" alt="Theis Industries divisions" style="width:100%;height:380px;object-fit:cover;object-position:center top;">
+    </div>
     <div class="divisions-grid">
       <a href="tpp.html" class="division-card reveal">
         <div class="division-accent"></div>
@@ -331,6 +336,9 @@
     <div class="section-label reveal">Defense Applications</div>
     <h2 class="reveal">Blast &amp; Ballistics</h2>
     <p class="section-sub reveal">We excel in all areas of advanced defensive technologies — lightweight, cost-effective, and battle-proven. Our solutions outperform current market standards.</p>
+    <div class="section-hero-img" style="margin:2rem 0;border-radius:12px;overflow:hidden;max-height:420px;">
+      <img src="images/ballistics-hero.png" alt="Ballistic armor test — bullet stopped" style="width:100%;height:420px;object-fit:cover;object-position:center;">
+    </div>
     <div class="defense-cards reveal">
       <div class="defense-card" onclick="toggleCard(this)">
         <div class="defense-card-header"><span data-icon="bodyarmor"></span><h4>Body Armor</h4><span class="toggle-icon">+</span></div>
@@ -396,6 +404,11 @@
     <div class="section-label reveal">Full Scope</div>
     <h2 class="reveal">Core Capabilities</h2>
     <p class="section-sub reveal">Click any discipline to explore how Theis Industries applies deep expertise to your challenge.</p>
+
+    <div style="margin:2.5rem 0;border-radius:12px;overflow:hidden;background:#110d08;padding:1.5rem;">
+      <p class="section-label" style="margin-bottom:1rem;">Third-Party Verified</p>
+      <img src="images/product-tekton-bar-chart.jpg" alt="Theis Tekton vs competitors performance chart" style="width:100%;border-radius:8px;">
+    </div>
 
     <div class="cap-group reveal">
       <h3 class="cap-group-title">Materials &amp; Chemistry</h3>
@@ -534,7 +547,7 @@
 <section id="founder">
   <div class="container">
     <div class="founder-grid">
-      <div class="founder-portrait" aria-label="Jason Theis — Founder & Inventor"></div>
+      <div class="founder-portrait" aria-label="Jason Theis — Founder & Inventor"><img src="images/jason-theis-portrait.png" alt="Jason Theis — Founder" style="width:100%;height:100%;object-fit:cover;border-radius:8px;"></div>
       <div class="founder-text reveal">
         <p class="eyebrow">Founder &amp; Inventor</p>
         <h2>Jason Theis</h2>
@@ -550,7 +563,7 @@
       </div>
     </div>
     <div class="founder-grid founder-grid-reverse" style="margin-top:4rem;">
-      <div class="founder-portrait founder-portrait-jessica" aria-label="Jessica Theis — CEO"></div>
+      <div class="founder-portrait founder-portrait-jessica" aria-label="Jessica Theis — CEO"><img src="images/jessica-theis-portrait.png" alt="Jessica Theis — CEO" style="width:100%;height:100%;object-fit:cover;border-radius:8px;"></div>
       <div class="founder-text reveal">
         <p class="eyebrow">Chief Executive Officer</p>
         <h2>Jessica Theis</h2>
