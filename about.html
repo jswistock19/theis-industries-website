@@ -427,6 +427,237 @@
       color: var(--text-bright); margin-bottom: 1rem;
     }
 
+    /* ====== PROJECT PORTFOLIO ====== */
+    #project-portfolio {
+      padding: 6rem 0;
+      background:
+        radial-gradient(ellipse at 80% 20%, rgba(212,175,55,0.09) 0%, transparent 55%),
+        radial-gradient(ellipse at 10% 80%, rgba(168,134,31,0.06) 0%, transparent 50%),
+        var(--bg);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .portfolio-intro {
+      max-width: 72ch;
+      margin-bottom: 3rem;
+    }
+    .portfolio-intro p {
+      color: var(--muted-strong);
+      line-height: 1.85;
+      font-size: 1.05rem;
+    }
+    /* Masonry-style grid */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.4rem;
+      align-items: start;
+    }
+    @media(max-width: 1024px) { .portfolio-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media(max-width: 640px)  { .portfolio-grid { grid-template-columns: 1fr; } }
+
+    /* Span helpers */
+    .cs-span-2 { grid-column: span 2; }
+    @media(max-width: 1024px) { .cs-span-2 { grid-column: span 2; } }
+    @media(max-width: 640px)  { .cs-span-2 { grid-column: span 1; } }
+
+    /* Case study card */
+    .cs-card {
+      background: #110d08;
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--accent);
+      border-radius: var(--radius-lg);
+      padding: 2.2rem 2rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: border-color .3s, box-shadow .3s, transform .3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .cs-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(212,175,55,0.05) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .cs-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(212,175,55,0.12);
+      transform: translateY(-5px);
+    }
+    .cs-badge {
+      display: inline-block;
+      padding: .28rem .85rem;
+      border: 1px solid rgba(212,175,55,0.35);
+      border-radius: 999px;
+      font-family: var(--font-head);
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--accent-light);
+      background: rgba(212,175,55,0.07);
+      width: fit-content;
+    }
+    .cs-client {
+      font-family: var(--font-head);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-bright);
+      letter-spacing: .04em;
+      line-height: 1.25;
+    }
+    .cs-headline {
+      font-family: var(--font-sub);
+      font-size: .88rem;
+      font-weight: 600;
+      color: var(--accent-light);
+      letter-spacing: .04em;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+    .cs-divider {
+      height: 1px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      opacity: .3;
+      margin: .25rem 0;
+    }
+    .cs-row {
+      display: flex;
+      flex-direction: column;
+      gap: .4rem;
+    }
+    .cs-label {
+      font-family: var(--font-head);
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .cs-text {
+      color: var(--muted-strong);
+      font-size: .92rem;
+      line-height: 1.7;
+      margin: 0;
+    }
+    .cs-quote {
+      margin: .5rem 0 0;
+      padding: 1rem 1.25rem;
+      border-left: 3px solid var(--accent);
+      background: rgba(212,175,55,0.05);
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+    .cs-quote p {
+      color: var(--text-bright);
+      font-style: italic;
+      font-size: .9rem;
+      line-height: 1.65;
+      margin: 0 0 .4rem;
+    }
+    .cs-quote cite {
+      font-family: var(--font-head);
+      font-size: .72rem;
+      color: var(--accent-light);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      font-style: normal;
+    }
+    .cs-metrics {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      padding-top: .75rem;
+      border-top: 1px solid var(--border);
+    }
+    .cs-metric {
+      display: flex;
+      flex-direction: column;
+      gap: .15rem;
+    }
+    .cs-metric-val {
+      font-family: var(--font-head);
+      font-size: 1.15rem;
+      font-weight: 700;
+      background: var(--grad-gold);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent; color: transparent;
+    }
+    .cs-metric-label {
+      font-size: .72rem;
+      color: var(--muted);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    /* Restoration multi-list */
+    .cs-site-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem .75rem;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+    .cs-site-list li {
+      font-family: var(--font-head);
+      font-size: .73rem;
+      color: var(--muted-strong);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: .25rem .7rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+    }
+
+    /* ====== CLIENTS & PARTNERS BAR ====== */
+    #clients-bar {
+      padding: 4rem 0;
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+    }
+    .clients-bar-label {
+      font-family: var(--font-head);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .clients-marquee-track {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: .6rem 1.2rem;
+    }
+    .client-name {
+      font-family: var(--font-head);
+      font-size: .95rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--accent-light);
+      padding: .5rem 1.25rem;
+      border: 1px solid rgba(212,175,55,0.2);
+      border-radius: var(--radius);
+      background: rgba(212,175,55,0.04);
+      transition: all .25s;
+      white-space: nowrap;
+    }
+    .client-name:hover {
+      border-color: var(--accent);
+      background: rgba(212,175,55,0.10);
+      color: var(--accent-light);
+      box-shadow: 0 0 20px rgba(212,175,55,0.12);
+      transform: translateY(-2px);
+    }
+    .client-sep {
+      display: none;
+    }
+
     /* ====== STATS STRIP ====== */
     #about-stats-strip {
       padding: 2.5rem 0;
@@ -703,6 +934,204 @@
         <!-- Patents injected by main.js -->
       </div>
       <p class="patents-foot reveal">View the full inventor portfolio on <a href="https://patents.google.com/?inventor=Jason+Theis" target="_blank" rel="noopener">Google Patents</a> — or <a href="contact.html">contact us</a> to discuss licensing or partnerships.</p>
+    </div>
+  </section>
+
+  <!-- PROJECT PORTFOLIO -->
+  <section id="project-portfolio">
+    <div class="container">
+      <div class="section-label reveal">Field-Proven Results</div>
+      <h2 class="reveal">Project Portfolio</h2>
+      <div class="portfolio-intro reveal">
+        <p>From iconic entertainment productions to classified athletic R&D facilities, Theis Industries has delivered engineering breakthroughs that no conventional firm could solve. Every project below represents a real challenge, a real client, and a real Theis solution.</p>
+      </div>
+
+      <div class="portfolio-grid">
+
+        <!-- CARD 1: Cirque du Soleil -->
+        <div class="cs-card reveal">
+          <span class="cs-badge">Entertainment Engineering</span>
+          <div class="cs-client">Cirque du Soleil</div>
+          <div class="cs-headline">Theis Tekton Accomplishes Unique Features &amp; Props</div>
+          <div class="cs-divider"></div>
+          <div class="cs-row">
+            <span class="cs-label">Challenge</span>
+            <p class="cs-text">Cirque productions demand one-of-a-kind engineering solutions — appearance, theme, functionality, and story-telling all in a single prop. Features must be moveable, convertible, and temporarily deployable across touring venues.</p>
+          </div>
+          <div class="cs-row">
+            <span class="cs-label">Solution</span>
+            <p class="cs-text">Theis Tekton applied to props and set pieces, enabling movable and convertible features that satisfy both creative and structural requirements night after night on the world stage.</p>
+          </div>
+          <div class="cs-metrics">
+            <div class="cs-metric"><span class="cs-metric-val">$1,000</span><span class="cs-metric-label">Direct Cost</span></div>
+            <div class="cs-metric"><span class="cs-metric-val">$750</span><span class="cs-metric-label">Indirect Cost</span></div>
+          </div>
+        </div>
+
+        <!-- CARD 2: Nike High Tech Facility -->
+        <div class="cs-card reveal">
+          <span class="cs-badge">Athletic Performance</span>
+          <div class="cs-client">Nike High-Tech R&amp;D Facility</div>
+          <div class="cs-headline">Theis Solves Unforeseen Construction Problems</div>
+          <div class="cs-divider"></div>
+          <div class="cs-row">
+            <span class="cs-label">Context</span>
+            <p class="cs-text">Nike opened a classified R&D proving ground for next-generation performance enhancement for athletes, military, and professional sports. Theoretical engineering services failed to perform once construction began.</p>
+          </div>
+          <div class="cs-row">
+            <span class="cs-label">Solution</span>
+            <p class="cs-text">Theis re-engineered and designed smart-technology flooring with pressurized computer platelets — enabling real-time diagnostics of force, leverage, momentum, and stamina for athletes and operators on the floor.</p>
+          </div>
+          <div class="cs-row">
+            <span class="cs-label">Partners</span>
+            <p class="cs-text">Theis Tekton · McWil Sports Surfaces, Inc.</p>
+          </div>
+        </div>
+
+        <!-- CARD 3: Bikram Yoga -->
+        <div class="cs-card reveal">
+          <span class="cs-badge">HVAC / Thermal Engineering</span>
+          <div class="cs-client">Bikram Yoga — Radisson LAX</div>
+          <div class="cs-headline">Extreme Heat and Clean Air for Bikram Yoga</div>
+          <div class="cs-divider"></div>
+          <div class="cs-row">
+            <span class="cs-label">Challenge</span>
+            <p class="cs-text">Bikram Yoga — practiced by 18,000+ teachers across 60 countries — requires rooms held at 105°F. Teacher trainings at Radisson LAX faced two critical problems: achieving sufficient heat and eliminating odor from large class sizes.</p>
+          </div>
+          <div class="cs-row">
+            <span class="cs-label">Solution</span>
+            <p class="cs-text">Jason engineered a proprietary blend of gases with a directed airflow system that kept heat concentrated near the floor rather than rising, while neutralizing odor-causing bacteria entirely. Doorknobs became too hot to touch — the room was at optimal temperature throughout.</p>
+          </div>
+          <div class="cs-quote">
+            <p>"Jason made HEAVY HEAT and the room smelt beautiful even after all the classes! I never thought it was possible!"</p>
+            <cite>— Bikram Choudhry, Founder of Bikram Yoga</cite>
+          </div>
+        </div>
+
+        <!-- CARD 4: Historical Restoration (spans 2 cols) -->
+        <div class="cs-card cs-span-2 reveal">
+          <span class="cs-badge">Historical Restoration</span>
+          <div class="cs-client">Landmark Historical Restorations</div>
+          <div class="cs-headline">Restoring America's Irreplaceable Architectural Heritage</div>
+          <div class="cs-divider"></div>
+          <ul class="cs-site-list" style="margin-bottom:.75rem;">
+            <li>Hearst Castle — San Simeon, CA</li>
+            <li>Redstone Castle — Redstone, CO</li>
+            <li>Griffith Observatory — Griffith Park, CA</li>
+            <li>Wrigley Mansion — Catalina Island, CA</li>
+            <li>Frank Lloyd Wright Personal Home — Malibu Foothills, CA</li>
+            <li>Holly Hotel — Holly, MI</li>
+            <li>Sweetser House — Redondo Beach, CA</li>
+          </ul>
+          <div class="cs-row">
+            <span class="cs-label">Redstone Castle</span>
+            <p class="cs-text">Fire damage to the backside of the castle — Theis restored the Neptune Pool, Library, and Kitchen. Project completed ahead of schedule and under budget. Full follow-on scope: boiler room, roofing, stonework, kitchen, bathrooms, woodwork, and artwork.</p>
+          </div>
+          <div class="cs-row">
+            <span class="cs-label">Frank Lloyd Wright Home</span>
+            <p class="cs-text">Waterproofed all internal water passages throughout the home. Full restoration and rebuild of cabinetry in kitchen, hallways, and over heaters. Manufactured custom tooling and knives into full production with Anaheim Reel Lumber.</p>
+          </div>
+          <div class="cs-row">
+            <span class="cs-label">Griffith Observatory</span>
+            <p class="cs-text">Theis constructed underground vaults using Theis Tekton to ensure structural integrity, security, and complete waterproofing beneath one of Los Angeles's most iconic public landmarks.</p>
+          </div>
+          <div class="cs-row">
+            <span class="cs-label">Wrigley Mansion &amp; Holly Hotel</span>
+            <p class="cs-text">Catalina Island: restoration of stonework and high-definition clear-coat application on travertine and saltillo tile. Holly, MI: Theis's first major historical restoration — full reconstruction of the fire-damaged mudroom and main dining room entrance.</p>
+          </div>
+        </div>
+
+        <!-- CARD 5: Batman Dark Knight Rises -->
+        <div class="cs-card reveal">
+          <span class="cs-badge">Film &amp; Entertainment</span>
+          <div class="cs-client">The Dark Knight Rises</div>
+          <div class="cs-headline">Batman Suit Mold — Theis Redondo Beach Lab</div>
+          <div class="cs-divider"></div>
+          <div class="cs-row">
+            <span class="cs-label">Innovation</span>
+            <p class="cs-text">The production mold for the iconic Batman suit in <em>The Dark Knight Rises</em> was fabricated at Theis Industries' Redondo Beach laboratory, then delivered to the Howard Hughes lab set in Playa del Rey, CA.</p>
+          </div>
+          <div class="cs-row">
+            <span class="cs-label">Material Proof</span>
+            <p class="cs-text">At the film's premiere, a woman stabbed a costumed figure wearing the suit with a knife — the blade failed to penetrate. This inadvertent stress test demonstrated the actual protective capability of Theis Tekton materials far beyond the theatrical context.</p>
+          </div>
+        </div>
+
+        <!-- CARD 6: Australian Bar -->
+        <div class="cs-card reveal">
+          <span class="cs-badge">Consumer Products</span>
+          <div class="cs-client">Australian Bar — Theis Tekton Drinkware</div>
+          <div class="cs-headline">Keeping Drinkers and Bar Owners Happy Down Under</div>
+          <div class="cs-divider"></div>
+          <div class="cs-row">
+            <span class="cs-label">Challenge</span>
+            <p class="cs-text">An Australian bar owner needed mugs that were completely non-breakable yet still maintained proper beer foam — a combination the market could not supply.</p>
+          </div>
+          <div class="cs-row">
+            <span class="cs-label">Solution</span>
+            <p class="cs-text">Theis manufactured mugs from optically clear Theis Tekton — virtually indestructible, optically indistinguishable from glass, and fully foam-retaining. Patrons could throw the glasses without breakage. Bar owner eliminated breakage costs and liability risk.</p>
+          </div>
+        </div>
+
+        <!-- CARD 7: Reptile / Zoo / Slash / Rhino -->
+        <div class="cs-card reveal">
+          <span class="cs-badge">Zoo &amp; Animal Enrichment</span>
+          <div class="cs-client">San Francisco Zoo &amp; Animal Enrichment</div>
+          <div class="cs-headline">Indestructible Toy &amp; Full-Scale Animal Environments</div>
+          <div class="cs-divider"></div>
+          <div class="cs-row">
+            <span class="cs-label">San Francisco Zoo</span>
+            <p class="cs-text">Theis designed and installed a full-scale 60-foot Brontosaurus Rex sculpture outside the zoo, a full-scale Raptor protruding from drywall and plexiglass, and the iconic Pinball Room — immersive, durable, zoo-grade installations.</p>
+          </div>
+          <div class="cs-row">
+            <span class="cs-label">Black Rhino Enrichment (Foober)</span>
+            <p class="cs-text">Foober engaged Theis to manufacture a second prototype of an indestructible enrichment toy for Black Rhinos — an endangered species. Theis drew on survival training and knowledge of animal behavior to design the toy with stimulating smells, challenging textures, and weighted resistance calibrated to rhino strength.</p>
+          </div>
+        </div>
+
+        <!-- CARD 8: Underground Tennis Court -->
+        <div class="cs-card reveal">
+          <span class="cs-badge">Extreme Custom Engineering</span>
+          <div class="cs-client">Contessa Shrimp — Underground Tennis Court</div>
+          <div class="cs-headline">Unique Circumstances Requiring Extreme Engineering</div>
+          <div class="cs-divider"></div>
+          <div class="cs-row">
+            <span class="cs-label">Challenge</span>
+            <p class="cs-text">City ordinances denied a permit for an outdoor tennis court due to unacceptable light and noise impact on the surrounding neighborhood. The court had to be built — but it could not be built above ground.</p>
+          </div>
+          <div class="cs-row">
+            <span class="cs-label">Solution</span>
+            <p class="cs-text">Theis engineered a full tennis court 80 feet below ground, carved into the hillside and finished in old-world plaster bath house aesthetics. The court connects to the main structure via an underground tunnel. World-famous old-world plasterer Dominic La Ferla was contracted for the interior finish.</p>
+          </div>
+          <div class="cs-row">
+            <span class="cs-label">Result</span>
+            <p class="cs-text">An immaculate piece of engineering — a fully functional, regulation-size tennis court invisible to the city, neighbors, and any aerial observation.</p>
+          </div>
+        </div>
+
+      </div><!-- /.portfolio-grid -->
+    </div>
+  </section>
+
+  <!-- CLIENTS & PARTNERS BAR -->
+  <section id="clients-bar">
+    <div class="container">
+      <div class="section-label reveal" style="text-align:center;margin-bottom:.5rem;">Clients &amp; Partners</div>
+      <div class="clients-bar-label reveal">Organizations That Have Trusted Theis Industries</div>
+      <div class="clients-marquee-track reveal">
+        <span class="client-name">Cirque du Soleil</span>
+        <span class="client-name">Nike</span>
+        <span class="client-name">Bikram Yoga</span>
+        <span class="client-name">Hearst Castle</span>
+        <span class="client-name">Griffith Observatory</span>
+        <span class="client-name">San Francisco Zoo</span>
+        <span class="client-name">American Pacific</span>
+        <span class="client-name">Port of Long Beach</span>
+        <span class="client-name">Iron Outlaw</span>
+        <span class="client-name">Grave Digger</span>
+        <span class="client-name">McWil Sports Surfaces</span>
+        <span class="client-name">Wrigley Mansion</span>
+      </div>
     </div>
   </section>
 

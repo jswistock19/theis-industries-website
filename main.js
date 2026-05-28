@@ -53,7 +53,7 @@
   animateCursor();
 
   // Hover state on interactive elements
-  const hoverTargets = 'a, button, [onclick], .pillar, .industry-card, .license-card, .defense-card, .faq-item, .cap-card, .division-card, .patent-card, .ind-detail-header, input, textarea, select, label';
+  const hoverTargets = 'a, button, [onclick], .pillar, .industry-card, .license-card, .defense-card, .faq-item, .cap-card, .division-card, .patent-card, .ind-detail-header, input, textarea, select, label, .cs-card, .stat-item, .case-card, .case-study-card, .metrics-bar, .client-name, .case-badge';
 
   document.addEventListener('mouseover', (e) => {
     if (e.target.closest(hoverTargets)) dot.classList.add('cursor-hover');

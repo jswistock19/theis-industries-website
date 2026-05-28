@@ -179,36 +179,45 @@ body.exiting #page-overlay {
 }
 
 /* ============================================================
-   5. CUSTOM CURSOR
+   5. CUSTOM CURSOR — TACTICAL CROSSHAIR
    ============================================================ */
 #cursor-dot {
   position: fixed;
   top: 0;
   left: 0;
-  width: 10px;
-  height: 10px;
-  background: var(--accent);
-  transform: translate(-50%, -50%) rotate(45deg);
+  width: 40px;
+  height: 40px;
+  transform: translate(-50%, -50%) rotate(0deg);
   z-index: 10000;
   pointer-events: none;
-  transition: transform 0.1s var(--ease-out-expo),
-              background 0.2s,
-              width 0.2s var(--ease-spring),
-              height 0.2s var(--ease-spring);
-  box-shadow: 0 0 12px rgba(212,175,55,0.7);
+  transition: width 0.18s var(--ease-spring),
+              height 0.18s var(--ease-spring),
+              opacity 0.2s;
+  /* SVG crosshair rendered as inline background */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40' width='40' height='40'%3E%3C!-- Outer ring --%3E%3Ccircle cx='20' cy='20' r='17' stroke='%23d4af37' stroke-width='0.8' fill='none' opacity='0.55'/%3E%3C!-- Inner ring --%3E%3Ccircle cx='20' cy='20' r='10' stroke='%23d4af37' stroke-width='0.7' fill='none' opacity='0.75'/%3E%3C!-- Center dot --%3E%3Ccircle cx='20' cy='20' r='1.5' fill='%23d4af37' opacity='1'/%3E%3C!-- Top gap line --%3E%3Cline x1='20' y1='1' x2='20' y2='8' stroke='%23d4af37' stroke-width='1' stroke-linecap='round' opacity='0.9'/%3E%3C!-- Bottom gap line --%3E%3Cline x1='20' y1='32' x2='20' y2='39' stroke='%23d4af37' stroke-width='1' stroke-linecap='round' opacity='0.9'/%3E%3C!-- Left gap line --%3E%3Cline x1='1' y1='20' x2='8' y2='20' stroke='%23d4af37' stroke-width='1' stroke-linecap='round' opacity='0.9'/%3E%3C!-- Right gap line --%3E%3Cline x1='32' y1='20' x2='39' y2='20' stroke='%23d4af37' stroke-width='1' stroke-linecap='round' opacity='0.9'/%3E%3C!-- Mil dots at 45deg positions on inner ring --%3E%3Ccircle cx='27.07' cy='12.93' r='0.9' fill='%23d4af37' opacity='0.5'/%3E%3Ccircle cx='12.93' cy='27.07' r='0.9' fill='%23d4af37' opacity='0.5'/%3E%3Ccircle cx='12.93' cy='12.93' r='0.9' fill='%23d4af37' opacity='0.5'/%3E%3Ccircle cx='27.07' cy='27.07' r='0.9' fill='%23d4af37' opacity='0.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  filter: drop-shadow(0 0 6px rgba(212,175,55,0.65));
+  animation: crosshair-spin 12s linear infinite;
+}
+
+@keyframes crosshair-spin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 #cursor-dot.cursor-hover {
-  width: 18px;
-  height: 18px;
-  background: var(--accent-light);
-  box-shadow: 0 0 24px rgba(244,210,122,0.8);
+  width: 56px;
+  height: 56px;
+  filter: drop-shadow(0 0 14px rgba(244,210,122,0.9));
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40' width='40' height='40'%3E%3Ccircle cx='20' cy='20' r='17' stroke='%23f4d27a' stroke-width='1' fill='none' opacity='0.7'/%3E%3Ccircle cx='20' cy='20' r='10' stroke='%23f4d27a' stroke-width='1' fill='none' opacity='0.9'/%3E%3Ccircle cx='20' cy='20' r='2.5' fill='%23f4d27a' opacity='1'/%3E%3Cline x1='20' y1='1' x2='20' y2='8' stroke='%23f4d27a' stroke-width='1.4' stroke-linecap='round'/%3E%3Cline x1='20' y1='32' x2='20' y2='39' stroke='%23f4d27a' stroke-width='1.4' stroke-linecap='round'/%3E%3Cline x1='1' y1='20' x2='8' y2='20' stroke='%23f4d27a' stroke-width='1.4' stroke-linecap='round'/%3E%3Cline x1='32' y1='20' x2='39' y2='20' stroke='%23f4d27a' stroke-width='1.4' stroke-linecap='round'/%3E%3Ccircle cx='27.07' cy='12.93' r='1.2' fill='%23f4d27a' opacity='0.8'/%3E%3Ccircle cx='12.93' cy='27.07' r='1.2' fill='%23f4d27a' opacity='0.8'/%3E%3Ccircle cx='12.93' cy='12.93' r='1.2' fill='%23f4d27a' opacity='0.8'/%3E%3Ccircle cx='27.07' cy='27.07' r='1.2' fill='%23f4d27a' opacity='0.8'/%3E%3C/svg%3E");
 }
 
 #cursor-dot.cursor-click {
-  width: 6px;
-  height: 6px;
-  background: #fff;
+  width: 28px;
+  height: 28px;
+  filter: drop-shadow(0 0 20px rgba(255,255,255,0.9)) drop-shadow(0 0 8px rgba(212,175,55,1));
+  animation: crosshair-spin 0.4s linear infinite;
 }
 
 /* ============================================================
@@ -3346,19 +3355,7 @@ footer::before {
   100% { opacity: 0; }
 }
 
-/* ---- CUSTOM CURSOR ---- */
-#cursor-dot {
-  position: fixed; top: 0; left: 0;
-  width: 10px; height: 10px;
-  background: var(--accent);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9998;
-  transform: translate(-50%, -50%);
-  transition: transform 0.05s linear, opacity 0.3s;
-  mix-blend-mode: screen;
-  display: none;
-}
+/* ---- CUSTOM CURSOR (duplicate block removed — canonical rules in Section 5 above) ---- */
 @media (pointer: fine) {
   #cursor-dot { display: block; }
 }

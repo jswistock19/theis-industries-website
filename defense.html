@@ -11,6 +11,253 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <script src="icons.js" defer></script>
   <script src="main.js" defer></script>
+
+  <style>
+    /* ── BY THE NUMBERS BAR ── */
+    .defense-numbers {
+      background: #110d08;
+      border-top: 1px solid rgba(212,175,55,0.18);
+      border-bottom: 1px solid rgba(212,175,55,0.18);
+      padding: 3.5rem 0;
+    }
+    .defense-numbers .section-label { text-align: center; margin-bottom: .5rem; }
+    .defense-numbers h2 { text-align: center; margin-bottom: 2.5rem; font-family: 'Cinzel', serif; color: #f5ecd6; }
+    .numbers-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem 3rem;
+    }
+    .number-block {
+      text-align: center;
+      min-width: 140px;
+    }
+    .number-val {
+      display: block;
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 700;
+      color: #d4af37;
+      line-height: 1;
+      letter-spacing: .03em;
+    }
+    .number-label {
+      display: block;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: .85rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #9c8b6d;
+      margin-top: .45rem;
+    }
+    .number-divider {
+      width: 1px;
+      background: rgba(212,175,55,0.2);
+      align-self: stretch;
+    }
+
+    /* ── CASE STUDIES SECTION ── */
+    .defense-case-studies {
+      background: #0a0806;
+      padding: 5rem 0 4rem;
+    }
+    .defense-case-studies .section-label { text-align: center; }
+    .defense-case-studies > .container > h2 {
+      text-align: center;
+      margin-bottom: 3rem;
+      font-family: 'Cinzel', serif;
+      color: #f5ecd6;
+    }
+    .case-study-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+    .case-study-card {
+      background: #110d08;
+      border: 1px solid rgba(212,175,55,0.15);
+      border-left: 4px solid #d4af37;
+      border-radius: 4px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      transition: border-color .3s, box-shadow .3s;
+    }
+    .case-study-card:hover {
+      border-left-color: #f4d27a;
+      box-shadow: 0 0 32px rgba(212,175,55,0.08);
+    }
+    .cs-eyebrow {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: #d4af37;
+    }
+    .cs-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      font-weight: 600;
+      color: #f5ecd6;
+      line-height: 1.35;
+      margin: 0;
+    }
+    .cs-body {
+      font-family: 'Inter', sans-serif;
+      font-size: .93rem;
+      color: #f5ecd6;
+      line-height: 1.7;
+      margin: 0;
+    }
+    .cs-body + .cs-body { margin-top: -.5rem; }
+    .cs-quote {
+      border-left: 2px solid rgba(212,175,55,0.4);
+      padding-left: 1rem;
+      font-style: italic;
+      font-family: 'Inter', sans-serif;
+      font-size: .9rem;
+      color: #f4d27a;
+      line-height: 1.6;
+    }
+    .cs-glance {
+      background: rgba(10,8,6,0.6);
+      border: 1px solid rgba(212,175,55,0.12);
+      border-radius: 3px;
+      padding: 1rem 1.2rem;
+    }
+    .cs-glance-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: #a8861f;
+      margin-bottom: .7rem;
+    }
+    .cs-glance-row {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+    }
+    .cs-glance-item {
+      display: flex;
+      gap: .6rem;
+      align-items: flex-start;
+    }
+    .cs-glance-badge {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: .15rem .45rem;
+      border-radius: 2px;
+      flex-shrink: 0;
+      margin-top: .1rem;
+    }
+    .badge-challenge {
+      background: rgba(180,60,30,0.25);
+      color: #e0856a;
+      border: 1px solid rgba(180,60,30,0.3);
+    }
+    .badge-result {
+      background: rgba(50,140,80,0.2);
+      color: #7ecfa0;
+      border: 1px solid rgba(50,140,80,0.3);
+    }
+    .cs-glance-text {
+      font-family: 'Inter', sans-serif;
+      font-size: .86rem;
+      color: #9c8b6d;
+      line-height: 1.5;
+    }
+
+    /* ── MRAP DEEP-DIVE BANNER ── */
+    .mrap-banner {
+      background: linear-gradient(135deg, #110d08 0%, #1a130b 60%, #221810 100%);
+      border-top: 1px solid rgba(212,175,55,0.15);
+      border-bottom: 1px solid rgba(212,175,55,0.15);
+      padding: 4rem 0;
+    }
+    .mrap-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    @media (max-width: 768px) {
+      .mrap-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .number-divider { display: none; }
+      .numbers-bar { gap: 1.5rem 2rem; }
+    }
+    .mrap-text h3 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+      color: #f5ecd6;
+      margin-bottom: 1rem;
+    }
+    .mrap-text p {
+      font-family: 'Inter', sans-serif;
+      font-size: .95rem;
+      color: #f5ecd6;
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+    .mrap-timeline {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .mrap-timeline li {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .tl-year {
+      font-family: 'Cinzel', serif;
+      font-size: .85rem;
+      font-weight: 700;
+      color: #d4af37;
+      min-width: 52px;
+      padding-top: .1rem;
+    }
+    .tl-text {
+      font-family: 'Inter', sans-serif;
+      font-size: .9rem;
+      color: #9c8b6d;
+      line-height: 1.55;
+    }
+    .mrap-highlight-box {
+      background: #0a0806;
+      border: 1px solid rgba(212,175,55,0.2);
+      border-left: 4px solid #d4af37;
+      border-radius: 4px;
+      padding: 1.6rem;
+    }
+    .mrap-highlight-box h4 {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      color: #f4d27a;
+      margin-bottom: .75rem;
+    }
+    .mrap-highlight-box p {
+      font-family: 'Inter', sans-serif;
+      font-size: .9rem;
+      color: #9c8b6d;
+      line-height: 1.65;
+      margin: 0;
+    }
+    .mrap-highlight-box p + p { margin-top: .75rem; }
+
+    /* ── PULSE RING for radar animated bg ── */
+    /* (kept in existing spoke-hero-bg / main.js) */
+  </style>
 </head>
 <body>
   <div id="page-overlay"></div>
@@ -67,7 +314,7 @@
           <div class="section-label reveal">Overview</div>
           <h2 class="reveal">Next-Generation Defensive Technologies for the Modern Threat Environment</h2>
           <p class="reveal">Theis Defense — operating under the Alviz brand — delivers the full spectrum of defensive technologies built on Theis Tekton™ chemistry. Body armor, vehicle armor, blast protection, structural defense, and specialty coatings — all engineered to outperform current market standards in weight, protection level, and field durability.</p>
-          <p class="reveal">Where legacy armor is heavy, rigid, and single-use, Theis Defense solutions are lightweight, moldable, multi-strike, and self-healing. The Alviz line is engineered specifically for DoD, law enforcement, and allied government procurement — with ITAR awareness and full compliance posture for sensitive defense applications.</p>
+          <p class="reveal">Where legacy armor is heavy, rigid, and single-use, Theis Defense solutions are lightweight, moldable, multi-strike, and self-healing. Jason Theis was the inventor and supplier for the MWRAP formulation and materials — a program that deployed over 12,000 Mine-Resistant Ambush Protected vehicles across Iraq and Afghanistan with zero troop fatalities in coated vehicles during IED attacks. The Alviz line is engineered specifically for DoD, law enforcement, and allied government procurement — with ITAR awareness and full compliance posture for sensitive defense applications.</p>
         </div>
         <div class="spoke-overview-stats">
           <div class="spoke-stat reveal">
@@ -82,6 +329,10 @@
             <span class="spoke-stat-val">ITAR</span>
             <span class="spoke-stat-label">Aware &amp; DoD Ready</span>
           </div>
+          <div class="spoke-stat reveal">
+            <span class="spoke-stat-val">12,000+</span>
+            <span class="spoke-stat-label">MWRAP Vehicles Deployed</span>
+          </div>
         </div>
       </div>
     </div>
@@ -95,11 +346,11 @@
       <div class="spoke-products-grid">
         <div class="spoke-product-card reveal">
           <h3>Lightweight Body Armor Systems</h3>
-          <p>Tekton-based body armor achieving multi-strike capability at weight classes significantly below legacy ceramic and steel plate systems — engineered for warrior performance and sustained wear in operational environments.</p>
+          <p>Tekton-based body armor achieving multi-strike capability at weight classes significantly below legacy ceramic and steel plate systems. Theis Tekton is a leading-edge body armor and ballistics material — the <em>Dark Knight Rises</em> suit was molded at the Theis Industries Redondo Beach, CA lab, with the mold delivered to the Howard Hughes film set in Playa del Rey, CA.</p>
         </div>
         <div class="spoke-product-card reveal">
-          <h3>Moldable Vehicle Armor</h3>
-          <p>Tekton-based vehicle armor that conforms to complex vehicle geometries and legacy platform contours — providing ballistic and blast protection without the weight penalties of conventional steel or ceramic armor packages.</p>
+          <h3>MWRAP &amp; Moldable Vehicle Armor</h3>
+          <p>Theis Tekton-based vehicle armor that conforms to complex vehicle geometries — including Humvee MWRAP coating applied as the protective "spalling layer" against ammunition fragmentation. Used across the MWRAP fleet deployed in Iraq and Afghanistan 2009–2012, with zero troop deaths recorded in 500+ IED attacks on coated Cougar vehicles.</p>
         </div>
         <div class="spoke-product-card reveal">
           <h3>Spray-Applied Retrofit Armor</h3>
@@ -107,15 +358,23 @@
         </div>
         <div class="spoke-product-card reveal">
           <h3>Blast &amp; IED Attenuation Panels</h3>
-          <p>Tekton-engineered panels and structural inserts for vehicle floors, doors, and hull surfaces — attenuating IED blast overpressure and fragmentation penetration to protect crew compartment occupants.</p>
+          <p>Tekton-engineered panels and structural inserts for vehicle floors, doors, and hull surfaces — attenuating IED blast overpressure and fragmentation penetration. Backed by 20 pages of blast testing documentation.</p>
         </div>
         <div class="spoke-product-card reveal">
-          <h3>Structural Ballistic Protection</h3>
-          <p>Ballistic protection systems for fixed structures, command posts, guard positions, and critical facility walls — engineered for rapid installation, modular reconfiguration, and multi-hit rated performance.</p>
+          <h3>Fast Attack Combat Vehicles &amp; Naval</h3>
+          <p>Theis Tekton-coated tactical sea-doos and fast attack vehicles — bringing next-generation protective materials to maritime and rapid-response platforms for special operations and coastal defense applications.</p>
+        </div>
+        <div class="spoke-product-card reveal">
+          <h3>Tactical Robots &amp; Magnetized Carbon Fiber</h3>
+          <p>Theis Tekton used in tactical gear and robotic platforms for both ground and special operations use. Advanced Magnetized Carbon Fiber provides a next-generation defense material for applications requiring electromagnetic signature management alongside ballistic protection.</p>
         </div>
         <div class="spoke-product-card reveal">
           <h3>Specialty Defense Coatings</h3>
           <p>Radar-absorbent, thermal barrier, and camouflage-compatible specialty coatings for aerospace, naval, and ground defense platforms — providing signature management alongside ballistic and corrosion protection.</p>
+        </div>
+        <div class="spoke-product-card reveal">
+          <h3>Aerospace &amp; Space Defense Shielding</h3>
+          <p>Theis Tekton deflection shields engineered to protect critical aerospace assets from micro-meteoroid impact — successfully deployed on International Space Station oxygen tank arrays. Never breached after installation.</p>
         </div>
       </div>
     </div>
@@ -127,7 +386,7 @@
       <div class="reveal">
         <div class="section-label">Core Technology</div>
         <h2>Powered by Theis Tekton™</h2>
-        <p>Every Theis Defense (Alviz) product is engineered with or enhanced by Theis Tekton™ — our proprietary materials system proven for over 20 years in the world's most extreme environments. This gives Theis Defense a materials advantage that no competitor can replicate. Tekton's variable hardness, self-healing, and multi-strike properties make it fundamentally superior to every legacy armor material on the market today.</p>
+        <p>Every Theis Defense (Alviz) product is engineered with or enhanced by Theis Tekton™ — our proprietary materials system proven for over 20 years in the world's most extreme environments. This gives Theis Defense a materials advantage that no competitor can replicate. Tekton's variable hardness, self-healing, and multi-strike properties make it fundamentally superior to every legacy armor material on the market today. From Humvee MWRAP coatings in active combat zones to deflection shields on the International Space Station, Theis Tekton has been validated at the highest levels of government and aerospace procurement.</p>
         <a href="index.html#tekton" class="btn-secondary" style="display:inline-block;margin-top:1.5rem;">Learn About Theis Tekton →</a>
       </div>
       <div class="tekton-badge-sm reveal">
@@ -148,7 +407,7 @@
           <span class="spoke-market-icon">◆</span>
           <div>
             <h4>U.S. Department of Defense</h4>
-            <p>Army, Marine Corps, Navy, Air Force, and Special Operations Forces procurement programs requiring next-generation armor systems with superior weight-to-protection ratios and multi-strike capability.</p>
+            <p>Army, Marine Corps, Navy, Air Force, and Special Operations Forces procurement programs requiring next-generation armor systems with superior weight-to-protection ratios and multi-strike capability. Proven via the MWRAP vehicle program and IED-attenuation coating in active combat theaters.</p>
           </div>
         </div>
         <div class="spoke-market-item reveal">
@@ -175,6 +434,13 @@
         <div class="spoke-market-item reveal">
           <span class="spoke-market-icon">◆</span>
           <div>
+            <h4>Aerospace &amp; Space Programs</h4>
+            <p>Aerospace primes and space agencies requiring advanced micro-meteoroid deflection shielding, structural protective coatings, and materials qualified for the extreme thermal and pressure environments of orbital operations.</p>
+          </div>
+        </div>
+        <div class="spoke-market-item reveal">
+          <span class="spoke-market-icon">◆</span>
+          <div>
             <h4>Embassy &amp; VIP Protection</h4>
             <p>State Department, diplomatic security services, and executive protection programs requiring discrete, lightweight armor solutions for personnel protection and armored vehicle upgrades.</p>
           </div>
@@ -190,86 +456,265 @@
     </div>
   </section>
 
-<section class="media-section">
-  <div class="container">
-    <div class="section-label">In Action</div>
-    <h2>See It For Yourself</h2>
-    <div class="media-grid">
-      <div class="media-item">
-        <div class="media-embed-wrapper">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/qbprpenMPW4"
-            title="Fast Attack Combat Vehicles" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen loading="lazy"></iframe>
+  <!-- VIDEOS -->
+  <section class="media-section">
+    <div class="container">
+      <div class="section-label">In Action</div>
+      <h2>See It For Yourself</h2>
+      <div class="media-grid">
+        <div class="media-item">
+          <div class="media-embed-wrapper">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/qbprpenMPW4"
+              title="Fast Attack Combat Vehicles" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen loading="lazy"></iframe>
+          </div>
+          <p class="media-caption">Fast Attack Combat Vehicles</p>
         </div>
-        <p class="media-caption">Fast Attack Combat Vehicles</p>
-      </div>
-      <div class="media-item">
-        <div class="media-embed-wrapper">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/opyn3eWWS7w"
-            title="Body Armor Demo" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen loading="lazy"></iframe>
+        <div class="media-item">
+          <div class="media-embed-wrapper">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/opyn3eWWS7w"
+              title="Body Armor Demo" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen loading="lazy"></iframe>
+          </div>
+          <p class="media-caption">Body Armor Demo</p>
         </div>
-        <p class="media-caption">Body Armor Demo</p>
-      </div>
-      <div class="media-item">
-        <div class="media-embed-wrapper">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/aiFdbF9Z7V4"
-            title="Drone Demonstration" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen loading="lazy"></iframe>
+        <div class="media-item">
+          <div class="media-embed-wrapper">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/aiFdbF9Z7V4"
+              title="Drone Demonstration" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen loading="lazy"></iframe>
+          </div>
+          <p class="media-caption">Drone Demonstration</p>
         </div>
-        <p class="media-caption">Drone Demonstration</p>
-      </div>
-      <div class="media-item">
-        <div class="media-embed-wrapper">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/80cYZMEsic4"
-            title="Previous Drone" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen loading="lazy"></iframe>
+        <div class="media-item">
+          <div class="media-embed-wrapper">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/80cYZMEsic4"
+              title="Previous Drone" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen loading="lazy"></iframe>
+          </div>
+          <p class="media-caption">Previous Drone</p>
         </div>
-        <p class="media-caption">Previous Drone</p>
-      </div>
-      <div class="media-item">
-        <div class="media-embed-wrapper">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/bX3w_Y0I0KY"
-            title="Ballistic Glass Demo" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen loading="lazy"></iframe>
+        <div class="media-item">
+          <div class="media-embed-wrapper">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/bX3w_Y0I0KY"
+              title="Ballistic Glass Demo" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen loading="lazy"></iframe>
+          </div>
+          <p class="media-caption">Ballistic Glass Demo</p>
         </div>
-        <p class="media-caption">Ballistic Glass Demo</p>
-      </div>
-      <div class="media-item">
-        <div class="media-embed-wrapper">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/hBZeD-qJCtI"
-            title="XTT Blast Testing" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen loading="lazy"></iframe>
+        <div class="media-item">
+          <div class="media-embed-wrapper">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/hBZeD-qJCtI"
+              title="XTT Blast Testing" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen loading="lazy"></iframe>
+          </div>
+          <p class="media-caption">XTT Blast Testing</p>
         </div>
-        <p class="media-caption">XTT Blast Testing</p>
-      </div>
-      <div class="media-item">
-        <div class="media-embed-wrapper">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/i7fwaaCb5Ig"
-            title="Control Blast Container" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen loading="lazy"></iframe>
+        <div class="media-item">
+          <div class="media-embed-wrapper">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/i7fwaaCb5Ig"
+              title="Control Blast Container" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen loading="lazy"></iframe>
+          </div>
+          <p class="media-caption">Control Blast Container</p>
         </div>
-        <p class="media-caption">Control Blast Container</p>
-      </div>
-      <div class="media-item">
-        <div class="media-embed-wrapper">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/A3f2jVO0TMs"
-            title="Quantum Transparent Armor" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen loading="lazy"></iframe>
+        <div class="media-item">
+          <div class="media-embed-wrapper">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/A3f2jVO0TMs"
+              title="Quantum Transparent Armor" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen loading="lazy"></iframe>
+          </div>
+          <p class="media-caption">Quantum Transparent Armor</p>
         </div>
-        <p class="media-caption">Quantum Transparent Armor</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- BY THE NUMBERS -->
+  <section class="defense-numbers">
+    <div class="container">
+      <div class="section-label reveal">Proven Performance</div>
+      <h2 class="reveal">By the Numbers</h2>
+      <div class="numbers-bar">
+        <div class="number-block reveal">
+          <span class="number-val">12,000+</span>
+          <span class="number-label">MWRAP Vehicles Deployed</span>
+        </div>
+        <div class="number-divider"></div>
+        <div class="number-block reveal">
+          <span class="number-val">500+</span>
+          <span class="number-label">IED Attacks Survived</span>
+        </div>
+        <div class="number-divider"></div>
+        <div class="number-block reveal">
+          <span class="number-val">0</span>
+          <span class="number-label">Troop Casualties in Coated Vehicles</span>
+        </div>
+        <div class="number-divider"></div>
+        <div class="number-block reveal">
+          <span class="number-val">10+</span>
+          <span class="number-label">Years Protecting ISS O₂ Tanks</span>
+        </div>
+        <div class="number-divider"></div>
+        <div class="number-block reveal">
+          <span class="number-val">80,000<span style="font-size:60%;letter-spacing:0">mph</span></span>
+          <span class="number-label">Micro-Meteor Defense Rating</span>
+        </div>
+        <div class="number-divider"></div>
+        <div class="number-block reveal">
+          <span class="number-val">20</span>
+          <span class="number-label">Pages of Blast Test Documentation</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MRAP PROGRAM DEEP DIVE -->
+  <section class="mrap-banner">
+    <div class="container">
+      <div class="section-label reveal" style="text-align:center;margin-bottom:.5rem;">Program Spotlight</div>
+      <h2 class="reveal" style="text-align:center;font-family:'Cinzel',serif;color:#f5ecd6;margin-bottom:2.5rem;">The MWRAP Program — A Combat-Proven Legacy</h2>
+      <div class="mrap-inner">
+        <div class="mrap-text reveal">
+          <h3>How Theis Tekton Went to War</h3>
+          <p>Jason Theis was the inventor and supplier for the MWRAP formulation and materials — the protective chemistry behind the Mine-Resistant Ambush Protected vehicle program that fundamentally changed the survivability calculus of U.S. forces in Iraq and Afghanistan.</p>
+          <p>Theis Tekton was applied to Humvee platforms as a dedicated spalling layer — absorbing and redirecting fragmentary energy from IED detonations before it could reach the crew compartment. The result was a dramatic reduction in penetration and spall injuries in a threat environment where IEDs had become the leading cause of combat casualties.</p>
+          <ul class="mrap-timeline">
+            <li>
+              <span class="tl-year">2006</span>
+              <span class="tl-text">USMC reports zero troop deaths across 500+ IED attacks on Cougar vehicles equipped with protective coatings — a landmark data point validating Theis Tekton's IED-attenuation performance.</span>
+            </li>
+            <li>
+              <span class="tl-year">2009</span>
+              <span class="tl-text">Marine Corps announces plans to replace <em>all</em> Humvees in active combat zones with MRAP vehicles — a complete force protection paradigm shift driven by documented survivability data.</span>
+            </li>
+            <li>
+              <span class="tl-year">2009–12</span>
+              <span class="tl-text">The MRAP program deploys more than 12,000 vehicles across the War in Iraq and the War in Afghanistan, establishing the largest armored vehicle surge in modern U.S. military history.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="mrap-highlight-box reveal">
+          <h4>MWRAP at a Glance</h4>
+          <p><strong style="color:#d4af37;">Threat:</strong> Improvised Explosive Devices (IEDs) — the leading cause of coalition troop casualties in Iraq 2006–2009, with fatalities rising year-over-year as insurgent IED sophistication increased.</p>
+          <p><strong style="color:#d4af37;">Theis Role:</strong> Jason Theis served as inventor and supplier for the MWRAP formulation. Theis Tekton was applied as the spalling layer on Humvee MRAP variants, absorbing blast energy and fragmentary projectiles before crew compartment penetration.</p>
+          <p><strong style="color:#d4af37;">Outcome:</strong> In 2006, the USMC documented zero troop deaths across 500+ IED attacks on Cougar vehicles. By late 2009, the Marine Corps had committed to replacing every Humvee in active combat zones with MRAP-equipped vehicles — a policy decision driven directly by the survivability performance of the coated fleet.</p>
+          <p><strong style="color:#d4af37;">Scale:</strong> From 2009 through 2012, more than 12,000 MRAP vehicles were deployed in combat, representing the most extensive armored vehicle deployment since World War II.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDIES -->
+  <section class="defense-case-studies">
+    <div class="container">
+      <div class="section-label reveal">Field-Validated</div>
+      <h2 class="reveal">Case Studies</h2>
+      <div class="case-study-grid">
+
+        <!-- CASE STUDY 1: MWRAP / IED -->
+        <div class="case-study-card reveal">
+          <div class="cs-eyebrow">Ground Combat · Iraq &amp; Afghanistan</div>
+          <h3 class="cs-title">MWRAP / IED Defense: Zero Casualties in 500+ Attacks</h3>
+          <p class="cs-body">When improvised explosive devices became the defining threat to coalition forces in Iraq, the U.S. Marine Corps needed a protective materials solution that could be rapidly fielded at scale. Jason Theis served as inventor and supplier for the MWRAP formulation — with Theis Tekton applied as the protective spalling layer on Humvee MRAP platforms.</p>
+          <p class="cs-body">The 2006 USMC data was unambiguous: zero troops died across more than 500 IED attacks on Cougar vehicles equipped with the coating. By late 2009, the Marine Corps had committed to replacing every Humvee in active combat zones with MRAP vehicles. Between 2009 and 2012, more than 12,000 MRAP vehicles were deployed across Iraq and Afghanistan.</p>
+          <div class="cs-quote">
+            "In 2006, USMC reported that no troops died in over 500 IED attacks on Cougar vehicles. In late 2009, the Marine Corps planned to replace ALL Humvees in combat zones with MRAP vehicles."
+          </div>
+          <div class="cs-glance">
+            <div class="cs-glance-title">At a Glance</div>
+            <div class="cs-glance-row">
+              <div class="cs-glance-item">
+                <span class="cs-glance-badge badge-challenge">Challenge</span>
+                <span class="cs-glance-text">Rising IED casualties in Iraq from 2006–2009; conventional Humvee armor insufficient against evolving IED threats</span>
+              </div>
+              <div class="cs-glance-item">
+                <span class="cs-glance-badge badge-challenge">Challenge</span>
+                <span class="cs-glance-text">Need for rapid, scalable protective coating that could be applied to existing vehicle fleet without major structural modification</span>
+              </div>
+              <div class="cs-glance-item">
+                <span class="cs-glance-badge badge-result">Result</span>
+                <span class="cs-glance-text">Zero troop deaths in 500+ IED attacks on Theis Tekton-coated Cougar vehicles (USMC, 2006)</span>
+              </div>
+              <div class="cs-glance-item">
+                <span class="cs-glance-badge badge-result">Result</span>
+                <span class="cs-glance-text">Marine Corps replaced all combat-zone Humvees with MRAP vehicles; 12,000+ deployed 2009–2012</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CASE STUDY 2: ISS Micro-Meteor -->
+        <div class="case-study-card reveal">
+          <div class="cs-eyebrow">Aerospace &amp; Space Defense · International Space Station</div>
+          <h3 class="cs-title">Theis Tekton Deflection Shields: Protecting ISS Oxygen Tanks from Micro-Meteors</h3>
+          <p class="cs-body">American Pacific — a leading custom manufacturer for the aerospace and defense sector and primary supplier of oxygen tanks to the International Space Station — faced a critical and recurring failure mode: micro-meteors traveling at 30,000 to 80,000 mph in the near-vacuum of low Earth orbit were breaching O₂ tank arrays, causing failures in fuel and fire suppression systems aboard the ISS.</p>
+          <p class="cs-body">Theis designed and tested deflection shields manufactured from Theis Tekton material and placed them in front of the oxygen tank arrays. The shield geometry was inspired by the "Pringles Pop Top" design — a curved deflection profile that redirects micro-meteoroid kinetic energy rather than absorbing it directly. After installation, the oxygen tanks were never breached again.</p>
+          <p class="cs-body">The project was completed on time and under budget, and the Theis Tekton deflection system has provided more than 10 years of uninterrupted protection for ISS life support infrastructure.</p>
+          <div class="cs-glance">
+            <div class="cs-glance-title">At a Glance</div>
+            <div class="cs-glance-row">
+              <div class="cs-glance-item">
+                <span class="cs-glance-badge badge-challenge">Challenge</span>
+                <span class="cs-glance-text">Micro-meteors traveling 30,000–80,000 mph breaching ISS oxygen tanks in zero atmosphere, causing fuel/fire system failures</span>
+              </div>
+              <div class="cs-glance-item">
+                <span class="cs-glance-badge badge-challenge">Challenge</span>
+                <span class="cs-glance-text">No existing off-the-shelf shielding solution adequate for the orbital micro-meteoroid threat environment</span>
+              </div>
+              <div class="cs-glance-item">
+                <span class="cs-glance-badge badge-result">Result</span>
+                <span class="cs-glance-text">Theis Tekton deflection shields installed — ISS oxygen tanks never breached again after installation</span>
+              </div>
+              <div class="cs-glance-item">
+                <span class="cs-glance-badge badge-result">Result</span>
+                <span class="cs-glance-text">10+ years of continuous protection; project delivered on time and under budget</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CASE STUDY 3: Body Armor / Hollywood -->
+        <div class="case-study-card reveal">
+          <div class="cs-eyebrow">Body Armor · Entertainment &amp; Demonstration</div>
+          <h3 class="cs-title">Dark Knight Rises Suit &amp; Real-World Body Armor Validation</h3>
+          <p class="cs-body">Theis Tekton is a leading-edge body armor and ballistics material — validated not only through military and law enforcement procurement, but through real-world performance demonstrations that have drawn international attention.</p>
+          <p class="cs-body">The Batman suit for <em>The Dark Knight Rises</em> was molded at the Theis Industries facility in Redondo Beach, CA. The completed mold was delivered to the Howard Hughes production lab set in Playa del Rey, CA. During the film's premiere, Batman was stabbed in the side with a knife — an incident that was a misrepresentation of the material's actual protective properties, which far exceeded what the on-screen demonstration suggested.</p>
+          <p class="cs-body">Beyond entertainment applications, Theis Tekton body armor systems have been tested against live ballistic threats, with multi-strike capability documented in blast testing supporting over 20 pages of verified documentation. Tekton's combination of moldability, multi-hit resistance, and reduced weight versus ceramic and steel plate systems positions it as a decisive upgrade for both military and law enforcement personnel protection.</p>
+          <div class="cs-glance">
+            <div class="cs-glance-title">At a Glance</div>
+            <div class="cs-glance-row">
+              <div class="cs-glance-item">
+                <span class="cs-glance-badge badge-challenge">Challenge</span>
+                <span class="cs-glance-text">Legacy ceramic and steel body armor: heavy, rigid, single-strike, and ergonomically limiting for sustained combat wear</span>
+              </div>
+              <div class="cs-glance-item">
+                <span class="cs-glance-badge badge-challenge">Challenge</span>
+                <span class="cs-glance-text">Limited materials able to be molded to complex anatomical geometries without sacrificing ballistic performance</span>
+              </div>
+              <div class="cs-glance-item">
+                <span class="cs-glance-badge badge-result">Result</span>
+                <span class="cs-glance-text">Theis Tekton molded into full suit at Redondo Beach, CA lab — delivered to Howard Hughes set for <em>Dark Knight Rises</em></span>
+              </div>
+              <div class="cs-glance-item">
+                <span class="cs-glance-badge badge-result">Result</span>
+                <span class="cs-glance-text">Multi-strike capability, reduced weight, and 20+ pages of blast test documentation supporting DoD &amp; LE procurement</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
   <!-- CTA -->
   <section id="cta">
@@ -278,6 +723,7 @@
       <p class="reveal">Contact Theis Industries to discuss products, pricing, licensing, or partnership for the Theis Defense (Alviz) division.</p>
       <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
         <a href="contact.html" class="btn-primary btn-large">Start the Conversation</a>
+        <a href="tel:7142968369" class="btn-secondary btn-large">(714) 296-8369</a>
         <a href="index.html#divisions" class="btn-secondary btn-large">View All Divisions</a>
       </div>
     </div>
