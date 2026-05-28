@@ -11,6 +11,203 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <script src="icons.js" defer></script>
   <script src="main.js" defer></script>
+  <style>
+    /* ── XContainers Section ── */
+    .xcontainers-section {
+      background: linear-gradient(180deg, #0a0806 0%, #110d08 100%);
+      padding: 5rem 0;
+    }
+    .xcontainers-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+    @media (max-width: 768px) { .xcontainers-grid { grid-template-columns: 1fr; } }
+    .xcontainer-card {
+      background: rgba(212,175,55,0.05);
+      border: 1px solid rgba(212,175,55,0.18);
+      border-radius: 6px;
+      padding: 2rem;
+      transition: border-color 0.3s;
+    }
+    .xcontainer-card:hover { border-color: rgba(212,175,55,0.45); }
+    .xcontainer-card h3 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #d4af37;
+      margin: 0 0 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .xcontainer-card p { font-family: 'Inter', sans-serif; color: #9c8b6d; font-size: 0.95rem; line-height: 1.7; margin: 0; }
+
+    /* ── Absorbtec Section ── */
+    .absorbtec-section {
+      background: #110d08;
+      padding: 5rem 0;
+    }
+    .absorbtec-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    @media (max-width: 900px) { .absorbtec-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .absorbtec-grid { grid-template-columns: 1fr; } }
+    .absorbtec-card {
+      background: rgba(168,134,31,0.07);
+      border: 1px solid rgba(168,134,31,0.2);
+      border-radius: 6px;
+      padding: 1.75rem;
+      transition: background 0.3s;
+    }
+    .absorbtec-card:hover { background: rgba(168,134,31,0.12); }
+    .absorbtec-card .absorbtec-icon {
+      font-size: 1.5rem;
+      color: #d4af37;
+      margin-bottom: 0.75rem;
+    }
+    .absorbtec-card h4 {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: #f5ecd6;
+      margin: 0 0 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .absorbtec-card p { font-family: 'Inter', sans-serif; color: #9c8b6d; font-size: 0.9rem; line-height: 1.65; margin: 0; }
+
+    /* ── WPE Emerging Tech Section ── */
+    .wpe-section {
+      background: linear-gradient(180deg, #1a130b 0%, #221810 100%);
+      padding: 5rem 0;
+      border-top: 1px solid rgba(212,175,55,0.1);
+      border-bottom: 1px solid rgba(212,175,55,0.1);
+    }
+    .wpe-badge {
+      display: inline-block;
+      background: rgba(212,175,55,0.1);
+      border: 1px solid rgba(212,175,55,0.35);
+      border-radius: 3px;
+      padding: 0.25rem 0.85rem;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: #d4af37;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .wpe-intro {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.05rem;
+      color: #f5ecd6;
+      line-height: 1.75;
+      max-width: 780px;
+      margin: 1.25rem 0 2.5rem;
+      padding: 1.25rem 1.5rem;
+      border-left: 3px solid #d4af37;
+      background: rgba(212,175,55,0.05);
+    }
+    .wpe-features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+    @media (max-width: 900px) { .wpe-features-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .wpe-features-grid { grid-template-columns: 1fr; } }
+    .wpe-feature {
+      background: rgba(10,8,6,0.6);
+      border: 1px solid rgba(212,175,55,0.12);
+      border-radius: 6px;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+    .wpe-feature-dot {
+      flex-shrink: 0;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #d4af37;
+      margin-top: 0.45rem;
+    }
+    .wpe-feature span {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: #9c8b6d;
+      line-height: 1.6;
+    }
+    .wpe-stat-row {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(212,175,55,0.12);
+    }
+    .wpe-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+    .wpe-stat-val {
+      font-family: 'Cinzel', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #f4d27a;
+    }
+    .wpe-stat-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      color: #9c8b6d;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .wpe-disclaimer {
+      margin-top: 2.5rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82rem;
+      color: #9c8b6d;
+      font-style: italic;
+      max-width: 680px;
+      line-height: 1.6;
+    }
+
+    /* ── Parresia Banner ── */
+    .parresia-banner {
+      background: rgba(212,175,55,0.06);
+      border: 1px solid rgba(212,175,55,0.2);
+      border-radius: 6px;
+      padding: 2rem 2.5rem;
+      margin-top: 3rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .parresia-banner-text h4 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #d4af37;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.4rem;
+    }
+    .parresia-banner-text p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.92rem;
+      color: #9c8b6d;
+      margin: 0;
+      line-height: 1.65;
+    }
+  </style>
 </head>
 <body>
   <div id="page-overlay"></div>
@@ -121,6 +318,82 @@
     </div>
   </section>
 
+  <!-- XCONTAINERS SECTION -->
+  <section class="xcontainers-section">
+    <div class="container">
+      <div class="section-label reveal">XContainers Technology</div>
+      <h2 class="reveal" style="font-family:'Cinzel',serif;color:#f5ecd6;margin-bottom:0.5rem;">XContainers™ — Advanced Containment Systems</h2>
+      <p class="reveal" style="font-family:'Inter',sans-serif;color:#9c8b6d;max-width:700px;line-height:1.75;margin-bottom:0;">XContainers represent a breakthrough in energy storage and containment engineering — fusing Theis Tekton's self-healing polymer chemistry with purpose-built structural containment to eliminate the risk of catastrophic leak and spill events across energy, maritime, and industrial applications.</p>
+      <div class="xcontainers-grid">
+        <div class="xcontainer-card reveal">
+          <h3>Self-Healing Fuel Tank Technology</h3>
+          <p>XContainer fuel tanks incorporate Theis Tekton's self-healing polymer layer — autonomously sealing punctures and micro-fractures without intervention. Field-validated in maritime applications where hull puncture events would otherwise result in catastrophic fuel release and environmental liability. Tanks remain structurally sound and mission-capable after damage events that destroy conventional tank systems.</p>
+        </div>
+        <div class="xcontainer-card reveal">
+          <h3>Energy Storage Containment</h3>
+          <p>XContainers are engineered for the rigorous demands of stationary energy storage — protecting battery arrays, chemical energy media, and liquid fuel reserves in power generation, grid storage, and industrial facilities. Superior chemical resistance and barrier performance guard against electrolyte leakage, thermal event propagation, and the corrosive environments common to industrial energy infrastructure.</p>
+        </div>
+        <div class="xcontainer-card reveal">
+          <h3>Case Study: Maritime Fuel Containment</h3>
+          <p>XContainer technology was deployed aboard maritime vessels operating in contested waters where conventional fuel tank puncture would render the vessel non-operational. The self-healing Tekton liner maintained fuel containment integrity after ballistic and debris impact events — enabling continued vessel operation and eliminating catastrophic fuel spill risk in environmentally sensitive waterways.</p>
+        </div>
+        <div class="xcontainer-card reveal">
+          <h3>Industrial Hazardous Fluid Containment</h3>
+          <p>XContainers provide secondary containment for industrial chemical storage — dramatically reducing spill risk in refinery, pipeline, and power generation environments. The Tekton lining resists the full range of hydrocarbon, solvent, and chemical process media, providing a lifetime containment barrier that reduces insurance liability and environmental compliance cost.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABSORBTEC SECTION -->
+  <section class="absorbtec-section">
+    <div class="container">
+      <div class="section-label reveal">Absorbtec Technology</div>
+      <h2 class="reveal" style="font-family:'Cinzel',serif;color:#f5ecd6;margin-bottom:0.5rem;">Absorbtec™ — Filtration &amp; Spill Control</h2>
+      <p class="reveal" style="font-family:'Inter',sans-serif;color:#9c8b6d;max-width:700px;line-height:1.75;margin-bottom:0;">Absorbtec filtration technology addresses the energy industry's most persistent environmental liability: the removal of hydrocarbons and difficult contaminants from water and process streams. Licensed and distributed through Theis's clean-technology portfolio, Absorbtec is a comprehensive system encompassing absorption, filtration, and spill containment from source to remediation.</p>
+      <div class="absorbtec-grid">
+        <div class="absorbtec-card reveal">
+          <div class="absorbtec-icon">◈</div>
+          <h4>Hydrocarbon Filtration</h4>
+          <p>Advanced filtration media removes oil, fuel, and hydrocarbon contamination from produced water, stormwater, and process effluent streams — meeting strict environmental discharge standards at energy production and processing facilities.</p>
+        </div>
+        <div class="absorbtec-card reveal">
+          <div class="absorbtec-icon">◈</div>
+          <h4>Heavy Metals Removal</h4>
+          <p>Absorbtec water filtration systems target the most chemically challenging contaminants — heavy metals including lead, mercury, arsenic, and cadmium — delivering treated water quality that exceeds EPA standards for industrial and potable applications.</p>
+        </div>
+        <div class="absorbtec-card reveal">
+          <div class="absorbtec-icon">◈</div>
+          <h4>Spill Containment Systems</h4>
+          <p>Integrated spill containment systems paired with Absorbtec filtration provide a complete response-to-remediation capability — from immediate spill absorption through secondary containment to final effluent polishing before discharge or reuse.</p>
+        </div>
+        <div class="absorbtec-card reveal">
+          <div class="absorbtec-icon">◈</div>
+          <h4>Produced Water Treatment</h4>
+          <p>Oil and gas produced water — among the highest-volume industrial waste streams in the US — contains complex hydrocarbon and dissolved solids loads that standard treatment cannot address. Absorbtec is engineered specifically for the treatment challenges of upstream produced water management.</p>
+        </div>
+        <div class="absorbtec-card reveal">
+          <div class="absorbtec-icon">◈</div>
+          <h4>Environmental Compliance</h4>
+          <p>Absorbtec systems provide the documented treatment performance and compliance chain-of-custody that energy operators require to satisfy state and federal environmental discharge permits — reducing regulatory exposure and environmental remediation liability.</p>
+        </div>
+        <div class="absorbtec-card reveal">
+          <div class="absorbtec-icon">◈</div>
+          <h4>Pipeline &amp; Tank Spill Response</h4>
+          <p>Rapid-deployment Absorbtec spill response kits provide immediate hydrocarbon absorption for pipeline integrity events, tank overfill incidents, and transportation spills — containing contamination before it reaches soil, groundwater, or waterway resources.</p>
+        </div>
+      </div>
+
+      <!-- Parresia Banner -->
+      <div class="parresia-banner reveal">
+        <div class="parresia-banner-text">
+          <h4>Parresia Corporation — Licensing Entity</h4>
+          <p>Absorbtec filtration technology, XContainer systems, and Theis's broader portfolio of clean energy and water technologies are licensed and commercialized through <strong style="color:#f5ecd6;">Parresia Corporation</strong> — Theis Industries' dedicated licensing entity for clean energy, water treatment, and environmental technology applications. Inquire through Theis Industries for licensing, partnership, and distribution opportunities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- TEKTON ADVANTAGE -->
   <section class="spoke-tekton">
     <div class="container spoke-tekton-inner">
@@ -187,6 +460,92 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- EMERGING TECHNOLOGY: WIND POWER ENERGY -->
+  <section class="wpe-section">
+    <div class="container">
+      <div class="wpe-badge">Emerging Technology</div>
+      <div class="section-label reveal" style="margin-top:0.5rem;">Wind Power Energy</div>
+      <h2 class="reveal" style="font-family:'Cinzel',serif;color:#f5ecd6;">Theis Wind Power Energy (WPE)</h2>
+      <div class="wpe-intro reveal">
+        Theis Wind Power Energy is in prototype development — a quantum leap in turbine technology approaching the Levelized Cost of Energy of coal while delivering a 98% reduction in CO&#8322; emissions versus coal and petroleum. WPE represents a long-term strategic technology initiative. It is <em>not</em> a current commercial offering — it is showcased here as an emerging technology in active development.
+      </div>
+
+      <div class="wpe-features-grid">
+        <div class="wpe-feature reveal">
+          <div class="wpe-feature-dot"></div>
+          <span><strong style="color:#f5ecd6;">Advanced Turbine Design</strong> — Gyroscopically and harmonically stable architecture engineered for superior performance at lower altitudes and in extreme wind velocities.</span>
+        </div>
+        <div class="wpe-feature reveal">
+          <div class="wpe-feature-dot"></div>
+          <span><strong style="color:#f5ecd6;">Wind &amp; Solar Combined</strong> — Single integrated unit harvests both wind and solar energy, maximizing power output per square foot of installation footprint.</span>
+        </div>
+        <div class="wpe-feature reveal">
+          <div class="wpe-feature-dot"></div>
+          <span><strong style="color:#f5ecd6;">Advanced Materials</strong> — Lighter and stronger than conventional turbine materials, optimized for lower altitude operation where traditional designs underperform.</span>
+        </div>
+        <div class="wpe-feature reveal">
+          <div class="wpe-feature-dot"></div>
+          <span><strong style="color:#f5ecd6;">Readily Available Components</strong> — Designed around commercially available parts to reduce supply chain risk and lower manufacturing cost at scale.</span>
+        </div>
+        <div class="wpe-feature reveal">
+          <div class="wpe-feature-dot"></div>
+          <span><strong style="color:#f5ecd6;">Minimal Avian Impact</strong> — Design philosophy and specialized blade geometry are engineered to minimize harm to native bird populations — a key regulatory differentiator.</span>
+        </div>
+        <div class="wpe-feature reveal">
+          <div class="wpe-feature-dot"></div>
+          <span><strong style="color:#f5ecd6;">Specialized Blade Coating</strong> — Proprietary blade surface treatment optimizes aerodynamic performance and extends blade service life in harsh environments.</span>
+        </div>
+        <div class="wpe-feature reveal">
+          <div class="wpe-feature-dot"></div>
+          <span><strong style="color:#f5ecd6;">Shipping Container Distribution</strong> — The full turbine system ships inside a standard intermodal container, dramatically simplifying global logistics versus conventional large-turbine transport.</span>
+        </div>
+        <div class="wpe-feature reveal">
+          <div class="wpe-feature-dot"></div>
+          <span><strong style="color:#f5ecd6;">Ease of Installation</strong> — Smaller components and shorter towers reduce installation complexity, crane requirements, and site preparation cost compared to utility-scale conventional turbines.</span>
+        </div>
+        <div class="wpe-feature reveal">
+          <div class="wpe-feature-dot"></div>
+          <span><strong style="color:#f5ecd6;">Reduced Maintenance</strong> — Gyroscopically stable design and advanced materials significantly reduce maintenance frequency and cost over the turbine's service life.</span>
+        </div>
+        <div class="wpe-feature reveal">
+          <div class="wpe-feature-dot"></div>
+          <span><strong style="color:#f5ecd6;">Offshore Superiority</strong> — Size, height profile, and MW/sq-ft output make WPE a superior candidate for offshore implementation where conventional turbine logistics and foundation requirements are prohibitive.</span>
+        </div>
+        <div class="wpe-feature reveal">
+          <div class="wpe-feature-dot"></div>
+          <span><strong style="color:#f5ecd6;">DOE Policy Alignment</strong> — WPE technology development is structured to align with Department of Energy wind energy policy frameworks and funding priorities.</span>
+        </div>
+        <div class="wpe-feature reveal">
+          <div class="wpe-feature-dot"></div>
+          <span><strong style="color:#f5ecd6;">Multi-Sector Power Vision</strong> — WPE power generation is designed to ultimately support vehicles, aircraft, rail, and maritime transportation — enabling cross-sector clean energy deployment.</span>
+        </div>
+      </div>
+
+      <div class="wpe-stat-row">
+        <div class="wpe-stat reveal">
+          <span class="wpe-stat-val">~65%</span>
+          <span class="wpe-stat-label">Target Capacity Factor (coal parity)</span>
+        </div>
+        <div class="wpe-stat reveal">
+          <span class="wpe-stat-val">98%</span>
+          <span class="wpe-stat-label">CO₂ Reduction vs. Coal &amp; Petroleum</span>
+        </div>
+        <div class="wpe-stat reveal">
+          <span class="wpe-stat-val">1 Container</span>
+          <span class="wpe-stat-label">Standard Shipping Distribution Unit</span>
+        </div>
+        <div class="wpe-stat reveal">
+          <span class="wpe-stat-val">Prototype</span>
+          <span class="wpe-stat-label">Development Stage</span>
+        </div>
+      </div>
+
+      <p class="wpe-disclaimer reveal">
+        <em>Theis Wind Power Energy is an emerging technology initiative currently in prototype development. Technical claims represent design targets and engineering projections. WPE is not a current commercial product offering of Theis Industries. Contact Theis Industries for investor and development partnership inquiries.</em>
+      </p>
     </div>
   </section>
 

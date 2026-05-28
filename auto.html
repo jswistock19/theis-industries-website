@@ -11,6 +11,236 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <script src="icons.js" defer></script>
   <script src="main.js" defer></script>
+  <style>
+    /* ── Protec Section ── */
+    .protec-section {
+      background: linear-gradient(180deg, #0a0806 0%, #110d08 100%);
+      padding: 5rem 0;
+    }
+    .protec-cases {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+    @media (max-width: 768px) { .protec-cases { grid-template-columns: 1fr; } }
+    .protec-case {
+      background: rgba(212,175,55,0.05);
+      border: 1px solid rgba(212,175,55,0.18);
+      border-radius: 6px;
+      padding: 2rem;
+      transition: border-color 0.3s;
+    }
+    .protec-case:hover { border-color: rgba(212,175,55,0.4); }
+    .protec-case-label {
+      display: inline-block;
+      background: rgba(212,175,55,0.12);
+      border: 1px solid rgba(212,175,55,0.3);
+      border-radius: 3px;
+      padding: 0.2rem 0.7rem;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: #d4af37;
+      text-transform: uppercase;
+      margin-bottom: 0.85rem;
+    }
+    .protec-case h3 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #f5ecd6;
+      margin: 0 0 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .protec-case ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .protec-case ul li {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: #9c8b6d;
+      line-height: 1.65;
+      padding: 0.35rem 0;
+      border-bottom: 1px solid rgba(212,175,55,0.07);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+    }
+    .protec-case ul li:last-child { border-bottom: none; }
+    .protec-case ul li::before {
+      content: '◆';
+      color: #d4af37;
+      font-size: 0.55rem;
+      flex-shrink: 0;
+      margin-top: 0.45rem;
+    }
+
+    /* ── Case Studies Section ── */
+    .auto-cases-section {
+      background: #110d08;
+      padding: 5rem 0;
+    }
+    .auto-cases-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+    @media (max-width: 768px) { .auto-cases-grid { grid-template-columns: 1fr; } }
+    .auto-case-card {
+      background: rgba(168,134,31,0.06);
+      border: 1px solid rgba(168,134,31,0.18);
+      border-radius: 6px;
+      padding: 2rem;
+      transition: background 0.3s;
+    }
+    .auto-case-card:hover { background: rgba(168,134,31,0.1); }
+    .auto-case-card .case-tag {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: #a8861f;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+    .auto-case-card h3 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #f5ecd6;
+      margin: 0 0 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .auto-case-card p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: #9c8b6d;
+      line-height: 1.7;
+      margin: 0 0 0.75rem;
+    }
+    .auto-case-card blockquote {
+      margin: 1rem 0 0;
+      padding: 1rem 1.25rem;
+      border-left: 3px solid #d4af37;
+      background: rgba(212,175,55,0.05);
+      border-radius: 0 4px 4px 0;
+    }
+    .auto-case-card blockquote p {
+      font-size: 0.88rem;
+      font-style: italic;
+      color: #f5ecd6;
+      margin: 0 0 0.35rem;
+    }
+    .auto-case-card blockquote cite {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #d4af37;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-style: normal;
+    }
+
+    /* ── Absorbtec Auto Section ── */
+    .absorbtec-auto-section {
+      background: linear-gradient(180deg, #1a130b 0%, #0a0806 100%);
+      padding: 5rem 0;
+    }
+    .absorbtec-auto-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    @media (max-width: 900px) { .absorbtec-auto-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .absorbtec-auto-grid { grid-template-columns: 1fr; } }
+    .absorbtec-auto-card {
+      background: rgba(212,175,55,0.05);
+      border: 1px solid rgba(212,175,55,0.15);
+      border-radius: 6px;
+      padding: 1.75rem;
+    }
+    .absorbtec-auto-card h4 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #d4af37;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin: 0 0 0.6rem;
+    }
+    .absorbtec-auto-card p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: #9c8b6d;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* ── NASCAR Section ── */
+    .nascar-section {
+      background: #0a0806;
+      padding: 5rem 0;
+      border-top: 1px solid rgba(212,175,55,0.1);
+    }
+    .nascar-inner {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3rem;
+      align-items: center;
+      margin-top: 2.5rem;
+    }
+    @media (max-width: 800px) { .nascar-inner { grid-template-columns: 1fr; } }
+    .nascar-text p {
+      font-family: 'Inter', sans-serif;
+      color: #9c8b6d;
+      font-size: 0.95rem;
+      line-height: 1.75;
+      margin: 0 0 1rem;
+    }
+    .nascar-specs {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .nascar-spec {
+      background: rgba(212,175,55,0.06);
+      border: 1px solid rgba(212,175,55,0.15);
+      border-radius: 6px;
+      padding: 1.25rem 1.5rem;
+    }
+    .nascar-spec h4 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #d4af37;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin: 0 0 0.35rem;
+    }
+    .nascar-spec p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      color: #9c8b6d;
+      margin: 0;
+      line-height: 1.6;
+    }
+    .nascar-spec .spec-val {
+      font-family: 'Cinzel', serif;
+      font-size: 1.5rem;
+      color: #f4d27a;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0.15rem;
+    }
+  </style>
 </head>
 <body>
   <div id="page-overlay"></div>
@@ -121,6 +351,131 @@
     </div>
   </section>
 
+  <!-- PROTEC TIRE SEALANT SECTION -->
+  <section class="protec-section">
+    <div class="container">
+      <div class="section-label reveal">Featured Product</div>
+      <h2 class="reveal" style="font-family:'Cinzel',serif;color:#f5ecd6;margin-bottom:0.5rem;">Protec™ Tire Sealant</h2>
+      <p class="reveal" style="font-family:'Inter',sans-serif;color:#9c8b6d;max-width:700px;line-height:1.75;margin-bottom:0;">Theis Protec Tire Sealant is a self-sealing tire protection system engineered for applications where tire failure is not an option. Whether on the battlefield or the dealership floor, Protec delivers the peace of mind that comes from knowing a puncture will not stop the mission — or the journey.</p>
+      <div class="protec-cases">
+        <!-- Case Study 1: Military -->
+        <div class="protec-case reveal">
+          <div class="protec-case-label">Case Study — Military</div>
+          <h3>Protec Military — Military Vehicle Applications</h3>
+          <ul>
+            <li>Military vehicles require non-stop operational capability in combat environments</li>
+            <li>Tire failure equals mission failure — an unacceptable operational risk</li>
+            <li>Protec Tire Sealant prevents tire failure from punctures up to rated sizes with no driver intervention</li>
+            <li>Self-sealing technology keeps vehicles mission-capable after ballistic and debris penetration events</li>
+            <li>Enables continued operation over contaminated terrain without tire change or vehicle stop</li>
+            <li>Validated in military vehicle programs — see video documentation below</li>
+          </ul>
+        </div>
+        <!-- Case Study 2: Dealership -->
+        <div class="protec-case reveal">
+          <div class="protec-case-label">Case Study — Dealership</div>
+          <h3>Protec Dealership — Consumer Vehicle Applications</h3>
+          <ul>
+            <li>Significant recurring revenue opportunity for automotive dealerships</li>
+            <li>Available as factory-applied OEM fitment or aftermarket dealer installation</li>
+            <li>Dealerships sell measurable peace of mind — protection against flats, blowouts, and roadside emergencies</li>
+            <li>Consumer-facing value proposition: never change a flat again</li>
+            <li>High attachment rate product — complements new vehicle sale without customer resistance</li>
+            <li>Recurring revenue model for service departments installing on used vehicles</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDIES SECTION -->
+  <section class="auto-cases-section">
+    <div class="container">
+      <div class="section-label reveal">Field Performance</div>
+      <h2 class="reveal" style="font-family:'Cinzel',serif;color:#f5ecd6;margin-bottom:0.5rem;">Case Studies</h2>
+      <p class="reveal" style="font-family:'Inter',sans-serif;color:#9c8b6d;max-width:700px;line-height:1.75;margin-bottom:0;">Theis Tekton and Theis Auto products have been proven in some of the most demanding real-world environments imaginable — from professional motorsport to waste management to the Pentagon. These are the results.</p>
+      <div class="auto-cases-grid">
+
+        <!-- Monster Truck Bodies -->
+        <div class="auto-case-card reveal">
+          <div class="case-tag">Case Study — Monster Truck Bodies</div>
+          <h3>Iron Outlaw &amp; Grave Digger — Monster Truck Bodies</h3>
+          <p>Monster truck bodies are exposed to extreme mechanical stress and are typically replaced after each show. Theis Industries created custom molds, fabricated the bodies, and backed them with a 3-year warranty against scratches, dings, and dents. Thirty years later, all bodies are still intact — and some are still used in active shows today.</p>
+          <blockquote>
+            <p>"...the truck rolled end over end... I was sore, the frame was crushed, and when they turned my truck over, the body popped back into its original shape... If this was our old body we would have been picking it up with a leaf rake!"</p>
+            <cite>— Nick Owens, Iron Outlaw</cite>
+          </blockquote>
+          <blockquote>
+            <p>"I always say the only thing that wins out here is dirt. I stand corrected. Theis beat the dirt."</p>
+            <cite>— Dennis Anderson, Grave Digger</cite>
+          </blockquote>
+        </div>
+
+        <!-- Dumpsters / Waste Management -->
+        <div class="auto-case-card reveal">
+          <div class="case-tag">Case Study — Fleet Coating</div>
+          <h3>Waste Management — 5,000 Dumpster Bodies</h3>
+          <p>Theis Industries coated 5,000 commercial dumpster bodies with Theis Tekton for Waste Management. Tekton fully sealed each dumpster body to prevent leaking and unsightly messes — including complete resistance to the highly corrosive nature of decomposing milk and organic waste streams.</p>
+          <p>The Tekton coating held up under the continuous chemical assault without any failures, protecting the dumpster bodies and significantly extending asset service life — saving Waste Management substantial replacement and maintenance cost across the fleet.</p>
+        </div>
+
+        <!-- NASCAR -->
+        <div class="auto-case-card reveal">
+          <div class="case-tag">Case Study — Motorsport Safety</div>
+          <h3>NASCAR — 470 High-Impact Deflection Shields</h3>
+          <p>Theis Industries manufactured 470 yellow, high-impact resistant deflection shields (front fascia) for the NASCAR safety program. Shields were required on every car in the race. Material testing was conducted by spinning samples in a centrifuge at approximately 40,000 RPM — then placing a 6-inch iron peg in the path of the spinning material.</p>
+          <p>Theis Tekton passed with flying colors: the material deformed on impact but remained intact and performed exactly as intended. The shields were delivered to the NASCAR safety organization and installed on every competing vehicle, with some shields painted to match car liveries while maintaining required safety performance. Designed to withstand crash impact forces approaching 440 mph.</p>
+        </div>
+
+        <!-- Absorbtec -->
+        <div class="auto-case-card reveal">
+          <div class="case-tag">Featured Technology</div>
+          <h3>Absorbtec™ — Automotive Fluid Filtration</h3>
+          <p>Absorbtec filtration technology provides oil and fluid absorption solutions for the automotive sector — from transmission fluid recovery to shop floor spill containment. Absorbtec systems help vehicle service facilities, fleet maintenance operations, and automotive manufacturers meet environmental compliance requirements for hydrocarbon discharge.</p>
+          <p>The system removes oil, coolant, transmission fluid, and other hydrocarbon-based automotive fluids from water and process streams before discharge — dramatically reducing environmental liability and regulatory exposure for service operations of any scale.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- NASCAR DEFLECTION SHIELDS DEEP DIVE -->
+  <section class="nascar-section">
+    <div class="container">
+      <div class="section-label reveal">Engineering Spotlight</div>
+      <h2 class="reveal" style="font-family:'Cinzel',serif;color:#f5ecd6;margin-bottom:0.5rem;">NASCAR Deflection Shields — By the Numbers</h2>
+      <div class="nascar-inner">
+        <div class="nascar-text reveal">
+          <p>When NASCAR required a high-impact deflection shield capable of surviving crash forces at professional racing speeds, Theis Industries was selected to manufacture the front fascia safety components for the entire field. The engineering challenge: produce a component that could deform to absorb energy while remaining structurally intact — protecting driver and surrounding vehicles at impact speeds approaching 440 mph.</p>
+          <p>Testing was extreme. Material samples were placed in a centrifuge system spinning at approximately 40,000 RPM — then a 6-inch iron peg was inserted into the path of the spinning Tekton material. The material was effectively acting as a propeller striking a stationary obstacle at high speed. Theis Tekton deformed on contact and remained intact — precisely the performance profile required for a safety shield.</p>
+          <p>All 470 shields were delivered to the NASCAR safety organization and mandated on every car in the race. Some shields were painted to match individual car liveries, with the Tekton substrate maintaining full safety performance regardless of the paint coating applied.</p>
+        </div>
+        <div class="nascar-specs">
+          <div class="nascar-spec reveal">
+            <span class="spec-val">470</span>
+            <h4>Shields Manufactured</h4>
+            <p>High-impact resistant yellow deflection shields (front fascia) for the full NASCAR field</p>
+          </div>
+          <div class="nascar-spec reveal">
+            <span class="spec-val">40,000 RPM</span>
+            <h4>Centrifuge Test Speed</h4>
+            <p>Material tested spinning at ~40,000 RPM with a 6-inch iron peg placed in the path</p>
+          </div>
+          <div class="nascar-spec reveal">
+            <span class="spec-val">440 mph</span>
+            <h4>Design Impact Velocity</h4>
+            <p>Front fascia designed to withstand crash impact forces approaching 440 mph</p>
+          </div>
+          <div class="nascar-spec reveal">
+            <span class="spec-val">Required</span>
+            <h4>Mandatory on Every Car</h4>
+            <p>Theis-manufactured shields mandated on every competing NASCAR vehicle</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- TEKTON ADVANTAGE -->
   <section class="spoke-tekton">
     <div class="container spoke-tekton-inner">
@@ -202,7 +557,7 @@
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen loading="lazy"></iframe>
         </div>
-        <p class="media-caption">Protec Tire Sealant Military Video</p>
+        <p class="media-caption">Protec Tire Sealant — Military Application</p>
       </div>
       <div class="media-item">
         <div class="media-embed-wrapper">
@@ -211,7 +566,7 @@
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen loading="lazy"></iframe>
         </div>
-        <p class="media-caption">Protec Tire Dealership Video</p>
+        <p class="media-caption">Protec Tire Sealant — Dealership Application</p>
       </div>
       <div class="media-item">
         <div class="media-embed-wrapper">
@@ -220,7 +575,7 @@
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen loading="lazy"></iframe>
         </div>
-        <p class="media-caption">Absorbtec Filtration Auto Trans. Fluid</p>
+        <p class="media-caption">Absorbtec™ Filtration — Automotive Transmission Fluid</p>
       </div>
     </div>
   </div>

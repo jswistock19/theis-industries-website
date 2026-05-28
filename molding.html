@@ -11,6 +11,232 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <script src="icons.js" defer></script>
   <script src="main.js" defer></script>
+  <style>
+    /* ── Tekton Materials Science Section ── */
+    .tekton-science-section {
+      background: linear-gradient(180deg, #110d08 0%, #1a130b 100%);
+      padding: 5rem 0;
+    }
+    .tekton-science-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3rem;
+      align-items: start;
+      margin-top: 2.5rem;
+    }
+    @media (max-width: 800px) { .tekton-science-grid { grid-template-columns: 1fr; } }
+    .tekton-science-text p {
+      font-family: 'Inter', sans-serif;
+      color: #9c8b6d;
+      font-size: 0.95rem;
+      line-height: 1.78;
+      margin: 0 0 1rem;
+    }
+    .tekton-properties {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    @media (max-width: 500px) { .tekton-properties { grid-template-columns: 1fr; } }
+    .tekton-prop {
+      background: rgba(212,175,55,0.06);
+      border: 1px solid rgba(212,175,55,0.15);
+      border-radius: 6px;
+      padding: 1.25rem 1.4rem;
+    }
+    .tekton-prop h4 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #d4af37;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin: 0 0 0.35rem;
+    }
+    .tekton-prop p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      color: #9c8b6d;
+      margin: 0;
+      line-height: 1.6;
+    }
+    .application-methods {
+      margin-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .app-method-tag {
+      background: rgba(212,175,55,0.08);
+      border: 1px solid rgba(212,175,55,0.25);
+      border-radius: 3px;
+      padding: 0.35rem 1rem;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #d4af37;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* ── Case Studies Grid ── */
+    .molding-cases-section {
+      background: #0a0806;
+      padding: 5rem 0;
+    }
+    .molding-cases-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+      margin-top: 2.5rem;
+    }
+    @media (max-width: 1000px) { .molding-cases-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 640px) { .molding-cases-grid { grid-template-columns: 1fr; } }
+    .molding-case {
+      background: rgba(212,175,55,0.04);
+      border: 1px solid rgba(212,175,55,0.15);
+      border-radius: 8px;
+      padding: 1.75rem;
+      transition: background 0.3s, border-color 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+    .molding-case:hover {
+      background: rgba(212,175,55,0.09);
+      border-color: rgba(212,175,55,0.35);
+    }
+    .molding-case-num {
+      font-family: 'Cinzel', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: rgba(212,175,55,0.18);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .molding-case-tag {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: #a8861f;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+    .molding-case h3 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #f5ecd6;
+      margin: 0 0 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      line-height: 1.3;
+    }
+    .molding-case p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      color: #9c8b6d;
+      line-height: 1.7;
+      margin: 0 0 0.75rem;
+      flex: 1;
+    }
+    .molding-case blockquote {
+      margin: 0.75rem 0 0;
+      padding: 0.9rem 1.1rem;
+      border-left: 3px solid #d4af37;
+      background: rgba(212,175,55,0.05);
+      border-radius: 0 4px 4px 0;
+    }
+    .molding-case blockquote p {
+      font-size: 0.84rem;
+      font-style: italic;
+      color: #f5ecd6;
+      margin: 0 0 0.35rem;
+      flex: unset;
+    }
+    .molding-case blockquote cite {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: #d4af37;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-style: normal;
+    }
+    .molding-case .case-highlight {
+      margin-top: 0.75rem;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #f4d27a;
+      letter-spacing: 0.02em;
+    }
+
+    /* ── Manufacturing Capabilities ── */
+    .mfg-capabilities-section {
+      background: linear-gradient(180deg, #110d08 0%, #221810 100%);
+      padding: 5rem 0;
+    }
+    .mfg-caps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    @media (max-width: 900px) { .mfg-caps-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 580px) { .mfg-caps-grid { grid-template-columns: 1fr; } }
+    .mfg-cap-card {
+      background: rgba(212,175,55,0.05);
+      border: 1px solid rgba(212,175,55,0.14);
+      border-radius: 6px;
+      padding: 1.75rem;
+      transition: border-color 0.3s;
+    }
+    .mfg-cap-card:hover { border-color: rgba(212,175,55,0.35); }
+    .mfg-cap-card .mfg-icon {
+      font-size: 1.3rem;
+      color: #d4af37;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+    .mfg-cap-card h4 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #f5ecd6;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin: 0 0 0.6rem;
+    }
+    .mfg-cap-card p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      color: #9c8b6d;
+      line-height: 1.65;
+      margin: 0;
+    }
+    .mfg-usa-badge {
+      margin-top: 3rem;
+      text-align: center;
+      padding: 2rem;
+      background: rgba(212,175,55,0.05);
+      border: 1px solid rgba(212,175,55,0.2);
+      border-radius: 6px;
+    }
+    .mfg-usa-badge h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.4rem;
+      color: #f4d27a;
+      margin: 0 0 0.5rem;
+      letter-spacing: 0.06em;
+    }
+    .mfg-usa-badge p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: #9c8b6d;
+      margin: 0;
+    }
+  </style>
 </head>
 <body>
   <div id="page-overlay"></div>
@@ -87,6 +313,55 @@
     </div>
   </section>
 
+  <!-- THEIS TEKTON MATERIALS SCIENCE -->
+  <section class="tekton-science-section">
+    <div class="container">
+      <div class="section-label reveal">Materials Science</div>
+      <h2 class="reveal" style="font-family:'Cinzel',serif;color:#f5ecd6;margin-bottom:0.5rem;">Theis Tekton as a Molding Material</h2>
+      <div class="tekton-science-grid">
+        <div class="tekton-science-text reveal">
+          <p>Theis Tekton is not merely a coating — it is a fully formable engineering material that can be cast, sprayed, rolled, or brushed into virtually any geometry. This versatility makes Tekton the foundation of Theis Molding's capability to produce custom shapes, body panels, shields, housings, and structural enclosures that outperform every conventional material alternative.</p>
+          <p>Tekton's most remarkable property as a molding material is its shape memory: components return to their original geometry after impact events that would permanently deform or shatter conventional polymer or metal parts. This was dramatically demonstrated when a Monster Truck body — manufactured and warranted by Theis for 3 years against scratches, dings, and dents — absorbed a complete end-over-end rollover and returned to its original shape when the truck was uprighted. Those same bodies remain intact more than 30 years later, with some still used in active shows.</p>
+          <p>Tekton molded components are lighter and stronger than traditional materials across the full range of durometer settings — from flexible, rubber-like configurations through intermediate engineering polymer ranges to hard, rigid, high-impact-resistant formulations. This variable-hardness capability within a single chemistry system is unique in the industry.</p>
+          <div class="application-methods">
+            <span class="app-method-tag">Cast</span>
+            <span class="app-method-tag">Spray Applied</span>
+            <span class="app-method-tag">Roll Applied</span>
+            <span class="app-method-tag">Brush Applied</span>
+            <span class="app-method-tag">Custom Mold</span>
+            <span class="app-method-tag">In-Situ Form</span>
+          </div>
+        </div>
+        <div class="tekton-properties reveal">
+          <div class="tekton-prop">
+            <h4>Shape Memory</h4>
+            <p>Returns to original geometry after major impact events — demonstrated in Monster Truck rollovers and ballistic impact testing</p>
+          </div>
+          <div class="tekton-prop">
+            <h4>30+ Year Track Record</h4>
+            <p>Monster Truck bodies fabricated by Theis with a 3-year warranty are still intact and in use over 30 years later</p>
+          </div>
+          <div class="tekton-prop">
+            <h4>Variable Hardness</h4>
+            <p>Single chemistry system formulated from gum-flexible to steel-rigid — designed for exact application requirements</p>
+          </div>
+          <div class="tekton-prop">
+            <h4>Lighter &amp; Stronger</h4>
+            <p>Mass and weight advantages over metal, fiberglass, and conventional engineering polymers at equivalent or superior strength</p>
+          </div>
+          <div class="tekton-prop">
+            <h4>Any Substrate</h4>
+            <p>Bonds to and forms on metal, wood, plastic, concrete, fiberglass, and most industrial substrates without primer</p>
+          </div>
+          <div class="tekton-prop">
+            <h4>Custom Colors &amp; Finish</h4>
+            <p>Full color and surface finish customization — components can be painted, clear-coated, or left natural finish</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- PRODUCTS / SOLUTIONS -->
   <section class="spoke-products">
     <div class="container">
@@ -117,6 +392,139 @@
           <h3>Defense Component Manufacturing</h3>
           <p>ITAR-aware defense component production for DoD programs and prime contractor supply chains — polymer parts, composite subassemblies, and Tekton-enhanced components meeting military specification and quality requirements.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDIES -->
+  <section class="molding-cases-section">
+    <div class="container">
+      <div class="section-label reveal">Proven Performance</div>
+      <h2 class="reveal" style="font-family:'Cinzel',serif;color:#f5ecd6;margin-bottom:0.5rem;">Case Studies</h2>
+      <p class="reveal" style="font-family:'Inter',sans-serif;color:#9c8b6d;max-width:720px;line-height:1.75;margin-bottom:0;">Theis Molding has delivered to some of the world's most demanding — and unusual — clients. From Hollywood to NASCAR, from the Pentagon to the San Francisco Zoo, Tekton-molded components have proven their capabilities where it counts most.</p>
+      <div class="molding-cases-grid">
+
+        <!-- Batman -->
+        <div class="molding-case reveal">
+          <div class="molding-case-num">01</div>
+          <div class="molding-case-tag">Defense / Entertainment</div>
+          <h3>Batman: Dark Knight Rises — Suit Mold</h3>
+          <p>The mold for the Batman suit worn in The Dark Knight Rises was produced at the Theis Industries laboratory in Redondo Beach, California and delivered to the Howard Hughes film set in Playa del Rey, CA. The suit's actual material capabilities — the genuine defensive properties of Tekton-molded armor — far exceeded what was portrayed on screen during the film's premiere. The material's true performance characteristics are well above what the entertainment presentation suggested.</p>
+          <div class="case-highlight">Theis Industries, Redondo Beach, CA · Howard Hughes Lab Set, Playa del Rey, CA</div>
+        </div>
+
+        <!-- Monster Trucks -->
+        <div class="molding-case reveal">
+          <div class="molding-case-num">02</div>
+          <div class="molding-case-tag">Motorsport / Entertainment</div>
+          <h3>Monster Truck Bodies — Iron Outlaw &amp; Grave Digger</h3>
+          <p>Theis Industries created the molds for multiple monster truck bodies, fabricated the finished bodies, and backed them with a 3-year warranty against scratches, dings, and dents. Thirty years later, all bodies remain intact — and some are still used in active shows. After a complete end-over-end rollover, the body returned to its original shape when the truck was righted.</p>
+          <blockquote>
+            <p>"...the truck rolled end over end... I was sore, the frame was crushed, and when they turned my truck over, the body popped back into its original shape... If this was our old body we would have been picking it up with a leaf rake!"</p>
+            <cite>— Nick Owens, Iron Outlaw</cite>
+          </blockquote>
+          <blockquote>
+            <p>"I always say the only thing that wins out here is dirt. I stand corrected. Theis beat the dirt."</p>
+            <cite>— Dennis Anderson, Grave Digger</cite>
+          </blockquote>
+        </div>
+
+        <!-- NASCAR -->
+        <div class="molding-case reveal">
+          <div class="molding-case-num">03</div>
+          <div class="molding-case-tag">Motorsport Safety</div>
+          <h3>NASCAR — 470 Deflection Shields</h3>
+          <p>Theis manufactured 470 yellow, high-impact resistant deflection shields (front fascia) for the NASCAR safety program. Required on every car in the race. Material was tested in a centrifuge spinning at approximately 40,000 RPM — a 6-inch iron peg was placed in the path of the spinning material. Theis Tekton deformed but remained intact, performing exactly as intended. Shields withstand crash impact forces approaching 440 mph.</p>
+          <div class="case-highlight">470 Units · 40,000 RPM Impact Test · Mandatory on Every NASCAR</div>
+        </div>
+
+        <!-- Foober Rhino Toy -->
+        <div class="molding-case reveal">
+          <div class="molding-case-num">04</div>
+          <div class="molding-case-tag">Zoological / Specialty</div>
+          <h3>Foober Rhino Toy — San Francisco Zoo</h3>
+          <p>The San Francisco Zoo commissioned Theis Industries to design and fabricate an indestructible enrichment toy for the zoo's Black Rhino population — an endangered species requiring robust, challenging, and safe stimulation that conventional materials could not survive. Theis brought survival training and deep knowledge of animal behavior to the design process — engineering for the specific sensory triggers of the Black Rhino: smell, texture, and challenging weight distribution. The final coating incorporated rat feces as an extract to optimize rhino engagement with the object. The Tekton construction made it genuinely indestructible under rhino use conditions.</p>
+          <div class="case-highlight">San Francisco Zoo · Black Rhino Enrichment · Endangered Species Program</div>
+        </div>
+
+        <!-- Dumpsters -->
+        <div class="molding-case reveal">
+          <div class="molding-case-num">05</div>
+          <div class="molding-case-tag">Industrial / Fleet</div>
+          <h3>Waste Management — 5,000 Dumpster Bodies</h3>
+          <p>Waste Management engaged Theis Industries to coat 5,000 commercial dumpster bodies with Theis Tekton to address leaking and unsightly mess from decomposing waste. Tekton fully sealed each dumpster, including complete resistance to the highly corrosive nature of decomposing milk and organic waste — among the most chemically aggressive commercial waste streams. The coating held up without concern, protecting the steel bodies and dramatically extending expected service life.</p>
+          <div class="case-highlight">5,000 Units · Waste Management Fleet · Extended Asset Service Life</div>
+        </div>
+
+        <!-- Beer Mugs -->
+        <div class="molding-case reveal">
+          <div class="molding-case-num">06</div>
+          <div class="molding-case-tag">Consumer / Specialty</div>
+          <h3>Custom Beer Mugs — Australian Bar</h3>
+          <p>An Australian bar owner approached Theis Industries with an unusual requirement: virtually indestructible beer mugs that maintained the experience of drinking from glass — optically clear, with proper foam retention — while surviving the kind of abuse that shatters conventional glassware. Theis produced custom optically clear Tekton mugs that maintained beer foam in ways plastic alternatives could not replicate, and proved effectively indestructible under normal — and abnormal — bar use. The bar's patrons could throw glasses to their hearts' content.</p>
+          <div class="case-highlight">Optically Clear · Foam-Retaining · Virtually Indestructible</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MANUFACTURING CAPABILITIES -->
+  <section class="mfg-capabilities-section">
+    <div class="container">
+      <div class="section-label reveal">Capabilities</div>
+      <h2 class="reveal" style="font-family:'Cinzel',serif;color:#f5ecd6;margin-bottom:0.5rem;">Manufacturing Capabilities</h2>
+      <p class="reveal" style="font-family:'Inter',sans-serif;color:#9c8b6d;max-width:700px;line-height:1.75;margin-bottom:0;">Theis Molding supports the full product development and production lifecycle — from concept mold creation through volume fabrication, across any substrate and any application method the project requires.</p>
+      <div class="mfg-caps-grid">
+        <div class="mfg-cap-card reveal">
+          <span class="mfg-icon">⬡</span>
+          <h4>Custom Mold Creation</h4>
+          <p>Full custom mold engineering and fabrication from client specifications or reverse-engineering from existing components. Prototype and production molds available for any geometry.</p>
+        </div>
+        <div class="mfg-cap-card reveal">
+          <span class="mfg-icon">⬡</span>
+          <h4>Spray Application</h4>
+          <p>High-build spray application of Tekton for conformal coatings, complex geometries, in-situ application on existing assets, and rapid large-area coverage.</p>
+        </div>
+        <div class="mfg-cap-card reveal">
+          <span class="mfg-icon">⬡</span>
+          <h4>Roll &amp; Brush Application</h4>
+          <p>Precision roll and brush application for controlled film build, detail work, repair application, and situations where spray application is not appropriate.</p>
+        </div>
+        <div class="mfg-cap-card reveal">
+          <span class="mfg-icon">⬡</span>
+          <h4>Cast Molding</h4>
+          <p>Cast molding of Tekton into custom forms for solid components, panels, shields, and structural elements requiring precise geometry and consistent cross-section.</p>
+        </div>
+        <div class="mfg-cap-card reveal">
+          <span class="mfg-icon">⬡</span>
+          <h4>Any Substrate</h4>
+          <p>Tekton bonds to and forms on metal, wood, plastic, concrete, fiberglass, foam, and most industrial substrates — no primer required in most applications.</p>
+        </div>
+        <div class="mfg-cap-card reveal">
+          <span class="mfg-icon">⬡</span>
+          <h4>Return to Service in Hours</h4>
+          <p>Rapid cure formulations return coated and molded components to service in hours — not days — minimizing downtime for repair, refurbishment, and emergency coating applications.</p>
+        </div>
+        <div class="mfg-cap-card reveal">
+          <span class="mfg-icon">⬡</span>
+          <h4>Custom Colors &amp; Finishes</h4>
+          <p>Full palette of custom color formulations and surface finish options — matte, satin, gloss, textured, or optically clear — for any aesthetic or functional requirement.</p>
+        </div>
+        <div class="mfg-cap-card reveal">
+          <span class="mfg-icon">⬡</span>
+          <h4>Prototype to Production</h4>
+          <p>Single-piece prototypes through volume production runs — Theis Molding scales with client requirements from engineering samples to fleet-scale component supply.</p>
+        </div>
+        <div class="mfg-cap-card reveal">
+          <span class="mfg-icon">⬡</span>
+          <h4>USA Manufactured</h4>
+          <p>All Theis Molding production is manufactured in the United States — supporting domestic supply chain requirements, ITAR compliance, and Buy American procurement programs.</p>
+        </div>
+      </div>
+      <div class="mfg-usa-badge reveal">
+        <h3>Made in the USA</h3>
+        <p>Every Theis Molding component is manufactured in the United States. Domestic production. American materials science. Uncompromising quality.</p>
       </div>
     </div>
   </section>
