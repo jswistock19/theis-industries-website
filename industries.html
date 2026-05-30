@@ -38,6 +38,9 @@
       transition: opacity .65s cubic-bezier(.16,1,.3,1), transform .65s cubic-bezier(.16,1,.3,1);
     }
     .reveal.visible { opacity: 1; transform: none; }
+    /* Snap reveal to final position with no animation (used by tab jumps so
+       scroll math measures stable, non-transforming layout). */
+    .reveal-instant { transition: none !important; }
 
     /* ====== INDUSTRIES HERO ====== */
     #industries-hero {
@@ -763,50 +766,147 @@
     }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
     revealEls.forEach(el => revealObs.observe(el));
 
-    // Tab active state on scroll
-    const tabBar = document.querySelector('.tab-bar');
-    const tabs = document.querySelectorAll('.tab-btn');
-    const sections = document.querySelectorAll('.industry-section[id]');
+    /* ============================================================
+       INDUSTRIES TAB NAVIGATION — deterministic, self-contained.
+       Owns all tab clicks (capture phase, stops the global anchor
+       handler) so scroll math + active state never race.
+       ============================================================ */
+    (function initIndustryTabs() {
+      const tabBar   = document.querySelector('.tab-bar');
+      const tabs     = Array.from(document.querySelectorAll('.tab-btn'));
+      const sections = Array.from(document.querySelectorAll('.industry-section[id]'));
+      const navH     = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 72;
 
-    function setActiveTab(tab) {
-      if (!tab || tab.classList.contains('active')) return;
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      // Keep the active tab visible by scrolling ONLY the horizontal tab rail —
-      // never the page (scrollIntoView can hijack vertical scroll).
-      if (tabBar) {
+      // While a programmatic scroll is running, the scroll-spy observer must not
+      // fight the clicked tab. We lock the active tab until the scroll settles.
+      let lockUntil = 0;
+
+      // Reveal EVERY animated element up-front so layout height is stable and
+      // scroll math is accurate. Sections above the target can otherwise reveal
+      // mid-scroll (translateY collapses), shifting the final resting position.
+      // We snap them with the transition suppressed (.reveal-instant) so the
+      // translateY transform resolves immediately — otherwise getBoundingClientRect
+      // would report mid-animation positions and the jump would land short.
+      function revealAll() {
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale')
+          .forEach(el => { el.classList.add('reveal-instant', 'visible'); });
+      }
+
+      // Absolute document Y of an element, computed from the offset chain so it is
+      // NOT affected by any in-flight CSS transform (translateY reveal animation).
+      function docTop(el) {
+        let y = 0;
+        for (let n = el; n; n = n.offsetParent) y += n.offsetTop;
+        return y;
+      }
+
+      // Distance from the document top to where the section heading should rest:
+      // just below the fixed nav + the sticky tab rail, plus a small breathing gap.
+      function targetScrollTop(section) {
+        const barH = tabBar ? tabBar.getBoundingClientRect().height : 0;
+        const offset = navH + barH + 16;
+        return Math.max(0, docTop(section) - offset);
+      }
+
+      function centerTabInRail(tab) {
+        if (!tabBar) return;
         const barRect = tabBar.getBoundingClientRect();
         const tabRect = tab.getBoundingClientRect();
         const delta = (tabRect.left + tabRect.width / 2) - (barRect.left + barRect.width / 2);
         tabBar.scrollBy({ left: delta, behavior: 'smooth' });
       }
-    }
 
-    const tabObs = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setActiveTab(document.querySelector(`.tab-btn[href="#${entry.target.id}"]`));
-        }
-      });
-    }, { threshold: 0.3, rootMargin: '-130px 0px -50% 0px' });
-    sections.forEach(s => tabObs.observe(s));
+      function setActiveTab(tab) {
+        if (!tab) return;
+        tabs.forEach(t => t.classList.toggle('active', t === tab));
+        centerTabInRail(tab);
+      }
 
-    // Immediate active state + reliable reveal when a tab is clicked.
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
+      function goToSection(id, push) {
+        const section = document.getElementById(id);
+        const tab = tabs.find(t => t.getAttribute('href') === '#' + id);
+        if (!section) return;
+
+        revealAll();                       // stabilize layout BEFORE measuring
         setActiveTab(tab);
-        const sec = document.querySelector(tab.getAttribute('href'));
-        if (sec) {
-          sec.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
-        }
-      });
-    });
+        lockUntil = Date.now() + 600;      // hold active state briefly after jump
 
-    // If the page loads with a hash, ensure that section is revealed.
-    if (location.hash) {
-      const sec = document.querySelector(location.hash);
-      if (sec) sec.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
-    }
+        // Instant (not smooth) jump: a tabbed jump can span thousands of pixels,
+        // and smooth scrolling over that distance lands inaccurately because
+        // lazy-loaded media/reveals below change layout height mid-flight. A
+        // direct jump against the now-stable layout is deterministic. The global
+        // CSS `html{scroll-behavior:smooth}` would otherwise animate (and
+        // override behavior:'auto'), so suppress it for the duration of the jump.
+        const root = document.documentElement;
+        const prevBehavior = root.style.scrollBehavior;
+        root.style.scrollBehavior = 'auto';
+        window.scrollTo(0, targetScrollTop(section));
+        // Second pass next frame absorbs any final late layout shift (lazy media).
+        requestAnimationFrame(() => {
+          window.scrollTo(0, targetScrollTop(section));
+          root.style.scrollBehavior = prevBehavior;
+          setActiveTab(tab);
+        });
+
+        if (push && history.replaceState) {
+          // Update the URL for deep-linking / back behavior. Done after the jump
+          // so it does not trigger the browser's default mis-offset anchor scroll.
+          history.replaceState(null, '', '#' + id);
+        }
+      }
+
+      // Capture-phase listener: runs before the document-level global anchor
+      // handler in main.js and stops it, so only this logic moves the page.
+      tabBar?.addEventListener('click', (e) => {
+        const tab = e.target.closest('.tab-btn');
+        if (!tab) return;
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        goToSection(tab.getAttribute('href').slice(1), true);
+      }, true);
+
+      // Scroll-spy: highlight the section currently nearest the top of the
+      // content area — but never override a freshly clicked tab mid-scroll.
+      const spy = new IntersectionObserver((entries) => {
+        if (Date.now() < lockUntil) return;
+        // Choose the top-most intersecting section for a stable, single result.
+        const visible = entries
+          .filter(en => en.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        if (!visible.length) return;
+        const id = visible[0].target.id;
+        setActiveTab(tabs.find(t => t.getAttribute('href') === '#' + id));
+      }, { rootMargin: `-${navH + (tabBar ? tabBar.getBoundingClientRect().height : 50) + 1}px 0px -55% 0px`, threshold: 0 });
+      sections.forEach(s => spy.observe(s));
+
+      // Deep link on load: honor an incoming hash with the correct offset.
+      // Reuse the same deterministic path as a tab click (suppresses CSS smooth
+      // scroll, reveals all sections to stabilize layout, and re-jumps next frame
+      // to absorb late layout shifts from lazy-loaded media). A single extra jump
+      // after `load` covers media that finishes decoding after first paint.
+      if (location.hash) {
+        const id = location.hash.slice(1);
+        if (document.getElementById(id)) {
+          const settleToHash = () => {
+            const section = document.getElementById(id);
+            if (!section) return;
+            const root = document.documentElement;
+            const prevBehavior = root.style.scrollBehavior;
+            root.style.scrollBehavior = 'auto';
+            revealAll();
+            lockUntil = Date.now() + 600;
+            window.scrollTo(0, targetScrollTop(section));
+            requestAnimationFrame(() => {
+              window.scrollTo(0, targetScrollTop(section));
+              root.style.scrollBehavior = prevBehavior;
+              setActiveTab(tabs.find(t => t.getAttribute('href') === '#' + id));
+            });
+          };
+          requestAnimationFrame(settleToHash);
+          window.addEventListener('load', () => requestAnimationFrame(settleToHash), { once: true });
+        }
+      }
+    })();
   </script>
 </body>
 </html>
