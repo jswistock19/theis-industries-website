@@ -3545,8 +3545,9 @@ footer::before {
 .nav-dropdown.open .dropdown-arrow { transform: rotate(180deg); }
 .dropdown-menu {
   display: none;
-  position: absolute; top: calc(100% + 12px); left: 50%;
+  position: absolute; top: 100%; left: 50%;
   transform: translateX(-50%);
+  margin-top: 12px;
   background: rgba(10,8,6,0.97);
   backdrop-filter: blur(20px);
   border: 1px solid var(--border-strong);
@@ -3557,7 +3558,16 @@ footer::before {
   z-index: 1000;
   list-style: none;
 }
+/* Invisible hover bridge so moving from the trigger to the menu across the
+   gap does not close the dropdown. */
+.dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -12px; left: 0; right: 0;
+  height: 12px;
+}
 .nav-dropdown:hover .dropdown-menu,
+.nav-dropdown:focus-within .dropdown-menu,
 .nav-dropdown.open .dropdown-menu { display: block; }
 .dropdown-menu li a {
   display: block;

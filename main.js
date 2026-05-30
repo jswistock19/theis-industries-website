@@ -115,6 +115,30 @@ document.addEventListener('click', (e) => {
   }
 });
 
+// Dropdown trigger: tap/click to toggle. The trigger is an href="#" link with
+// no real target, so on desktop hover already works — here we make it reliably
+// open on click/tap (essential on touch devices where :hover never fires).
+document.addEventListener('click', (e) => {
+  const trigger = e.target.closest('.nav-dropdown-trigger');
+  if (!trigger) return;
+  const dropdown = trigger.closest('.nav-dropdown');
+  if (!dropdown) return;
+  e.preventDefault();
+  e.stopPropagation();
+  const wasOpen = dropdown.classList.contains('open');
+  // Close any other open dropdowns first.
+  document.querySelectorAll('.nav-dropdown.open').forEach((d) => {
+    if (d !== dropdown) d.classList.remove('open');
+  });
+  dropdown.classList.toggle('open', !wasOpen);
+});
+
+// Close any open dropdown when clicking outside of it.
+document.addEventListener('click', (e) => {
+  if (e.target.closest('.nav-dropdown')) return;
+  document.querySelectorAll('.nav-dropdown.open').forEach((d) => d.classList.remove('open'));
+});
+
 /* ============================================================
    SECTION 5 — ACTIVE NAV LINK (current page detection)
    ============================================================ */
@@ -143,12 +167,25 @@ document.addEventListener('click', (e) => {
 document.addEventListener('click', (e) => {
   const link = e.target.closest('a[href^="#"]');
   if (!link) return;
-  const target = document.querySelector(link.getAttribute('href'));
+  const href = link.getAttribute('href');
+  if (href === '#' || href.length < 2) return; // ignore bare/empty anchors (e.g. dropdown trigger)
+  const target = document.querySelector(href);
   if (!target) return;
   e.preventDefault();
+
+  // Honor the target's CSS scroll-margin-top when set (handles sticky sub-nav
+  // bars like the Industries tab rail); otherwise fall back to nav height.
   const navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 72;
-  const top = target.getBoundingClientRect().top + window.scrollY - navH - 16;
+  const smt = parseInt(getComputedStyle(target).scrollMarginTop) || 0;
+  const offset = smt > 0 ? smt : navH + 16;
+  const top = target.getBoundingClientRect().top + window.scrollY - offset;
   window.scrollTo({ top, behavior: 'smooth' });
+
+  // Make sure anything inside the jumped-to section is revealed immediately,
+  // so a scroll target never lands on permanently-hidden (opacity:0) content.
+  target.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale')
+    .forEach((el) => el.classList.add('visible'));
+  if (target.classList.contains('reveal')) target.classList.add('visible');
 
   // Close mobile nav if open
   const navLinks = document.querySelector('.nav-links');

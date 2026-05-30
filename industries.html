@@ -226,10 +226,18 @@
       list-style: none;
       z-index: 1000;
       box-shadow: 0 20px 50px rgba(0,0,0,0.7), 0 0 30px rgba(212,175,55,0.08);
-      margin-top: .5rem;
+      margin-top: 12px;
+    }
+    /* Invisible hover bridge across the gap to the trigger */
+    .dropdown-menu::before {
+      content: '';
+      position: absolute;
+      top: -12px; left: 0; right: 0;
+      height: 12px;
     }
     .nav-dropdown:hover .dropdown-menu,
-    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .nav-dropdown:focus-within .dropdown-menu,
+    .nav-dropdown.open .dropdown-menu { display: block; }
     .dropdown-menu li a {
       display: block;
       padding: .6rem 1.5rem;
@@ -245,7 +253,21 @@
     .dropdown-menu li a::after { display: none !important; }
     .nav-dropdown-trigger { display: flex; align-items: center; gap: .35rem; cursor: pointer; }
     .dropdown-arrow { font-size: .7em; transition: transform .25s; }
-    .nav-dropdown:hover .dropdown-arrow { transform: rotate(180deg); }
+    .nav-dropdown:hover .dropdown-arrow,
+    .nav-dropdown.open .dropdown-arrow { transform: rotate(180deg); }
+    /* Mobile: render the dropdown inline within the open hamburger menu */
+    @media(max-width:900px) {
+      .dropdown-menu {
+        position: static; transform: none; margin-top: 0;
+        min-width: 0; width: 100%;
+        background: rgba(255,255,255,0.03);
+        border: none; border-left: 2px solid var(--border);
+        border-radius: 0; padding: 0;
+        box-shadow: none;
+      }
+      .dropdown-menu::before { display: none; }
+      .nav-dropdown.open .dropdown-menu { display: block; }
+    }
 
     /* ====== FOOTER EXTRAS ====== */
     .footer-divisions {
@@ -361,6 +383,11 @@
           <h4>Specialty Coatings &amp; Stealth</h4>
           <p>Radar-absorbent, thermal-barrier, anti-corrosion, and camouflage-compatible coating systems for defense platforms.</p>
           <a href="defense.html" class="industry-product-link">Explore Theis Defense →</a>
+        </div>
+        <div class="industry-product-card reveal">
+          <h4>Safe Rooms &amp; Hardened Spaces</h4>
+          <p>Engineered safe rooms and hardened shelters delivering ballistic, blast, and forced-entry protection for residences, executive facilities, and critical infrastructure.</p>
+          <a href="https://theis-saferooms.vercel.app/" target="_blank" rel="noopener noreferrer" class="industry-product-link">Explore Theis Safe Rooms →</a>
         </div>
       </div>
     </div>
@@ -737,22 +764,49 @@
     revealEls.forEach(el => revealObs.observe(el));
 
     // Tab active state on scroll
+    const tabBar = document.querySelector('.tab-bar');
     const tabs = document.querySelectorAll('.tab-btn');
     const sections = document.querySelectorAll('.industry-section[id]');
+
+    function setActiveTab(tab) {
+      if (!tab || tab.classList.contains('active')) return;
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      // Keep the active tab visible by scrolling ONLY the horizontal tab rail —
+      // never the page (scrollIntoView can hijack vertical scroll).
+      if (tabBar) {
+        const barRect = tabBar.getBoundingClientRect();
+        const tabRect = tab.getBoundingClientRect();
+        const delta = (tabRect.left + tabRect.width / 2) - (barRect.left + barRect.width / 2);
+        tabBar.scrollBy({ left: delta, behavior: 'smooth' });
+      }
+    }
+
     const tabObs = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          tabs.forEach(t => t.classList.remove('active'));
-          const active = document.querySelector(`.tab-btn[href="#${entry.target.id}"]`);
-          if (active) {
-            active.classList.add('active');
-            // scroll tab bar to keep active tab visible
-            active.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-          }
+          setActiveTab(document.querySelector(`.tab-btn[href="#${entry.target.id}"]`));
         }
       });
-    }, { threshold: 0.3, rootMargin: '-120px 0px -50% 0px' });
+    }, { threshold: 0.3, rootMargin: '-130px 0px -50% 0px' });
     sections.forEach(s => tabObs.observe(s));
+
+    // Immediate active state + reliable reveal when a tab is clicked.
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        setActiveTab(tab);
+        const sec = document.querySelector(tab.getAttribute('href'));
+        if (sec) {
+          sec.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+        }
+      });
+    });
+
+    // If the page loads with a hash, ensure that section is revealed.
+    if (location.hash) {
+      const sec = document.querySelector(location.hash);
+      if (sec) sec.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+    }
   </script>
 </body>
 </html>
