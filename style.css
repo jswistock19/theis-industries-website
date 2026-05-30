@@ -25,8 +25,8 @@
   /* Text */
   --text:           #f5ecd6;
   --text-bright:    #fffaec;
-  --muted:          #9c8b6d;
-  --muted-strong:   #b8a787;
+  --muted:          #c0ad88;
+  --muted-strong:   #d2c2a0;
 
   /* Borders */
   --border:         rgba(212,175,55,0.18);
@@ -94,6 +94,8 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--nav-h) + 16px);
   font-size: 16px;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
@@ -1964,6 +1966,77 @@ section h3 {
   pointer-events: none;
 }
 
+/* ---- FOUNDER INITIAL MARK (replaces portrait photo) ---- */
+.founder-mark {
+  aspect-ratio: 4/5;
+  border: 2px solid var(--accent);
+  border-radius: var(--radius-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 30%, rgba(212,175,55,0.14), transparent 65%),
+    linear-gradient(150deg, #15100a 0%, #221810 55%, #100b06 100%);
+  box-shadow: var(--shadow-gold-strong);
+  transition: box-shadow var(--dur-base), transform var(--dur-base) var(--ease-spring);
+}
+.founder-mark:hover {
+  box-shadow: var(--shadow-gold-hover);
+  transform: scale(1.01);
+}
+.founder-mark::after {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: calc(var(--radius-xl) - 4px);
+  pointer-events: none;
+}
+.founder-mark-initials {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(4.5rem, 9vw, 7rem);
+  line-height: 1;
+  background: var(--grad-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  letter-spacing: 0.06em;
+  filter: drop-shadow(0 0 24px rgba(212,175,55,0.35));
+}
+.founder-mark-name {
+  font-family: var(--font-head);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  color: var(--text-bright);
+  margin-top: 0.75rem;
+}
+.founder-mark-role {
+  font-family: var(--font-head);
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  color: var(--accent-light);
+}
+.founder-mark-alt {
+  background:
+    radial-gradient(ellipse at 50% 30%, rgba(212,175,55,0.10), transparent 65%),
+    linear-gradient(150deg, #100b06 0%, #1a130b 55%, #0d0905 100%);
+}
+.founder-mark-gary {
+  background:
+    radial-gradient(ellipse at 50% 30%, rgba(212,175,55,0.12), transparent 65%),
+    linear-gradient(150deg, #1a130b 0%, #241a0f 55%, #100b06 100%);
+}
+
 .founder-text .eyebrow {
   margin-bottom: 0.75rem;
 }
@@ -3261,8 +3334,8 @@ footer::before {
 
   /* Footer */
   .footer-cols    { grid-template-columns: 1fr; }
-  .founder-portrait { aspect-ratio: 1; }
-  .founder-portrait::before { font-size: 4.5rem; }
+  .founder-mark { aspect-ratio: 16/10; }
+  .founder-mark-initials { font-size: 4.5rem; }
 
   /* Buttons */
   .btn-large { padding: 0.9rem 1.75rem; }
@@ -3599,16 +3672,6 @@ footer::before {
   );
   background-size: 200% 100%;
   animation: shimmerGold 3s linear infinite;
-}
-
-/* ---- JESSICA THEIS PORTRAIT ---- */
-.founder-portrait-jessica::before {
-  content: 'JT' !important;
-}
-.founder-portrait-jessica {
-  background:
-    linear-gradient(135deg, rgba(212,175,55,0.12), rgba(168,134,31,0.04)),
-    linear-gradient(135deg, #1a130b, #221810) !important;
 }
 
 /* ---- FOUNDER GRID REVERSE (Jessica) ---- */

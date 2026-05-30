@@ -27,7 +27,7 @@
     @media (max-width: 800px) { .tekton-science-grid { grid-template-columns: 1fr; } }
     .tekton-science-text p {
       font-family: 'Inter', sans-serif;
-      color: #9c8b6d;
+      color: #d2c2a0;
       font-size: 0.95rem;
       line-height: 1.78;
       margin: 0 0 1rem;
@@ -56,7 +56,7 @@
     .tekton-prop p {
       font-family: 'Inter', sans-serif;
       font-size: 0.85rem;
-      color: #9c8b6d;
+      color: #d2c2a0;
       margin: 0;
       line-height: 1.6;
     }
@@ -105,11 +105,23 @@
       background: rgba(212,175,55,0.09);
       border-color: rgba(212,175,55,0.35);
     }
+    .molding-case-img {
+      margin: -1.75rem -1.75rem 1.25rem;
+      height: 180px;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(212,175,55,0.15);
+    }
+    .molding-case-img img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      transition: transform 0.5s ease;
+    }
+    .molding-case:hover .molding-case-img img { transform: scale(1.05); }
     .molding-case-num {
       font-family: 'Cinzel', serif;
       font-size: 2rem;
       font-weight: 700;
-      color: rgba(212,175,55,0.18);
+      color: rgba(212,175,55,0.55);
       line-height: 1;
       margin-bottom: 0.5rem;
     }
@@ -118,7 +130,7 @@
       font-size: 0.68rem;
       font-weight: 700;
       letter-spacing: 0.12em;
-      color: #a8861f;
+      color: #f4d27a;
       text-transform: uppercase;
       margin-bottom: 0.6rem;
     }
@@ -135,7 +147,7 @@
     .molding-case p {
       font-family: 'Inter', sans-serif;
       font-size: 0.88rem;
-      color: #9c8b6d;
+      color: #d2c2a0;
       line-height: 1.7;
       margin: 0 0 0.75rem;
       flex: 1;
@@ -211,7 +223,7 @@
     .mfg-cap-card p {
       font-family: 'Inter', sans-serif;
       font-size: 0.88rem;
-      color: #9c8b6d;
+      color: #d2c2a0;
       line-height: 1.65;
       margin: 0;
     }
@@ -233,7 +245,7 @@
     .mfg-usa-badge p {
       font-family: 'Inter', sans-serif;
       font-size: 0.9rem;
-      color: #9c8b6d;
+      color: #d2c2a0;
       margin: 0;
     }
   </style>
@@ -317,7 +329,11 @@
   <section class="tekton-science-section">
     <div class="container">
       <div class="section-label reveal">Materials Science</div>
-      <h2 class="reveal" style="font-family:'Cinzel',serif;color:#f5ecd6;margin-bottom:0.5rem;">Theis Tekton as a Molding Material</h2>
+      <h2 class="reveal" style="font-family:'Cinzel',serif;color:#f5ecd6;margin-bottom:1.5rem;">Theis Tekton as a Molding Material</h2>
+      <div class="reveal" style="border-radius:14px;overflow:hidden;margin-bottom:2.5rem;position:relative;border:1px solid var(--border);">
+        <img src="images/tekton-material-hero.png" alt="Theis Tekton molding material" style="width:100%;height:340px;object-fit:cover;display:block;">
+        <p style="position:absolute;left:0;right:0;bottom:0;margin:0;background:linear-gradient(transparent,rgba(10,8,6,0.92));color:#f5ecd6;font-size:.9rem;letter-spacing:.04em;padding:3rem 1.5rem 1rem;">Theis Tekton — a fully formable engineering material, cast or sprayed into any geometry across the full durometer range.</p>
+      </div>
       <div class="tekton-science-grid">
         <div class="tekton-science-text reveal">
           <p>Theis Tekton is not merely a coating — it is a fully formable engineering material that can be cast, sprayed, rolled, or brushed into virtually any geometry. This versatility makes Tekton the foundation of Theis Molding's capability to produce custom shapes, body panels, shields, housings, and structural enclosures that outperform every conventional material alternative.</p>
@@ -401,11 +417,12 @@
     <div class="container">
       <div class="section-label reveal">Proven Performance</div>
       <h2 class="reveal" style="font-family:'Cinzel',serif;color:#f5ecd6;margin-bottom:0.5rem;">Case Studies</h2>
-      <p class="reveal" style="font-family:'Inter',sans-serif;color:#9c8b6d;max-width:720px;line-height:1.75;margin-bottom:0;">Theis Molding has delivered to some of the world's most demanding — and unusual — clients. From Hollywood to NASCAR, from the Pentagon to the San Francisco Zoo, Tekton-molded components have proven their capabilities where it counts most.</p>
+      <p class="reveal" style="font-family:'Inter',sans-serif;color:#d2c2a0;max-width:720px;line-height:1.75;margin-bottom:0;">Theis Molding has delivered to some of the world's most demanding — and unusual — clients. From Hollywood to NASCAR, from the Pentagon to the San Francisco Zoo, Tekton-molded components have proven their capabilities where it counts most.</p>
       <div class="molding-cases-grid">
 
         <!-- Batman -->
         <div class="molding-case reveal">
+          <div class="molding-case-img"><img src="images/tech-carbon-fiber-doc.jpg" alt="Tekton molded armor material"></div>
           <div class="molding-case-num">01</div>
           <div class="molding-case-tag">Defense / Entertainment</div>
           <h3>Batman: Dark Knight Rises — Suit Mold</h3>
@@ -415,6 +432,7 @@
 
         <!-- Monster Trucks -->
         <div class="molding-case reveal">
+          <div class="molding-case-img"><img src="images/theis-monster-truck.png" alt="Tekton-molded monster truck body"></div>
           <div class="molding-case-num">02</div>
           <div class="molding-case-tag">Motorsport / Entertainment</div>
           <h3>Monster Truck Bodies — Iron Outlaw &amp; Grave Digger</h3>
@@ -431,6 +449,7 @@
 
         <!-- NASCAR -->
         <div class="molding-case reveal">
+          <div class="molding-case-img"><img src="images/auto-nascar-dupont.jpg" alt="NASCAR deflection shields"></div>
           <div class="molding-case-num">03</div>
           <div class="molding-case-tag">Motorsport Safety</div>
           <h3>NASCAR — 470 Deflection Shields</h3>
@@ -449,6 +468,7 @@
 
         <!-- Dumpsters -->
         <div class="molding-case reveal">
+          <div class="molding-case-img"><img src="images/construction-container-storage.jpg" alt="Industrial fleet container bodies"></div>
           <div class="molding-case-num">05</div>
           <div class="molding-case-tag">Industrial / Fleet</div>
           <h3>Waste Management — 5,000 Dumpster Bodies</h3>
@@ -474,7 +494,7 @@
     <div class="container">
       <div class="section-label reveal">Capabilities</div>
       <h2 class="reveal" style="font-family:'Cinzel',serif;color:#f5ecd6;margin-bottom:0.5rem;">Manufacturing Capabilities</h2>
-      <p class="reveal" style="font-family:'Inter',sans-serif;color:#9c8b6d;max-width:700px;line-height:1.75;margin-bottom:0;">Theis Molding supports the full product development and production lifecycle — from concept mold creation through volume fabrication, across any substrate and any application method the project requires.</p>
+      <p class="reveal" style="font-family:'Inter',sans-serif;color:#d2c2a0;max-width:700px;line-height:1.75;margin-bottom:0;">Theis Molding supports the full product development and production lifecycle — from concept mold creation through volume fabrication, across any substrate and any application method the project requires.</p>
       <div class="mfg-caps-grid">
         <div class="mfg-cap-card reveal">
           <span class="mfg-icon">⬡</span>
@@ -635,7 +655,7 @@
       </div>
       <div class="footer-contact">
         <div><span class="label">Inquiries</span><span class="value"><a href="mailto:contact@theis.solutions">contact@theis.solutions</a></span></div>
-        <div><span class="label">Phone</span><span class="value"><a href="tel:7142968369">(714) 296-8369</a></span></div>
+        <div><span class="label">Phone</span><span class="value"><a href="tel:9288300968">(928) 830-0968</a></span></div>
         <div><span class="label">Headquarters</span><span class="value">United States of America</span></div>
       </div>
       <p class="footer-copy">&copy; 2026 Theis Industries Inc. All rights reserved. | Theis Tekton™ and Liquid Kevlar™ are trademarks of Theis Industries Inc.</p>

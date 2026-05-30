@@ -28,7 +28,7 @@
       font-family: 'Inter', sans-serif;
       font-size: 0.95rem;
       line-height: 1.85;
-      color: #9c8b6d;
+      color: #d2c2a0;
       max-width: 740px;
       margin-bottom: 2.5rem;
     }
@@ -73,7 +73,7 @@
     .case-study-block p {
       font-family: 'Inter', sans-serif;
       font-size: 0.92rem;
-      color: #9c8b6d;
+      color: #d2c2a0;
       line-height: 1.8;
       margin-bottom: 1rem;
     }
@@ -170,7 +170,7 @@
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: #9c8b6d;
+      color: #d2c2a0;
       line-height: 1.4;
     }
 
@@ -199,7 +199,7 @@
     .port-cs-side p {
       font-family: 'Inter', sans-serif;
       font-size: 0.88rem;
-      color: #9c8b6d;
+      color: #d2c2a0;
       line-height: 1.75;
       margin-bottom: 0.75rem;
     }
@@ -269,18 +269,20 @@
       <div class="section-label reveal">Naval Applications</div>
       <h2 class="reveal">Warship &amp; Naval Platform Protection</h2>
       <p class="section-sub reveal">Theis Tekton's deep-sea-proven chemistry protects hulls, superstructures, and critical systems on naval vessels. Salt-impervious, corrosion-resistant, and ballistic-capable when required.</p>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin:2rem 0;">
-        <div style="border-radius:10px;overflow:hidden;">
-          <img src="images/defense-warship.jpg" alt="Naval warship" style="width:100%;height:240px;object-fit:cover;">
-          <p style="background:#110d08;color:#9c8b6d;font-size:.85rem;padding:.6rem 1rem;">Surface warship — hull and structural protection</p>
+      <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:1.5rem;margin:2rem 0;align-items:stretch;">
+        <div style="border-radius:12px;overflow:hidden;position:relative;">
+          <img src="images/defense-warship.jpg" alt="Naval warship at sea" style="width:100%;height:100%;min-height:320px;object-fit:cover;display:block;">
+          <p style="position:absolute;left:0;right:0;bottom:0;margin:0;background:linear-gradient(transparent,rgba(10,8,6,0.92));color:#f5ecd6;font-size:.9rem;padding:2.5rem 1.25rem .9rem;">Surface warship — hull, superstructure, and structural protection</p>
         </div>
-        <div style="border-radius:10px;overflow:hidden;">
-          <img src="images/defense-warship-2.jpg" alt="Warship at sea" style="width:100%;height:240px;object-fit:cover;">
-          <p style="background:#110d08;color:#9c8b6d;font-size:.85rem;padding:.6rem 1rem;">Naval base deployment — fleet maintenance</p>
-        </div>
-        <div style="border-radius:10px;overflow:hidden;">
-          <img src="images/defense-warship-3.jpg" alt="Naval base warship" style="width:100%;height:240px;object-fit:cover;">
-          <p style="background:#110d08;color:#9c8b6d;font-size:.85rem;padding:.6rem 1rem;">Allied naval partnership — multi-platform capable</p>
+        <div style="display:flex;flex-direction:column;gap:1.25rem;">
+          <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:1.4rem 1.5rem;">
+            <h4 style="color:var(--accent-light);font-family:var(--font-head);letter-spacing:.06em;margin:0 0 .5rem;">Fleet Maintenance</h4>
+            <p style="color:var(--muted-strong);font-size:.92rem;line-height:1.7;margin:0;">Rapid-cure coatings let vessels return to service faster — corrosion control without extended dry-dock downtime.</p>
+          </div>
+          <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:1.4rem 1.5rem;">
+            <h4 style="color:var(--accent-light);font-family:var(--font-head);letter-spacing:.06em;margin:0 0 .5rem;">Multi-Platform Capable</h4>
+            <p style="color:var(--muted-strong);font-size:.92rem;line-height:1.7;margin:0;">From allied surface combatants to support craft — salt-impervious, ballistic-capable chemistry across the fleet.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -299,15 +301,18 @@
       </div>
 
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;">
-        <div style="border-radius:10px;overflow:hidden;">
-          <img src="images/maritime-port-cranes-2.jpg" alt="Port cranes" style="width:100%;height:200px;object-fit:cover;">
-        </div>
-        <div style="border-radius:10px;overflow:hidden;">
-          <img src="images/maritime-containers.jpg" alt="Container terminal" style="width:100%;height:200px;object-fit:cover;">
-        </div>
-        <div style="border-radius:10px;overflow:hidden;">
-          <img src="images/maritime-container-port.jpg" alt="Container port aerial" style="width:100%;height:200px;object-fit:cover;">
-        </div>
+        <figure style="margin:0;border-radius:10px;overflow:hidden;position:relative;">
+          <img src="images/maritime-containers.jpg" alt="Container terminal" style="width:100%;height:200px;object-fit:cover;display:block;">
+          <figcaption style="position:absolute;left:0;right:0;bottom:0;margin:0;background:linear-gradient(transparent,rgba(10,8,6,0.9));color:#f5ecd6;font-size:.8rem;padding:1.6rem .9rem .6rem;">Container terminals</figcaption>
+        </figure>
+        <figure style="margin:0;border-radius:10px;overflow:hidden;position:relative;">
+          <img src="images/maritime-lax-terminal.jpg" alt="Port of Los Angeles terminal" style="width:100%;height:200px;object-fit:cover;display:block;">
+          <figcaption style="position:absolute;left:0;right:0;bottom:0;margin:0;background:linear-gradient(transparent,rgba(10,8,6,0.9));color:#f5ecd6;font-size:.8rem;padding:1.6rem .9rem .6rem;">Port of LA terminal</figcaption>
+        </figure>
+        <figure style="margin:0;border-radius:10px;overflow:hidden;position:relative;">
+          <img src="images/construction-container-storage.jpg" alt="Container storage yard" style="width:100%;height:200px;object-fit:cover;display:block;">
+          <figcaption style="position:absolute;left:0;right:0;bottom:0;margin:0;background:linear-gradient(transparent,rgba(10,8,6,0.9));color:#f5ecd6;font-size:.8rem;padding:1.6rem .9rem .6rem;">Storage &amp; staging yards</figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -569,7 +574,7 @@
       <p class="reveal">Contact Theis Industries to discuss products, pricing, licensing, or partnership for the Theis Maritime division.</p>
       <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
         <a href="contact.html" class="btn-primary btn-large">Start the Conversation</a>
-        <a href="tel:7142968369" class="btn-secondary btn-large">(714) 296-8369</a>
+        <a href="tel:9288300968" class="btn-secondary btn-large">(928) 830-0968</a>
       </div>
     </div>
   </section>
@@ -599,7 +604,7 @@
       </div>
       <div class="footer-contact">
         <div><span class="label">Inquiries</span><span class="value"><a href="mailto:contact@theis.solutions">contact@theis.solutions</a></span></div>
-        <div><span class="label">Phone</span><span class="value"><a href="tel:7142968369">(714) 296-8369</a></span></div>
+        <div><span class="label">Phone</span><span class="value"><a href="tel:9288300968">(928) 830-0968</a></span></div>
         <div><span class="label">Headquarters</span><span class="value">United States of America</span></div>
       </div>
       <p class="footer-copy">&copy; 2026 Theis Industries Inc. All rights reserved. | Theis Tekton™ and Liquid Kevlar™ are trademarks of Theis Industries Inc.</p>

@@ -234,15 +234,16 @@
     }
     .team-portrait {
       aspect-ratio: 4/5;
-      background:
-        linear-gradient(135deg, rgba(212,175,55,0.15), rgba(168,134,31,0.05)),
-        linear-gradient(135deg, #1a130b, #221810);
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--font-head);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: .5rem;
+      font-family: var(--font-display);
       font-size: 5rem; font-weight: 700;
-      background: linear-gradient(135deg, #1a130b 0%, #221810 100%);
+      background:
+        radial-gradient(ellipse at 50% 32%, rgba(212,175,55,0.13), transparent 65%),
+        linear-gradient(150deg, #15100a 0%, #221810 55%, #100b06 100%);
       position: relative;
-      min-height: 200px;
+      min-height: 240px;
     }
     .team-portrait::before {
       content: 'JT';
@@ -250,8 +251,16 @@
       -webkit-background-clip: text; background-clip: text;
       -webkit-text-fill-color: transparent; color: transparent;
       filter: drop-shadow(0 0 20px rgba(212,175,55,0.3));
+      letter-spacing: .05em;
     }
     .team-portrait-jessica::before { content: 'JT'; }
+    .team-portrait-gary::before { content: 'GM'; }
+    .team-portrait-sub {
+      font-family: var(--font-head);
+      font-size: .72rem; font-weight: 600;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: var(--accent-light);
+    }
     .team-portrait::after {
       content: '';
       position: absolute; inset: 14px;
@@ -831,7 +840,7 @@
       <h2 class="reveal">The People Behind the Technology</h2>
       <div class="team-grid">
         <div class="team-card reveal">
-          <div class="team-portrait" aria-label="Jason Theis" style="padding:0;background:#0a0806;"><img src="images/jason-theis-portrait.png" alt="Jason Theis" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+          <div class="team-portrait" role="img" aria-label="Jason Theis"><span class="team-portrait-sub">Founder</span></div>
           <div class="team-info">
             <h3>Jason Theis</h3>
             <p class="team-title">Founder · Chief Scientist · Inventor of Theis Tekton™</p>
@@ -845,7 +854,7 @@
           </div>
         </div>
         <div class="team-card reveal">
-          <div class="team-portrait team-portrait-jessica" aria-label="Jessica Theis" style="padding:0;background:#0a0806;"><img src="images/jessica-theis-portrait.png" alt="Jessica Theis" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+          <div class="team-portrait team-portrait-jessica" role="img" aria-label="Jessica Theis"><span class="team-portrait-sub">Chief Executive</span></div>
           <div class="team-info">
             <h3>Jessica Theis</h3>
             <p class="team-title">Chief Executive Officer · Deal Architect · Commercial Lead</p>
@@ -858,14 +867,20 @@
             </div>
           </div>
         </div>
-      </div>
-
-      <div style="margin:2rem 0;border-radius:10px;overflow:hidden;background:#fff;padding:1rem;">
-        <img src="images/about-jason-theis.jpg" alt="Jason Theis profile" style="width:100%;max-width:800px;display:block;margin:0 auto;">
-      </div>
-
-      <div style="margin:2rem 0;border-radius:10px;overflow:hidden;background:#fff;padding:1rem;">
-        <img src="images/about-team.jpg" alt="Theis Industries leadership team" style="width:100%;max-width:800px;display:block;margin:0 auto;">
+        <div class="team-card reveal">
+          <div class="team-portrait team-portrait-gary" role="img" aria-label="Gary Miller"><span class="team-portrait-sub">Bus. Development</span></div>
+          <div class="team-info">
+            <h3>Gary Miller</h3>
+            <p class="team-title">Sr. VP of Business Development</p>
+            <p>Gary Miller brings 30 years of international business development experience across strategic partnerships, market expansion, and commercial growth. He leads Theis Industries' efforts to bring breakthrough materials and protective technologies to new markets and partners worldwide.</p>
+            <div class="team-creds">
+              <span>30 Years International BD</span>
+              <span>Strategic Partnerships</span>
+              <span>Market Expansion</span>
+              <span>Commercial Growth</span>
+            </div>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -1187,7 +1202,7 @@
       </div>
       <div class="footer-contact">
         <div><span class="label">Inquiries</span><span class="value"><a href="mailto:contact@theis.solutions">contact@theis.solutions</a></span></div>
-        <div><span class="label">Phone</span><span class="value"><a href="tel:7142968369">(714) 296-8369</a></span></div>
+        <div><span class="label">Phone</span><span class="value"><a href="tel:9288300968">(928) 830-0968</a></span></div>
         <div><span class="label">Headquarters</span><span class="value">United States of America</span></div>
       </div>
       <p class="footer-copy">&copy; 2026 Theis Industries Inc. All rights reserved. | Theis Tekton™ and Liquid Kevlar™ are trademarks of Theis Industries Inc.</p>
