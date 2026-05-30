@@ -138,56 +138,7 @@ document.addEventListener('click', (e) => {
 })();
 
 /* ============================================================
-   SECTION 6 — DIVISIONS DROPDOWN NAV INJECTION
-   Adds "Divisions" dropdown to nav if not already present in HTML
-   ============================================================ */
-(function injectDivisionsNav() {
-  const navLinks = document.getElementById('navLinks');
-  if (!navLinks || navLinks.querySelector('.nav-divisions')) return;
-
-  const divisions = [
-    { name: 'TPP',          href: 'tpp.html',          desc: 'Theis Polymer Products' },
-    { name: 'XTT',          href: 'xtt.html',          desc: 'Extreme Technology & Testing' },
-    { name: 'Construction', href: 'construction.html', desc: 'Heavy Construction' },
-    { name: 'Defense',      href: 'defense.html',      desc: 'Tactical & Military Systems' },
-    { name: 'Energy',       href: 'energy.html',       desc: 'Power & Energy Systems' },
-    { name: 'Maritime',     href: 'maritime.html',     desc: 'Marine & Subsea' },
-    { name: 'Septic',       href: 'septic.html',       desc: 'Wastewater Solutions' },
-    { name: 'Molding',      href: 'molding.html',      desc: 'Precision Molding & Tooling' },
-    { name: 'Auto',         href: 'auto.html',         desc: 'Automotive Engineering' }
-  ];
-
-  const divLinks = divisions.map(d =>
-    `<a href="${d.href}"><span class="dd-dot"></span>${d.name}</a>`
-  ).join('');
-
-  const li = document.createElement('li');
-  li.className = 'nav-divisions';
-  li.innerHTML = `
-    <a href="industries.html">
-      Divisions
-      <span class="divisions-chevron" aria-hidden="true"></span>
-    </a>
-    <div class="divisions-dropdown" role="menu">
-      ${divLinks}
-    </div>
-  `;
-
-  // Insert before "Contact Us" CTA
-  const ctaLi = navLinks.querySelector('.nav-cta')?.closest('li');
-  if (ctaLi) navLinks.insertBefore(li, ctaLi);
-  else navLinks.appendChild(li);
-
-  // Re-run active link detection for new links
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-  li.querySelectorAll('a').forEach((link) => {
-    const hrefPage = (link.getAttribute('href') || '').split('/').pop().split('#')[0];
-    if (hrefPage === currentPage) link.classList.add('active');
-  });
-})();
-
-/* ============================================================
-   SECTION 7 — SMOOTH SCROLL for anchor links
+   SECTION 6 — SMOOTH SCROLL for anchor links
    ============================================================ */
 document.addEventListener('click', (e) => {
   const link = e.target.closest('a[href^="#"]');
@@ -581,16 +532,6 @@ function handleSubmit(e) {
     // Re-observe reveal elements in new content
     if (typeof window._reobserveReveal === 'function') window._reobserveReveal();
     if (typeof window._reinitMagnetic  === 'function') window._reinitMagnetic();
-
-    // Add nav link to Patents section if on index page and link missing
-    const navLinks = document.getElementById('navLinks');
-    if (navLinks && !navLinks.querySelector('a[href="#patents"]')) {
-      const li = document.createElement('li');
-      li.innerHTML = '<a href="#patents">Patents</a>';
-      const ctaLi = navLinks.querySelector('.nav-cta')?.closest('li');
-      if (ctaLi) navLinks.insertBefore(li, ctaLi);
-      else navLinks.appendChild(li);
-    }
   }
 
   document.addEventListener('DOMContentLoaded', buildPatentsSection);
