@@ -4487,3 +4487,16 @@ footer::before {
   }
 }
 
+
+/* ── STATS GRID: remove fixed min-width so 1fr 1fr is truly fluid ── */
+@media (max-width: 768px) {
+  .stats-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .stat {
+    min-width: 0 !important;
+    width: auto !important;
+    flex: none !important;
+  }
+}
