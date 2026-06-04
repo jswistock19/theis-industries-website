@@ -644,3 +644,91 @@ document.addEventListener('DOMContentLoaded', () => {
 window.toggleMenu  = toggleMenu;
 window.toggleCard  = toggleCard;
 window.handleSubmit = handleSubmit;
+
+/* ============================================================
+   MOBILE FIX PATCH
+   ============================================================ */
+(function mobileFixPatch() {
+  const isMobile = () => window.innerWidth <= 768;
+
+  /* 1. On mobile, force-reveal ALL reveal elements immediately
+        so blank dead zones never appear from missed intersections */
+  function forceRevealOnMobile() {
+    if (!isMobile()) return;
+    document.querySelectorAll(
+      '.reveal, .reveal-left, .reveal-right, .reveal-scale'
+    ).forEach(el => el.classList.add('visible'));
+  }
+
+  // Run immediately + after dynamic content (patents section) loads
+  forceRevealOnMobile();
+  setTimeout(forceRevealOnMobile, 800);
+  setTimeout(forceRevealOnMobile, 2000);
+
+  // Re-run whenever patents/dynamic sections inject content
+  const origReobserve = window._reobserveReveal;
+  window._reobserveReveal = function() {
+    if (origReobserve) origReobserve();
+    forceRevealOnMobile();
+  };
+
+  /* 2. Fix any element with inline position:sticky that slips through
+        CSS specificity on mobile */
+  function fixStickyOnMobile() {
+    if (!isMobile()) return;
+    document.querySelectorAll('[style*="sticky"]').forEach(el => {
+      el.style.position = 'static';
+    });
+  }
+  fixStickyOnMobile();
+
+  /* 3. Back to top button — inject if missing */
+  if (!document.getElementById('back-to-top')) {
+    const btn = document.createElement('button');
+    btn.id = 'back-to-top';
+    btn.innerHTML = '&#8679;';
+    btn.setAttribute('aria-label', 'Back to top');
+    btn.style.cssText = `
+      display: none;
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.25rem;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(212,175,55,0.15);
+      border: 1px solid rgba(212,175,55,0.4);
+      color: #d4af37;
+      font-size: 1.4rem;
+      line-height: 1;
+      cursor: pointer;
+      z-index: 999;
+      backdrop-filter: blur(8px);
+      transition: opacity 0.3s ease, background 0.2s ease;
+    `;
+    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    document.body.appendChild(btn);
+
+    window.addEventListener('scroll', () => {
+      btn.style.display = window.scrollY > 600 ? 'flex' : 'none';
+      btn.style.alignItems = 'center';
+      btn.style.justifyContent = 'center';
+    }, { passive: true });
+  }
+
+  /* 4. Prevent horizontal scroll — kill any overflowing child on mobile */
+  function killHorizontalOverflow() {
+    if (!isMobile()) return;
+    // Find elements wider than viewport and constrain them
+    const vw = window.innerWidth;
+    document.querySelectorAll('section, .container, .section-inner').forEach(el => {
+      if (el.scrollWidth > vw + 4) {
+        el.style.overflow = 'hidden';
+        el.style.maxWidth = '100vw';
+      }
+    });
+  }
+  setTimeout(killHorizontalOverflow, 500);
+  window.addEventListener('resize', killHorizontalOverflow, { passive: true });
+
+})();

@@ -4267,3 +4267,202 @@ footer::before {
 .evidence-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; margin-bottom: 2rem; }
 @media (max-width: 900px) { .evidence-grid { grid-template-columns: repeat(2,1fr); } }
 @media (max-width: 560px) { .evidence-grid { grid-template-columns: 1fr; } }
+
+/* ============================================================
+   MOBILE FIX PATCH — All critical mobile issues
+   ============================================================ */
+
+@media (max-width: 768px) {
+
+  /* ── 1. HERO TAGLINE: prevent wrap, shrink text so it stays one line ── */
+  .hero-sub {
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    gap: 0.5rem;
+    white-space: nowrap;
+    flex-wrap: nowrap;
+  }
+  .hero-sub::before,
+  .hero-sub::after {
+    width: 20px;
+    flex-shrink: 0;
+  }
+
+  /* ── 2. PROCESS STEPS: stack vertically, full width, no min-width trap ── */
+  .process-steps {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .process-step {
+    min-width: 0;
+    max-width: 100%;
+    flex: none;
+    width: 100%;
+  }
+
+  /* ── 3. STATS GRID: proper 2-col grid on mobile instead of endless column ── */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  .stat {
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    min-width: 0;
+  }
+  .stat:nth-child(2n) { border-right: none; }
+  .stat:nth-last-child(-n+2) { border-bottom: none; }
+  /* Last item alone on odd count — span full width */
+  .stat:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    border-right: none;
+    border-bottom: none;
+  }
+
+  /* ── 4. TEKTON SECTION: kill any sticky side panel, ensure single column ── */
+  .tekton-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  /* Any sticky child inside tekton — unpin on mobile */
+  #tekton [style*="position: sticky"],
+  #tekton .sticky,
+  .tekton-sticky,
+  .tekton-info-panel,
+  .tekton-side-panel {
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    transform: none !important;
+  }
+  /* Prevent any overflow-inducing child */
+  #tekton,
+  #tekton > *,
+  #tekton .container {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+  }
+
+  /* ── 5. MARQUEE / TICKER: ensure it doesn't cause horizontal overflow ── */
+  .marquee-track,
+  .posture-row {
+    overflow: hidden !important;
+    max-width: 100vw !important;
+  }
+  .marquee-content {
+    /* Slow it down on mobile so it's readable */
+    animation-duration: 20s !important;
+  }
+
+  /* ── 6. BUTTON CONSISTENCY: full-width, consistent on mobile ── */
+  .tekton-btns {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .tekton-btns .btn-primary,
+  .tekton-btns .btn-secondary,
+  .tekton-btns a {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  /* ── 7. FOOTER NAV: clean wrap for divisions ── */
+  .footer-divisions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem 1rem;
+    justify-items: center;
+    text-align: center;
+  }
+  .footer-div-label {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-bottom: 0.25rem;
+  }
+
+  /* ── 8. SECTIONS: prevent blank dead zones from animation ── */
+  /* Sections that haven't revealed yet must NOT have zero height */
+  .reveal:not(.visible),
+  .reveal-left:not(.visible),
+  .reveal-right:not(.visible),
+  .reveal-scale:not(.visible) {
+    opacity: 0.01 !important; /* nearly invisible but not display:none — keeps height */
+  }
+
+  /* Kill horizontal transforms that push content off screen */
+  .reveal-left:not(.visible)  { transform: none !important; }
+  .reveal-right:not(.visible) { transform: none !important; }
+
+  /* ── 9. CAPABILITIES TAGS: consistent two-column ── */
+  .cap-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ── 10. HERO BUTTONS: clean sizing ── */
+  .hero-btns {
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+  }
+  .hero-btns .btn-primary,
+  .hero-btns .btn-secondary {
+    width: 100%;
+    max-width: 340px;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  /* ── 11. GLOBAL overflow guard ── */
+  body,
+  main,
+  .container,
+  section {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+  }
+
+  /* ── 12. DIVISION CARDS: 2-col grid, clean ── */
+  .divisions-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem;
+  }
+
+  /* ── 13. CONTACT INFO COL: unpin ── */
+  .contact-info-col {
+    position: static !important;
+  }
+
+  /* ── 14. BACK TO TOP: add via CSS-driven scroll hint ── */
+  /* (handled in JS patch below) */
+
+  /* ── 15. NAV LOGO: tighten on very narrow screens ── */
+  .nav-logo-text {
+    font-size: clamp(0.85rem, 4vw, 1.1rem);
+  }
+}
+
+/* Extra small — 390px and below */
+@media (max-width: 420px) {
+  .hero-sub {
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    gap: 0.35rem;
+  }
+  .hero-sub::before,
+  .hero-sub::after { width: 14px; }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  .stat {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat:last-child { border-bottom: none; }
+
+  .footer-divisions {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
