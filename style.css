@@ -4500,3 +4500,25 @@ footer::before {
     flex: none !important;
   }
 }
+
+/* ── FIX: hamburger menu clipped by nav overflow ── */
+/* When mobile menu is open, allow the dropdown to escape the nav container */
+@media (max-width: 900px) {
+  #navbar.nav-open {
+    overflow: visible !important;
+    /* height stays var(--nav-h); dropdown is absolutely positioned below it */
+  }
+  #navbar.nav-open .nav-inner {
+    overflow: visible !important;
+  }
+}
+
+/* ── FIX: Tekton badge pseudo-element bleed on mobile ── */
+@media (max-width: 768px) {
+  #tekton {
+    overflow: hidden;
+  }
+  .tekton-badge::before {
+    inset: 0 !important;
+  }
+}

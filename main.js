@@ -96,11 +96,14 @@
    SECTION 4 — HAMBURGER MENU
    ============================================================ */
 function toggleMenu() {
-  const links = document.querySelector('.nav-links');
+  const links  = document.querySelector('.nav-links');
   const burger = document.querySelector('.hamburger');
+  const navbar = document.getElementById('navbar');
   if (!links) return;
   links.classList.toggle('open');
   if (burger) burger.classList.toggle('open');
+  // Allow the dropdown to escape the fixed nav's clipping context
+  if (navbar) navbar.classList.toggle('nav-open', links.classList.contains('open'));
 }
 
 // Close nav when clicking outside on mobile
@@ -112,6 +115,7 @@ document.addEventListener('click', (e) => {
     links.classList.remove('open');
     const burger = document.querySelector('.hamburger');
     if (burger) burger.classList.remove('open');
+    nav.classList.remove('nav-open');
   }
 });
 
