@@ -4268,65 +4268,113 @@ footer::before {
 @media (max-width: 900px) { .evidence-grid { grid-template-columns: repeat(2,1fr); } }
 @media (max-width: 560px) { .evidence-grid { grid-template-columns: 1fr; } }
 
+
 /* ============================================================
-   MOBILE FIX PATCH — All critical mobile issues
+   MOBILE FIX PATCH v2 — Comprehensive mobile fixes
    ============================================================ */
 
+/* ── GLOBAL: Kill horizontal overflow on mobile ── */
 @media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+  }
+  body > *,
+  main,
+  section,
+  .container,
+  .section-inner,
+  #tekton,
+  #tekton > * {
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+  }
+}
 
-  /* ── 1. HERO TAGLINE: prevent wrap, shrink text so it stays one line ── */
+/* ── DEAD ZONE FIX: On mobile, ALL reveal elements must be visible
+      We set opacity+transform directly so there's NO invisible placeholder ── */
+@media (max-width: 768px) {
+  .reveal,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  /* Also handle the "visible" state explicitly — belt + suspenders */
+  .reveal.visible,
+  .reveal-left.visible,
+  .reveal-right.visible,
+  .reveal-scale.visible {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ── STATS GRID: 2-column layout — must override the 600px flex-column rule ── */
+@media (max-width: 768px) {
+  .stats-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    flex-direction: unset !important;
+    gap: 0 !important;
+  }
+  .stat {
+    flex: none !important;
+    min-width: 0 !important;
+    width: auto !important;
+    border-right: 1px solid var(--border) !important;
+    border-bottom: 1px solid var(--border) !important;
+  }
+  .stat:nth-child(2n)   { border-right: none !important; }
+  .stat:last-child      { border-bottom: none !important; }
+  .stat:nth-last-child(-n+2) { border-bottom: none !important; }
+  /* Lone stat on odd count — full width */
+  .stat:last-child:nth-child(odd) {
+    grid-column: 1 / -1 !important;
+    border-right: none !important;
+  }
+}
+
+/* Override the 600px block's flex-direction:column for stats specifically */
+@media (max-width: 600px) {
+  .stats-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    flex-direction: unset !important;
+  }
+  .stat {
+    border-right: 1px solid var(--border) !important;
+    border-bottom: 1px solid var(--border) !important;
+  }
+  .stat:nth-child(2n) { border-right: none !important; }
+}
+
+/* ── HERO TAGLINE: no wrap ── */
+@media (max-width: 768px) {
   .hero-sub {
-    font-size: 0.68rem;
-    letter-spacing: 0.18em;
-    gap: 0.5rem;
-    white-space: nowrap;
-    flex-wrap: nowrap;
+    font-size: 0.68rem !important;
+    letter-spacing: 0.18em !important;
+    gap: 0.5rem !important;
+    white-space: nowrap !important;
+    flex-wrap: nowrap !important;
   }
   .hero-sub::before,
   .hero-sub::after {
-    width: 20px;
-    flex-shrink: 0;
+    width: 20px !important;
+    flex-shrink: 0 !important;
   }
+}
 
-  /* ── 2. PROCESS STEPS: stack vertically, full width, no min-width trap ── */
-  .process-steps {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  .process-step {
-    min-width: 0;
-    max-width: 100%;
-    flex: none;
-    width: 100%;
-  }
-
-  /* ── 3. STATS GRID: proper 2-col grid on mobile instead of endless column ── */
-  .stats-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
-  }
-  .stat {
-    border-right: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    min-width: 0;
-  }
-  .stat:nth-child(2n) { border-right: none; }
-  .stat:nth-last-child(-n+2) { border-bottom: none; }
-  /* Last item alone on odd count — span full width */
-  .stat:last-child:nth-child(odd) {
-    grid-column: 1 / -1;
-    border-right: none;
-    border-bottom: none;
-  }
-
-  /* ── 4. TEKTON SECTION: kill any sticky side panel, ensure single column ── */
+/* ── TEKTON: single column, no sticky side panel ── */
+@media (max-width: 768px) {
   .tekton-grid {
     grid-template-columns: 1fr !important;
     gap: 2rem !important;
   }
-  /* Any sticky child inside tekton — unpin on mobile */
-  #tekton [style*="position: sticky"],
+  #tekton [style*="sticky"],
   #tekton .sticky,
   .tekton-sticky,
   .tekton-info-panel,
@@ -4336,133 +4384,106 @@ footer::before {
     max-width: 100% !important;
     transform: none !important;
   }
-  /* Prevent any overflow-inducing child */
-  #tekton,
-  #tekton > *,
-  #tekton .container {
-    overflow-x: hidden !important;
-    max-width: 100vw !important;
-  }
+}
 
-  /* ── 5. MARQUEE / TICKER: ensure it doesn't cause horizontal overflow ── */
+/* ── TICKER / MARQUEE ── */
+@media (max-width: 768px) {
   .marquee-track,
   .posture-row {
     overflow: hidden !important;
     max-width: 100vw !important;
   }
   .marquee-content {
-    /* Slow it down on mobile so it's readable */
     animation-duration: 20s !important;
   }
+}
 
-  /* ── 6. BUTTON CONSISTENCY: full-width, consistent on mobile ── */
+/* ── BUTTONS: full-width consistent ── */
+@media (max-width: 768px) {
   .tekton-btns {
-    flex-direction: column;
-    gap: 0.75rem;
+    flex-direction: column !important;
+    gap: 0.75rem !important;
   }
   .tekton-btns .btn-primary,
   .tekton-btns .btn-secondary,
   .tekton-btns a {
-    width: 100%;
-    text-align: center;
-    box-sizing: border-box;
+    width: 100% !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
   }
-
-  /* ── 7. FOOTER NAV: clean wrap for divisions ── */
-  .footer-divisions {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.5rem 1rem;
-    justify-items: center;
-    text-align: center;
-  }
-  .footer-div-label {
-    grid-column: 1 / -1;
-    text-align: center;
-    margin-bottom: 0.25rem;
-  }
-
-  /* ── 8. SECTIONS: prevent blank dead zones from animation ── */
-  /* Sections that haven't revealed yet must NOT have zero height */
-  .reveal:not(.visible),
-  .reveal-left:not(.visible),
-  .reveal-right:not(.visible),
-  .reveal-scale:not(.visible) {
-    opacity: 0.01 !important; /* nearly invisible but not display:none — keeps height */
-  }
-
-  /* Kill horizontal transforms that push content off screen */
-  .reveal-left:not(.visible)  { transform: none !important; }
-  .reveal-right:not(.visible) { transform: none !important; }
-
-  /* ── 9. CAPABILITIES TAGS: consistent two-column ── */
-  .cap-grid {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* ── 10. HERO BUTTONS: clean sizing ── */
   .hero-btns {
-    flex-direction: column;
-    gap: 0.75rem;
-    width: 100%;
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+    width: 100% !important;
   }
   .hero-btns .btn-primary,
   .hero-btns .btn-secondary {
-    width: 100%;
-    max-width: 340px;
-    text-align: center;
-    margin: 0 auto;
+    width: 100% !important;
+    max-width: 340px !important;
+    text-align: center !important;
+    margin: 0 auto !important;
   }
+}
 
-  /* ── 11. GLOBAL overflow guard ── */
-  body,
-  main,
-  .container,
-  section {
-    overflow-x: hidden !important;
-    max-width: 100vw !important;
+/* ── FOOTER NAV ── */
+@media (max-width: 768px) {
+  .footer-divisions {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0.5rem 1rem !important;
+    justify-items: center !important;
+    text-align: center !important;
   }
+  .footer-div-label {
+    grid-column: 1 / -1 !important;
+    text-align: center !important;
+    margin-bottom: 0.25rem !important;
+  }
+}
 
-  /* ── 12. DIVISION CARDS: 2-col grid, clean ── */
+/* ── PROCESS STEPS ── */
+@media (max-width: 768px) {
+  .process-steps {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  .process-step {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    flex: none !important;
+    width: 100% !important;
+  }
+}
+
+/* ── DIVISIONS & GRIDS ── */
+@media (max-width: 768px) {
   .divisions-grid {
     grid-template-columns: 1fr !important;
-    gap: 1rem;
+    gap: 1rem !important;
   }
+  .cap-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
 
-  /* ── 13. CONTACT INFO COL: unpin ── */
+/* ── CONTACT ── */
+@media (max-width: 768px) {
   .contact-info-col {
     position: static !important;
   }
+}
 
-  /* ── 14. BACK TO TOP: add via CSS-driven scroll hint ── */
-  /* (handled in JS patch below) */
-
-  /* ── 15. NAV LOGO: tighten on very narrow screens ── */
+/* ── NAV LOGO ── */
+@media (max-width: 768px) {
   .nav-logo-text {
-    font-size: clamp(0.85rem, 4vw, 1.1rem);
+    font-size: clamp(0.85rem, 4vw, 1.1rem) !important;
   }
 }
 
-/* Extra small — 390px and below */
+/* ── FOOTER 2-col on extra small ── */
 @media (max-width: 420px) {
-  .hero-sub {
-    font-size: 0.6rem;
-    letter-spacing: 0.12em;
-    gap: 0.35rem;
-  }
-  .hero-sub::before,
-  .hero-sub::after { width: 14px; }
-
-  .stats-grid {
-    grid-template-columns: 1fr;
-  }
-  .stat {
-    border-right: none !important;
-    border-bottom: 1px solid var(--border);
-  }
-  .stat:last-child { border-bottom: none; }
-
   .footer-divisions {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr) !important;
   }
 }
+

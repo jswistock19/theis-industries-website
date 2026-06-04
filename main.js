@@ -645,35 +645,72 @@ window.toggleMenu  = toggleMenu;
 window.toggleCard  = toggleCard;
 window.handleSubmit = handleSubmit;
 
+
 /* ============================================================
-   MOBILE FIX PATCH
+   MOBILE FIX PATCH v2
    ============================================================ */
 (function mobileFixPatch() {
   const isMobile = () => window.innerWidth <= 768;
 
-  /* 1. On mobile, force-reveal ALL reveal elements immediately
-        so blank dead zones never appear from missed intersections */
-  function forceRevealOnMobile() {
+  /* ── 1. DEAD ZONE FIX: On mobile, immediately force-reveal ALL
+          animated elements so they have full opacity and no transform.
+          CSS already handles this but JS is a belt-and-suspenders
+          backstop for elements added AFTER DOMContentLoaded (patents etc) ── */
+  function forceRevealAll() {
     if (!isMobile()) return;
     document.querySelectorAll(
       '.reveal, .reveal-left, .reveal-right, .reveal-scale'
-    ).forEach(el => el.classList.add('visible'));
+    ).forEach(el => {
+      el.classList.add('visible');
+      // Belt+suspenders: set inline styles in case CSS specificity lost
+      el.style.opacity   = '1';
+      el.style.transform = 'none';
+      el.style.transition = 'none';
+    });
   }
 
-  // Run immediately + after dynamic content (patents section) loads
-  forceRevealOnMobile();
-  setTimeout(forceRevealOnMobile, 800);
-  setTimeout(forceRevealOnMobile, 2000);
+  // Run immediately on patch load
+  forceRevealAll();
 
-  // Re-run whenever patents/dynamic sections inject content
+  // Run on DOMContentLoaded (in case patch loads before DOM is ready)
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', forceRevealAll);
+  }
+
+  // Run after patents section and other dynamic content injects
+  // Stagger multiple timeouts to catch all async injections
+  [100, 500, 1000, 2000, 3500].forEach(ms => setTimeout(forceRevealAll, ms));
+
+  // Intercept _reobserveReveal so any future dynamic injection also gets force-revealed
   const origReobserve = window._reobserveReveal;
   window._reobserveReveal = function() {
-    if (origReobserve) origReobserve();
-    forceRevealOnMobile();
+    if (origReobserve) origReobserve.apply(this, arguments);
+    forceRevealAll();
   };
 
-  /* 2. Fix any element with inline position:sticky that slips through
-        CSS specificity on mobile */
+  // MutationObserver: watch for new reveal elements injected into DOM
+  if (isMobile()) {
+    const mo = new MutationObserver(() => forceRevealAll());
+    mo.observe(document.body, { childList: true, subtree: true });
+    // Disconnect after 8 seconds (patents should be done by then)
+    setTimeout(() => mo.disconnect(), 8000);
+  }
+
+  /* ── 2. Kill horizontal overflow ── */
+  function killHorizontalOverflow() {
+    if (!isMobile()) return;
+    const vw = window.innerWidth;
+    document.querySelectorAll('section, .container, .section-inner').forEach(el => {
+      if (el.scrollWidth > vw + 4) {
+        el.style.overflowX = 'hidden';
+        el.style.maxWidth  = '100vw';
+      }
+    });
+  }
+  setTimeout(killHorizontalOverflow, 500);
+  window.addEventListener('resize', killHorizontalOverflow, { passive: true });
+
+  /* ── 3. Unpin any inline sticky elements ── */
   function fixStickyOnMobile() {
     if (!isMobile()) return;
     document.querySelectorAll('[style*="sticky"]').forEach(el => {
@@ -682,53 +719,25 @@ window.handleSubmit = handleSubmit;
   }
   fixStickyOnMobile();
 
-  /* 3. Back to top button — inject if missing */
+  /* ── 4. Back-to-top button ── */
   if (!document.getElementById('back-to-top')) {
     const btn = document.createElement('button');
     btn.id = 'back-to-top';
     btn.innerHTML = '&#8679;';
     btn.setAttribute('aria-label', 'Back to top');
     btn.style.cssText = `
-      display: none;
-      position: fixed;
-      bottom: 1.5rem;
-      right: 1.25rem;
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: rgba(212,175,55,0.15);
-      border: 1px solid rgba(212,175,55,0.4);
-      color: #d4af37;
-      font-size: 1.4rem;
-      line-height: 1;
-      cursor: pointer;
-      z-index: 999;
-      backdrop-filter: blur(8px);
-      transition: opacity 0.3s ease, background 0.2s ease;
+      display: none; position: fixed; bottom: 1.5rem; right: 1.25rem;
+      width: 42px; height: 42px; border-radius: 50%;
+      background: rgba(212,175,55,0.15); border: 1px solid rgba(212,175,55,0.4);
+      color: #d4af37; font-size: 1.4rem; line-height: 1; cursor: pointer;
+      z-index: 999; backdrop-filter: blur(8px); align-items: center;
+      justify-content: center; transition: opacity 0.3s ease;
     `;
     btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     document.body.appendChild(btn);
-
     window.addEventListener('scroll', () => {
       btn.style.display = window.scrollY > 600 ? 'flex' : 'none';
-      btn.style.alignItems = 'center';
-      btn.style.justifyContent = 'center';
     }, { passive: true });
   }
-
-  /* 4. Prevent horizontal scroll — kill any overflowing child on mobile */
-  function killHorizontalOverflow() {
-    if (!isMobile()) return;
-    // Find elements wider than viewport and constrain them
-    const vw = window.innerWidth;
-    document.querySelectorAll('section, .container, .section-inner').forEach(el => {
-      if (el.scrollWidth > vw + 4) {
-        el.style.overflow = 'hidden';
-        el.style.maxWidth = '100vw';
-      }
-    });
-  }
-  setTimeout(killHorizontalOverflow, 500);
-  window.addEventListener('resize', killHorizontalOverflow, { passive: true });
 
 })();
